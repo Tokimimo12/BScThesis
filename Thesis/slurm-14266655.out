@@ -1,0 +1,1517 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) 2023.01   2) StdEnv
+Requirement already satisfied: torch>=1.13.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (2.5.1)
+Requirement already satisfied: numpy>=1.26.2 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 2)) (2.0.2)
+Requirement already satisfied: h5py>=3.10.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 3)) (3.12.1)
+Requirement already satisfied: validators>=0.22.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 4)) (0.34.0)
+Requirement already satisfied: tqdm>=4.66.1 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 5)) (4.67.1)
+Requirement already satisfied: colorama>=0.4.6 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 6)) (0.4.6)
+Requirement already satisfied: matplotlib>=3.4.3 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (3.9.3)
+Requirement already satisfied: pandas>=1.3.3 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 8)) (2.2.3)
+Requirement already satisfied: scipy>=1.7.1 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 9)) (1.13.1)
+Requirement already satisfied: scikit-learn>=0.24.2 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 10)) (1.6.0)
+Requirement already satisfied: tensorboard>=2.6.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from -r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (2.18.0)
+Requirement already satisfied: filelock in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (3.16.1)
+Requirement already satisfied: typing-extensions>=4.8.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (4.12.2)
+Requirement already satisfied: networkx in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (3.2.1)
+Requirement already satisfied: jinja2 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (3.1.4)
+Requirement already satisfied: fsspec in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (2024.10.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (12.3.1.170)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (12.4.127)
+Requirement already satisfied: triton==3.1.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (3.1.0)
+Requirement already satisfied: sympy==1.13.1 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from sympy==1.13.1->torch>=1.13.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 1)) (1.3.0)
+Requirement already satisfied: contourpy>=1.0.1 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (1.3.0)
+Requirement already satisfied: cycler>=0.10 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (4.55.3)
+Requirement already satisfied: kiwisolver>=1.3.1 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (1.4.7)
+Requirement already satisfied: packaging>=20.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (24.2)
+Requirement already satisfied: pillow>=8 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (11.0.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (3.2.0)
+Requirement already satisfied: python-dateutil>=2.7 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (2.9.0.post0)
+Requirement already satisfied: importlib-resources>=3.2.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (6.4.5)
+Requirement already satisfied: pytz>=2020.1 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from pandas>=1.3.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 8)) (2024.2)
+Requirement already satisfied: tzdata>=2022.7 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from pandas>=1.3.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 8)) (2024.2)
+Requirement already satisfied: joblib>=1.2.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from scikit-learn>=0.24.2->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 10)) (1.4.2)
+Requirement already satisfied: threadpoolctl>=3.1.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from scikit-learn>=0.24.2->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 10)) (3.5.0)
+Requirement already satisfied: absl-py>=0.4 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (2.1.0)
+Requirement already satisfied: grpcio>=1.48.2 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (1.68.1)
+Requirement already satisfied: markdown>=2.6.8 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (3.7)
+Requirement already satisfied: protobuf!=4.24.0,>=3.19.6 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (5.29.1)
+Requirement already satisfied: setuptools>=41.0.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (56.0.0)
+Requirement already satisfied: six>1.9 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (1.17.0)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (0.7.2)
+Requirement already satisfied: werkzeug>=1.0.1 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (3.1.3)
+Requirement already satisfied: zipp>=3.1.0 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from importlib-resources>=3.2.0->matplotlib>=3.4.3->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 7)) (3.21.0)
+Requirement already satisfied: importlib-metadata>=4.4 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from markdown>=2.6.8->tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (8.5.0)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages (from werkzeug>=1.0.1->tensorboard>=2.6.0->-r /home1/s4680340/BSc-Thesis/Thesis/requirements.txt (line 11)) (3.0.2)
+SDK_PATH: /home1/s4680340/BSc-Thesis/Thesis
+SDK path is set to /home1/s4680340/BSc-Thesis/Thesis
+Normalized destination path: /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_TimestampedWordVectors.csd
+[91m[1m[2024-12-17 09:51:21.800] | Error   | [0m/home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_TimestampedWordVectors.csd file already exists ...
+High-level features already downloaded.
+Normalized destination path: /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_TimestampedWords.csd
+[91m[1m[2024-12-17 09:51:21.802] | Error   | [0m/home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_TimestampedWords.csd file already exists ...
+Raw data already downloaded.
+Normalized destination path: /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_Opinion_Labels.csd
+[91m[1m[2024-12-17 09:51:21.804] | Error   | [0m/home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_Opinion_Labels.csd file already exists ...
+Labels already downloaded.
+Loading dataset features...
+[92m[1m[2024-12-17 09:51:21.812] | Success | [0mComputational sequence read from file /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_TimestampedWords.csd ...
+[94m[1m[2024-12-17 09:51:21.895] | Status  | [0mChecking the integrity of the <words> computational sequence ...
+[94m[1m[2024-12-17 09:51:21.895] | Status  | [0mChecking the format of the data in <words> computational sequence ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s] 52%|█████▏    | 48/93 [00:00<00:00, 474.05 Computational Sequence Entries/s]                                                                             [92m[1m[2024-12-17 09:51:22.033] | Success | [0m<words> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:51:22.033] | Status  | [0mChecking the format of the metadata in <words> computational sequence ...
+[93m[1m[2024-12-17 09:51:22.033] | Warning | [0m<words> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:51:22.036] | Success | [0mComputational sequence read from file /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_TimestampedWordVectors.csd ...
+[94m[1m[2024-12-17 09:51:22.134] | Status  | [0mChecking the integrity of the <glove_vectors> computational sequence ...
+[94m[1m[2024-12-17 09:51:22.134] | Status  | [0mChecking the format of the data in <glove_vectors> computational sequence ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s] 67%|██████▋   | 62/93 [00:00<00:00, 602.96 Computational Sequence Entries/s]                                                                             [92m[1m[2024-12-17 09:51:22.349] | Success | [0m<glove_vectors> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:51:22.349] | Status  | [0mChecking the format of the metadata in <glove_vectors> computational sequence ...
+[93m[1m[2024-12-17 09:51:22.349] | Warning | [0m<glove_vectors> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:51:22.372] | Success | [0mComputational sequence read from file /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_Visual_Facet_41.csd ...
+[94m[1m[2024-12-17 09:51:22.568] | Status  | [0mChecking the integrity of the <FACET_4.1> computational sequence ...
+[94m[1m[2024-12-17 09:51:22.568] | Status  | [0mChecking the format of the data in <FACET_4.1> computational sequence ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s] 66%|██████▌   | 61/93 [00:00<00:00, 604.17 Computational Sequence Entries/s]                                                                             [92m[1m[2024-12-17 09:51:22.705] | Success | [0m<FACET_4.1> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:51:22.705] | Status  | [0mChecking the format of the metadata in <FACET_4.1> computational sequence ...
+[93m[1m[2024-12-17 09:51:22.705] | Warning | [0m<FACET_4.1> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:51:22.707] | Success | [0mComputational sequence read from file /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_COVAREP.csd ...
+[94m[1m[2024-12-17 09:51:22.731] | Status  | [0mChecking the integrity of the <COVAREP> computational sequence ...
+[94m[1m[2024-12-17 09:51:22.731] | Status  | [0mChecking the format of the data in <COVAREP> computational sequence ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s]                                                                   [92m[1m[2024-12-17 09:51:22.809] | Success | [0m<COVAREP> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:51:22.809] | Status  | [0mChecking the format of the metadata in <COVAREP> computational sequence ...
+[93m[1m[2024-12-17 09:51:22.809] | Warning | [0m<COVAREP> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:51:22.809] | Success | [0mDataset initialized successfully ... 
+[94m[1m[2024-12-17 09:51:22.809] | Status  | [0mUnify was called ...
+[92m[1m[2024-12-17 09:51:22.810] | Success | [0mUnify completed ...
+[94m[1m[2024-12-17 09:51:22.810] | Status  | [0mPre-alignment based on <CMU_MOSI_TimestampedWords> computational sequence started ...
+[94m[1m[2024-12-17 09:51:25.103] | Status  | [0mPre-alignment done for <CMU_MOSI_TimestampedWordVectors> ...
+[94m[1m[2024-12-17 09:51:27.470] | Status  | [0mPre-alignment done for <CMU_MOSI_Visual_Facet_41> ...
+[94m[1m[2024-12-17 09:51:36.472] | Status  | [0mPre-alignment done for <CMU_MOSI_COVAREP> ...
+[94m[1m[2024-12-17 09:51:36.503] | Status  | [0mAlignment starting ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s]Overall Progress:   0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s]
+  0%|          | 0/464 [00:00<?, ? Segments/s][A
+Aligning 03bSnISJMiM:   0%|          | 0/464 [00:00<?, ? Segments/s][A
+Aligning 03bSnISJMiM:  12%|█▎        | 58/464 [00:00<00:00, 577.58 Segments/s][A
+Aligning 03bSnISJMiM:  26%|██▌       | 121/464 [00:00<00:00, 606.37 Segments/s][A
+Aligning 03bSnISJMiM:  40%|███▉      | 184/464 [00:00<00:00, 613.39 Segments/s][A
+Aligning 03bSnISJMiM:  53%|█████▎    | 247/464 [00:00<00:00, 618.16 Segments/s][A
+Aligning 03bSnISJMiM:  67%|██████▋   | 309/464 [00:00<00:00, 618.09 Segments/s][A
+Aligning 03bSnISJMiM:  80%|███████▉  | 371/464 [00:00<00:00, 616.79 Segments/s][A
+Aligning 03bSnISJMiM:  93%|█████████▎| 433/464 [00:00<00:00, 610.87 Segments/s][A
+                                                                               [AOverall Progress:   1%|          | 1/93 [00:00<01:09,  1.31 Computational Sequence Entries/s]
+  0%|          | 0/485 [00:00<?, ? Segments/s][A
+Aligning 0h-zjBukYpk:   0%|          | 0/485 [00:00<?, ? Segments/s][A
+Aligning 0h-zjBukYpk:  13%|█▎        | 62/485 [00:00<00:00, 611.05 Segments/s][A
+Aligning 0h-zjBukYpk:  26%|██▌       | 125/485 [00:00<00:00, 616.80 Segments/s][A
+Aligning 0h-zjBukYpk:  39%|███▉      | 188/485 [00:00<00:00, 621.99 Segments/s][A
+Aligning 0h-zjBukYpk:  52%|█████▏    | 251/485 [00:00<00:00, 623.30 Segments/s][A
+Aligning 0h-zjBukYpk:  65%|██████▍   | 314/485 [00:00<00:00, 623.71 Segments/s][A
+Aligning 0h-zjBukYpk:  78%|███████▊  | 377/485 [00:00<00:00, 623.19 Segments/s][A
+Aligning 0h-zjBukYpk:  91%|█████████ | 440/485 [00:00<00:00, 622.06 Segments/s][A
+                                                                               [AOverall Progress:   2%|▏         | 2/93 [00:01<01:10,  1.29 Computational Sequence Entries/s]
+  0%|          | 0/237 [00:00<?, ? Segments/s][A
+Aligning 1DmNV9C1hbY:   0%|          | 0/237 [00:00<?, ? Segments/s][A
+Aligning 1DmNV9C1hbY:  36%|███▋      | 86/237 [00:00<00:00, 854.51 Segments/s][A
+Aligning 1DmNV9C1hbY:  74%|███████▍  | 175/237 [00:00<00:00, 869.70 Segments/s][A
+                                                                               [AOverall Progress:   3%|▎         | 3/93 [00:01<00:48,  1.84 Computational Sequence Entries/s]
+  0%|          | 0/562 [00:00<?, ? Segments/s][A
+Aligning 1iG0909rllw:   0%|          | 0/562 [00:00<?, ? Segments/s][A
+Aligning 1iG0909rllw:  12%|█▏        | 65/562 [00:00<00:00, 643.57 Segments/s][A
+Aligning 1iG0909rllw:  23%|██▎       | 131/562 [00:00<00:00, 650.75 Segments/s][A
+Aligning 1iG0909rllw:  35%|███▌      | 197/562 [00:00<00:00, 652.14 Segments/s][A
+Aligning 1iG0909rllw:  47%|████▋     | 263/562 [00:00<00:00, 651.80 Segments/s][A
+Aligning 1iG0909rllw:  59%|█████▊    | 329/562 [00:00<00:00, 650.39 Segments/s][A
+Aligning 1iG0909rllw:  70%|███████   | 395/562 [00:00<00:00, 652.78 Segments/s][A
+Aligning 1iG0909rllw:  82%|████████▏ | 461/562 [00:00<00:00, 652.20 Segments/s][A
+Aligning 1iG0909rllw:  94%|█████████▍| 527/562 [00:00<00:00, 652.68 Segments/s][A
+                                                                               [AOverall Progress:   4%|▍         | 4/93 [00:02<00:59,  1.49 Computational Sequence Entries/s]
+  0%|          | 0/651 [00:00<?, ? Segments/s][A
+Aligning 2WGyTLYerpo:   0%|          | 0/651 [00:00<?, ? Segments/s][A
+Aligning 2WGyTLYerpo:  10%|▉         | 63/651 [00:00<00:00, 620.69 Segments/s][A
+Aligning 2WGyTLYerpo:  19%|█▉        | 126/651 [00:00<00:00, 620.66 Segments/s][A
+Aligning 2WGyTLYerpo:  29%|██▉       | 189/651 [00:00<00:00, 619.83 Segments/s][A
+Aligning 2WGyTLYerpo:  39%|███▊      | 251/651 [00:00<00:00, 617.81 Segments/s][A
+Aligning 2WGyTLYerpo:  48%|████▊     | 313/651 [00:00<00:00, 614.48 Segments/s][A
+Aligning 2WGyTLYerpo:  58%|█████▊    | 375/651 [00:00<00:00, 615.28 Segments/s][A
+Aligning 2WGyTLYerpo:  67%|██████▋   | 437/651 [00:00<00:00, 615.48 Segments/s][A
+Aligning 2WGyTLYerpo:  77%|███████▋  | 499/651 [00:00<00:00, 614.47 Segments/s][A
+Aligning 2WGyTLYerpo:  86%|████████▌ | 561/651 [00:00<00:00, 613.39 Segments/s][A
+Aligning 2WGyTLYerpo:  96%|█████████▌| 623/651 [00:01<00:00, 610.90 Segments/s][A
+                                                                               [AOverall Progress:   5%|▌         | 5/93 [00:03<01:11,  1.23 Computational Sequence Entries/s]
+  0%|          | 0/700 [00:00<?, ? Segments/s][A
+Aligning 2iD-tVS8NPw:   0%|          | 0/700 [00:00<?, ? Segments/s][A
+Aligning 2iD-tVS8NPw:   9%|▉         | 62/700 [00:00<00:01, 618.21 Segments/s][A
+Aligning 2iD-tVS8NPw:  18%|█▊        | 125/700 [00:00<00:00, 620.21 Segments/s][A
+Aligning 2iD-tVS8NPw:  27%|██▋       | 188/700 [00:00<00:00, 616.87 Segments/s][A
+Aligning 2iD-tVS8NPw:  36%|███▌      | 250/700 [00:00<00:00, 614.55 Segments/s][A
+Aligning 2iD-tVS8NPw:  45%|████▍     | 312/700 [00:00<00:00, 614.90 Segments/s][A
+Aligning 2iD-tVS8NPw:  53%|█████▎    | 374/700 [00:00<00:00, 614.89 Segments/s][A
+Aligning 2iD-tVS8NPw:  62%|██████▏   | 436/700 [00:00<00:00, 614.30 Segments/s][A
+Aligning 2iD-tVS8NPw:  71%|███████   | 498/700 [00:00<00:00, 611.85 Segments/s][A
+Aligning 2iD-tVS8NPw:  80%|████████  | 560/700 [00:00<00:00, 610.53 Segments/s][A
+Aligning 2iD-tVS8NPw:  89%|████████▉ | 622/700 [00:01<00:00, 605.59 Segments/s][A
+Aligning 2iD-tVS8NPw:  98%|█████████▊| 683/700 [00:01<00:00, 604.44 Segments/s][A
+                                                                               [AOverall Progress:   6%|▋         | 6/93 [00:04<01:20,  1.08 Computational Sequence Entries/s]
+  0%|          | 0/262 [00:00<?, ? Segments/s][A
+Aligning 5W7Z1C_fDaE:   0%|          | 0/262 [00:00<?, ? Segments/s][A
+Aligning 5W7Z1C_fDaE:  33%|███▎      | 86/262 [00:00<00:00, 855.66 Segments/s][A
+Aligning 5W7Z1C_fDaE:  66%|██████▌   | 172/262 [00:00<00:00, 853.31 Segments/s][A
+Aligning 5W7Z1C_fDaE:  98%|█████████▊| 258/262 [00:00<00:00, 854.31 Segments/s][A
+                                                                               [AOverall Progress:   8%|▊         | 7/93 [00:05<01:02,  1.38 Computational Sequence Entries/s]
+  0%|          | 0/411 [00:00<?, ? Segments/s][A
+Aligning 6Egk_28TtTM:   0%|          | 0/411 [00:00<?, ? Segments/s][A
+Aligning 6Egk_28TtTM:  16%|█▌        | 66/411 [00:00<00:00, 656.92 Segments/s][A
+Aligning 6Egk_28TtTM:  32%|███▏      | 132/411 [00:00<00:00, 652.64 Segments/s][A
+Aligning 6Egk_28TtTM:  48%|████▊     | 198/411 [00:00<00:00, 653.42 Segments/s][A
+Aligning 6Egk_28TtTM:  64%|██████▍   | 264/411 [00:00<00:00, 654.59 Segments/s][A
+Aligning 6Egk_28TtTM:  80%|████████  | 330/411 [00:00<00:00, 655.00 Segments/s][A
+Aligning 6Egk_28TtTM:  96%|█████████▋| 396/411 [00:00<00:00, 655.64 Segments/s][A
+                                                                               [AOverall Progress:   9%|▊         | 8/93 [00:05<00:58,  1.44 Computational Sequence Entries/s]
+  0%|          | 0/374 [00:00<?, ? Segments/s][A
+Aligning 6_0THN4chvY:   0%|          | 0/374 [00:00<?, ? Segments/s][A
+Aligning 6_0THN4chvY:  20%|██        | 76/374 [00:00<00:00, 754.73 Segments/s][A
+Aligning 6_0THN4chvY:  41%|████      | 153/374 [00:00<00:00, 762.30 Segments/s][A
+Aligning 6_0THN4chvY:  61%|██████▏   | 230/374 [00:00<00:00, 763.22 Segments/s][A
+Aligning 6_0THN4chvY:  82%|████████▏ | 307/374 [00:00<00:00, 756.77 Segments/s][A
+                                                                               [AOverall Progress:  10%|▉         | 9/93 [00:06<00:52,  1.59 Computational Sequence Entries/s]
+  0%|          | 0/591 [00:00<?, ? Segments/s][A
+Aligning 73jzhE8R1TQ:   0%|          | 0/591 [00:00<?, ? Segments/s][A
+Aligning 73jzhE8R1TQ:  11%|█         | 63/591 [00:00<00:00, 624.15 Segments/s][A
+Aligning 73jzhE8R1TQ:  21%|██▏       | 126/591 [00:00<00:00, 619.38 Segments/s][A
+Aligning 73jzhE8R1TQ:  32%|███▏      | 188/591 [00:00<00:00, 617.44 Segments/s][A
+Aligning 73jzhE8R1TQ:  42%|████▏     | 250/591 [00:00<00:00, 614.40 Segments/s][A
+Aligning 73jzhE8R1TQ:  53%|█████▎    | 312/591 [00:00<00:00, 611.26 Segments/s][A
+Aligning 73jzhE8R1TQ:  63%|██████▎   | 374/591 [00:00<00:00, 611.49 Segments/s][A
+Aligning 73jzhE8R1TQ:  74%|███████▍  | 436/591 [00:00<00:00, 612.98 Segments/s][A
+Aligning 73jzhE8R1TQ:  84%|████████▍ | 499/591 [00:00<00:00, 615.41 Segments/s][A
+Aligning 73jzhE8R1TQ:  95%|█████████▌| 562/591 [00:00<00:00, 616.86 Segments/s][A
+                                                                               [AOverall Progress:  11%|█         | 10/93 [00:07<01:00,  1.37 Computational Sequence Entries/s]
+  0%|          | 0/636 [00:00<?, ? Segments/s][A
+Aligning 7JsX8y1ysxY:   0%|          | 0/636 [00:00<?, ? Segments/s][A
+Aligning 7JsX8y1ysxY:  10%|▉         | 62/636 [00:00<00:00, 617.91 Segments/s][A
+Aligning 7JsX8y1ysxY:  20%|█▉        | 125/636 [00:00<00:00, 621.66 Segments/s][A
+Aligning 7JsX8y1ysxY:  30%|██▉       | 188/636 [00:00<00:00, 620.80 Segments/s][A
+Aligning 7JsX8y1ysxY:  39%|███▉      | 251/636 [00:00<00:00, 618.43 Segments/s][A
+Aligning 7JsX8y1ysxY:  49%|████▉     | 314/636 [00:00<00:00, 619.61 Segments/s][A
+Aligning 7JsX8y1ysxY:  59%|█████▉    | 376/636 [00:00<00:00, 617.69 Segments/s][A
+Aligning 7JsX8y1ysxY:  69%|██████▉   | 438/636 [00:00<00:00, 618.04 Segments/s][A
+Aligning 7JsX8y1ysxY:  79%|███████▉  | 501/636 [00:00<00:00, 619.28 Segments/s][A
+Aligning 7JsX8y1ysxY:  89%|████████▊ | 563/636 [00:00<00:00, 617.53 Segments/s][A
+Aligning 7JsX8y1ysxY:  98%|█████████▊| 625/636 [00:01<00:00, 616.99 Segments/s][A
+                                                                               [AOverall Progress:  12%|█▏        | 11/93 [00:08<01:07,  1.21 Computational Sequence Entries/s]
+  0%|          | 0/654 [00:00<?, ? Segments/s][A
+Aligning 8OtFthrtaJM:   0%|          | 0/654 [00:00<?, ? Segments/s][A
+Aligning 8OtFthrtaJM:   9%|▉         | 62/654 [00:00<00:00, 611.09 Segments/s][A
+Aligning 8OtFthrtaJM:  19%|█▉        | 124/654 [00:00<00:00, 612.64 Segments/s][A
+Aligning 8OtFthrtaJM:  28%|██▊       | 186/654 [00:00<00:00, 614.66 Segments/s][A
+Aligning 8OtFthrtaJM:  38%|███▊      | 248/654 [00:00<00:00, 614.87 Segments/s][A
+Aligning 8OtFthrtaJM:  47%|████▋     | 310/654 [00:00<00:00, 614.46 Segments/s][A
+Aligning 8OtFthrtaJM:  57%|█████▋    | 372/654 [00:00<00:00, 616.07 Segments/s][A
+Aligning 8OtFthrtaJM:  67%|██████▋   | 435/654 [00:00<00:00, 617.96 Segments/s][A
+Aligning 8OtFthrtaJM:  76%|███████▌  | 497/654 [00:00<00:00, 618.03 Segments/s][A
+Aligning 8OtFthrtaJM:  86%|████████▌ | 560/654 [00:00<00:00, 618.71 Segments/s][A
+Aligning 8OtFthrtaJM:  95%|█████████▌| 622/654 [00:01<00:00, 616.30 Segments/s][A
+                                                                               [AOverall Progress:  13%|█▎        | 12/93 [00:09<01:12,  1.12 Computational Sequence Entries/s]
+  0%|          | 0/584 [00:00<?, ? Segments/s][A
+Aligning 8d-gEyoeBzc:   0%|          | 0/584 [00:00<?, ? Segments/s][A
+Aligning 8d-gEyoeBzc:  11%|█         | 63/584 [00:00<00:00, 620.65 Segments/s][A
+Aligning 8d-gEyoeBzc:  22%|██▏       | 126/584 [00:00<00:00, 623.66 Segments/s][A
+Aligning 8d-gEyoeBzc:  32%|███▏      | 189/584 [00:00<00:00, 624.08 Segments/s][A
+Aligning 8d-gEyoeBzc:  43%|████▎     | 252/584 [00:00<00:00, 621.98 Segments/s][A
+Aligning 8d-gEyoeBzc:  54%|█████▍    | 315/584 [00:00<00:00, 622.85 Segments/s][A
+Aligning 8d-gEyoeBzc:  65%|██████▍   | 378/584 [00:00<00:00, 624.54 Segments/s][A
+Aligning 8d-gEyoeBzc:  76%|███████▌  | 441/584 [00:00<00:00, 625.70 Segments/s][A
+Aligning 8d-gEyoeBzc:  86%|████████▋ | 504/584 [00:00<00:00, 624.62 Segments/s][A
+Aligning 8d-gEyoeBzc:  97%|█████████▋| 567/584 [00:00<00:00, 621.78 Segments/s][A
+                                                                               [AOverall Progress:  14%|█▍        | 13/93 [00:10<01:12,  1.10 Computational Sequence Entries/s]
+  0%|          | 0/523 [00:00<?, ? Segments/s][A
+Aligning 8qrpnFRGt2A:   0%|          | 0/523 [00:00<?, ? Segments/s][A
+Aligning 8qrpnFRGt2A:  12%|█▏        | 63/523 [00:00<00:00, 625.16 Segments/s][A
+Aligning 8qrpnFRGt2A:  24%|██▍       | 126/523 [00:00<00:00, 623.73 Segments/s][A
+Aligning 8qrpnFRGt2A:  36%|███▌      | 189/523 [00:00<00:00, 617.67 Segments/s][A
+Aligning 8qrpnFRGt2A:  48%|████▊     | 252/523 [00:00<00:00, 619.57 Segments/s][A
+Aligning 8qrpnFRGt2A:  60%|██████    | 316/523 [00:00<00:00, 623.80 Segments/s][A
+Aligning 8qrpnFRGt2A:  73%|███████▎  | 380/523 [00:00<00:00, 626.20 Segments/s][A
+Aligning 8qrpnFRGt2A:  85%|████████▍ | 444/523 [00:00<00:00, 627.59 Segments/s][A
+Aligning 8qrpnFRGt2A:  97%|█████████▋| 508/523 [00:00<00:00, 628.37 Segments/s][A
+                                                                               [AOverall Progress:  15%|█▌        | 14/93 [00:11<01:10,  1.13 Computational Sequence Entries/s]
+  0%|          | 0/554 [00:00<?, ? Segments/s][A
+Aligning 9J25DZhivz8:   0%|          | 0/554 [00:00<?, ? Segments/s][A
+Aligning 9J25DZhivz8:  12%|█▏        | 64/554 [00:00<00:00, 633.27 Segments/s][A
+Aligning 9J25DZhivz8:  23%|██▎       | 128/554 [00:00<00:00, 633.54 Segments/s][A
+Aligning 9J25DZhivz8:  35%|███▍      | 192/554 [00:00<00:00, 632.99 Segments/s][A
+Aligning 9J25DZhivz8:  46%|████▌     | 256/554 [00:00<00:00, 633.32 Segments/s][A
+Aligning 9J25DZhivz8:  58%|█████▊    | 320/554 [00:00<00:00, 631.03 Segments/s][A
+Aligning 9J25DZhivz8:  69%|██████▉   | 384/554 [00:00<00:00, 629.71 Segments/s][A
+Aligning 9J25DZhivz8:  81%|████████  | 447/554 [00:00<00:00, 628.06 Segments/s][A
+Aligning 9J25DZhivz8:  92%|█████████▏| 510/554 [00:00<00:00, 626.39 Segments/s][A
+                                                                               [AOverall Progress:  16%|█▌        | 15/93 [00:12<01:09,  1.12 Computational Sequence Entries/s]
+  0%|          | 0/645 [00:00<?, ? Segments/s][A
+Aligning 9T9Hf74oK10:   0%|          | 0/645 [00:00<?, ? Segments/s][A
+Aligning 9T9Hf74oK10:  10%|▉         | 62/645 [00:00<00:00, 618.56 Segments/s][A
+Aligning 9T9Hf74oK10:  19%|█▉        | 125/645 [00:00<00:00, 621.95 Segments/s][A
+Aligning 9T9Hf74oK10:  29%|██▉       | 188/645 [00:00<00:00, 623.90 Segments/s][A
+Aligning 9T9Hf74oK10:  39%|███▉      | 251/645 [00:00<00:00, 624.53 Segments/s][A
+Aligning 9T9Hf74oK10:  49%|████▊     | 314/645 [00:00<00:00, 624.59 Segments/s][A
+Aligning 9T9Hf74oK10:  58%|█████▊    | 377/645 [00:00<00:00, 621.77 Segments/s][A
+Aligning 9T9Hf74oK10:  68%|██████▊   | 440/645 [00:00<00:00, 620.63 Segments/s][A
+Aligning 9T9Hf74oK10:  78%|███████▊  | 503/645 [00:00<00:00, 619.41 Segments/s][A
+Aligning 9T9Hf74oK10:  88%|████████▊ | 565/645 [00:00<00:00, 615.16 Segments/s][A
+Aligning 9T9Hf74oK10:  97%|█████████▋| 627/645 [00:01<00:00, 612.23 Segments/s][A
+                                                                               [AOverall Progress:  17%|█▋        | 16/93 [00:13<01:12,  1.07 Computational Sequence Entries/s]
+  0%|          | 0/300 [00:00<?, ? Segments/s][A
+Aligning 9c67fiY0wGQ:   0%|          | 0/300 [00:00<?, ? Segments/s][A
+Aligning 9c67fiY0wGQ:  26%|██▋       | 79/300 [00:00<00:00, 782.64 Segments/s][A
+Aligning 9c67fiY0wGQ:  53%|█████▎    | 158/300 [00:00<00:00, 783.83 Segments/s][A
+Aligning 9c67fiY0wGQ:  79%|███████▉  | 237/300 [00:00<00:00, 784.50 Segments/s][A
+                                                                               [AOverall Progress:  18%|█▊        | 17/93 [00:13<00:58,  1.30 Computational Sequence Entries/s]
+  0%|          | 0/735 [00:00<?, ? Segments/s][A
+Aligning 9qR7uwkblbs:   0%|          | 0/735 [00:00<?, ? Segments/s][A
+Aligning 9qR7uwkblbs:   8%|▊         | 62/735 [00:00<00:01, 607.00 Segments/s][A
+Aligning 9qR7uwkblbs:  17%|█▋        | 124/735 [00:00<00:01, 609.34 Segments/s][A
+Aligning 9qR7uwkblbs:  25%|██▌       | 186/735 [00:00<00:00, 609.48 Segments/s][A
+Aligning 9qR7uwkblbs:  34%|███▎      | 248/735 [00:00<00:00, 610.09 Segments/s][A
+Aligning 9qR7uwkblbs:  42%|████▏     | 310/735 [00:00<00:00, 609.73 Segments/s][A
+Aligning 9qR7uwkblbs:  51%|█████     | 372/735 [00:00<00:00, 611.76 Segments/s][A
+Aligning 9qR7uwkblbs:  59%|█████▉    | 434/735 [00:00<00:00, 610.71 Segments/s][A
+Aligning 9qR7uwkblbs:  67%|██████▋   | 496/735 [00:00<00:00, 611.28 Segments/s][A
+Aligning 9qR7uwkblbs:  76%|███████▌  | 558/735 [00:00<00:00, 610.46 Segments/s][A
+Aligning 9qR7uwkblbs:  84%|████████▍ | 620/735 [00:01<00:00, 609.85 Segments/s][A
+Aligning 9qR7uwkblbs:  93%|█████████▎| 682/735 [00:01<00:00, 610.24 Segments/s][A
+                                                                               [AOverall Progress:  19%|█▉        | 18/93 [00:14<01:07,  1.11 Computational Sequence Entries/s]
+  0%|          | 0/659 [00:00<?, ? Segments/s][A
+Aligning Af8D0E4ZXaw:   0%|          | 0/659 [00:00<?, ? Segments/s][A
+Aligning Af8D0E4ZXaw:   9%|▉         | 62/659 [00:00<00:00, 614.90 Segments/s][A
+Aligning Af8D0E4ZXaw:  19%|█▉        | 125/659 [00:00<00:00, 618.34 Segments/s][A
+Aligning Af8D0E4ZXaw:  28%|██▊       | 187/659 [00:00<00:00, 618.19 Segments/s][A
+Aligning Af8D0E4ZXaw:  38%|███▊      | 249/659 [00:00<00:00, 617.91 Segments/s][A
+Aligning Af8D0E4ZXaw:  47%|████▋     | 311/659 [00:00<00:00, 617.51 Segments/s][A
+Aligning Af8D0E4ZXaw:  57%|█████▋    | 373/659 [00:00<00:00, 617.70 Segments/s][A
+Aligning Af8D0E4ZXaw:  66%|██████▌   | 435/659 [00:00<00:00, 618.20 Segments/s][A
+Aligning Af8D0E4ZXaw:  75%|███████▌  | 497/659 [00:00<00:00, 618.67 Segments/s][A
+Aligning Af8D0E4ZXaw:  85%|████████▍ | 560/659 [00:00<00:00, 619.26 Segments/s][A
+Aligning Af8D0E4ZXaw:  95%|█████████▍| 623/659 [00:01<00:00, 619.89 Segments/s][A
+                                                                               [AOverall Progress:  20%|██        | 19/93 [00:15<01:10,  1.05 Computational Sequence Entries/s]
+  0%|          | 0/406 [00:00<?, ? Segments/s][A
+Aligning BI97DNYfe5I:   0%|          | 0/406 [00:00<?, ? Segments/s][A
+Aligning BI97DNYfe5I:  19%|█▊        | 76/406 [00:00<00:00, 750.97 Segments/s][A
+Aligning BI97DNYfe5I:  37%|███▋      | 152/406 [00:00<00:00, 754.93 Segments/s][A
+Aligning BI97DNYfe5I:  56%|█████▌    | 228/406 [00:00<00:00, 755.59 Segments/s][A
+Aligning BI97DNYfe5I:  75%|███████▍  | 304/406 [00:00<00:00, 755.72 Segments/s][A
+Aligning BI97DNYfe5I:  94%|█████████▎| 380/406 [00:00<00:00, 754.37 Segments/s][A
+                                                                               [AOverall Progress:  22%|██▏       | 20/93 [00:16<01:00,  1.21 Computational Sequence Entries/s]
+  0%|          | 0/566 [00:00<?, ? Segments/s][A
+Aligning BXuRRbG0Ugk:   0%|          | 0/566 [00:00<?, ? Segments/s][A
+Aligning BXuRRbG0Ugk:  11%|█▏        | 64/566 [00:00<00:00, 631.01 Segments/s][A
+Aligning BXuRRbG0Ugk:  23%|██▎       | 128/566 [00:00<00:00, 630.59 Segments/s][A
+Aligning BXuRRbG0Ugk:  34%|███▍      | 192/566 [00:00<00:00, 631.77 Segments/s][A
+Aligning BXuRRbG0Ugk:  45%|████▌     | 256/566 [00:00<00:00, 631.87 Segments/s][A
+Aligning BXuRRbG0Ugk:  57%|█████▋    | 320/566 [00:00<00:00, 631.85 Segments/s][A
+Aligning BXuRRbG0Ugk:  68%|██████▊   | 384/566 [00:00<00:00, 627.01 Segments/s][A
+Aligning BXuRRbG0Ugk:  79%|███████▉  | 447/566 [00:00<00:00, 624.01 Segments/s][A
+Aligning BXuRRbG0Ugk:  90%|█████████ | 510/566 [00:00<00:00, 616.60 Segments/s][A
+                                                                               [AOverall Progress:  23%|██▎       | 21/93 [00:17<01:01,  1.17 Computational Sequence Entries/s]
+  0%|          | 0/282 [00:00<?, ? Segments/s][A
+Aligning Bfr499ggo-0:   0%|          | 0/282 [00:00<?, ? Segments/s][A
+Aligning Bfr499ggo-0:  29%|██▉       | 82/282 [00:00<00:00, 815.34 Segments/s][A
+Aligning Bfr499ggo-0:  59%|█████▊    | 165/282 [00:00<00:00, 823.06 Segments/s][A
+Aligning Bfr499ggo-0:  88%|████████▊ | 249/282 [00:00<00:00, 827.98 Segments/s][A
+                                                                               [AOverall Progress:  24%|██▎       | 22/93 [00:17<00:49,  1.43 Computational Sequence Entries/s]
+  0%|          | 0/659 [00:00<?, ? Segments/s][A
+Aligning BioHAh1qJAQ:   0%|          | 0/659 [00:00<?, ? Segments/s][A
+Aligning BioHAh1qJAQ:   9%|▉         | 61/659 [00:00<00:00, 605.76 Segments/s][A
+Aligning BioHAh1qJAQ:  19%|█▊        | 123/659 [00:00<00:00, 613.27 Segments/s][A
+Aligning BioHAh1qJAQ:  28%|██▊       | 185/659 [00:00<00:00, 614.15 Segments/s][A
+Aligning BioHAh1qJAQ:  37%|███▋      | 247/659 [00:00<00:00, 615.56 Segments/s][A
+Aligning BioHAh1qJAQ:  47%|████▋     | 310/659 [00:00<00:00, 619.83 Segments/s][A
+Aligning BioHAh1qJAQ:  57%|█████▋    | 373/659 [00:00<00:00, 621.77 Segments/s][A
+Aligning BioHAh1qJAQ:  66%|██████▌   | 436/659 [00:00<00:00, 618.86 Segments/s][A
+Aligning BioHAh1qJAQ:  76%|███████▌  | 498/659 [00:00<00:00, 613.56 Segments/s][A
+Aligning BioHAh1qJAQ:  85%|████████▍ | 560/659 [00:00<00:00, 610.17 Segments/s][A
+Aligning BioHAh1qJAQ:  94%|█████████▍| 622/659 [00:01<00:00, 609.65 Segments/s][A
+                                                                               [AOverall Progress:  25%|██▍       | 23/93 [00:18<00:56,  1.23 Computational Sequence Entries/s]
+  0%|          | 0/695 [00:00<?, ? Segments/s][A
+Aligning BvYR0L6f2Ig:   0%|          | 0/695 [00:00<?, ? Segments/s][A
+Aligning BvYR0L6f2Ig:   9%|▉         | 62/695 [00:00<00:01, 615.49 Segments/s][A
+Aligning BvYR0L6f2Ig:  18%|█▊        | 124/695 [00:00<00:00, 616.16 Segments/s][A
+Aligning BvYR0L6f2Ig:  27%|██▋       | 186/695 [00:00<00:00, 616.08 Segments/s][A
+Aligning BvYR0L6f2Ig:  36%|███▌      | 249/695 [00:00<00:00, 618.55 Segments/s][A
+Aligning BvYR0L6f2Ig:  45%|████▍     | 312/695 [00:00<00:00, 619.06 Segments/s][A
+Aligning BvYR0L6f2Ig:  54%|█████▍    | 374/695 [00:00<00:00, 617.86 Segments/s][A
+Aligning BvYR0L6f2Ig:  63%|██████▎   | 437/695 [00:00<00:00, 619.61 Segments/s][A
+Aligning BvYR0L6f2Ig:  72%|███████▏  | 500/695 [00:00<00:00, 621.69 Segments/s][A
+Aligning BvYR0L6f2Ig:  81%|████████  | 563/695 [00:00<00:00, 621.29 Segments/s][A
+Aligning BvYR0L6f2Ig:  90%|█████████ | 626/695 [00:01<00:00, 621.02 Segments/s][A
+Aligning BvYR0L6f2Ig:  99%|█████████▉| 689/695 [00:01<00:00, 616.44 Segments/s][A
+                                                                               [AOverall Progress:  26%|██▌       | 24/93 [00:19<01:02,  1.10 Computational Sequence Entries/s]
+  0%|          | 0/777 [00:00<?, ? Segments/s][A
+Aligning Ci-AH39fi3Y:   0%|          | 0/777 [00:00<?, ? Segments/s][A
+Aligning Ci-AH39fi3Y:   8%|▊         | 63/777 [00:00<00:01, 621.01 Segments/s][A
+Aligning Ci-AH39fi3Y:  16%|█▋        | 127/777 [00:00<00:01, 632.03 Segments/s][A
+Aligning Ci-AH39fi3Y:  25%|██▍       | 191/777 [00:00<00:00, 634.42 Segments/s][A
+Aligning Ci-AH39fi3Y:  33%|███▎      | 256/777 [00:00<00:00, 638.97 Segments/s][A
+Aligning Ci-AH39fi3Y:  41%|████▏     | 321/777 [00:00<00:00, 641.09 Segments/s][A
+Aligning Ci-AH39fi3Y:  50%|████▉     | 386/777 [00:00<00:00, 642.20 Segments/s][A
+Aligning Ci-AH39fi3Y:  58%|█████▊    | 451/777 [00:00<00:00, 641.37 Segments/s][A
+Aligning Ci-AH39fi3Y:  66%|██████▋   | 516/777 [00:00<00:00, 641.45 Segments/s][A
+Aligning Ci-AH39fi3Y:  75%|███████▍  | 581/777 [00:00<00:00, 640.70 Segments/s][A
+Aligning Ci-AH39fi3Y:  83%|████████▎ | 646/777 [00:01<00:00, 639.96 Segments/s][A
+Aligning Ci-AH39fi3Y:  91%|█████████▏| 710/777 [00:01<00:00, 639.43 Segments/s][A
+Aligning Ci-AH39fi3Y: 100%|█████████▉| 774/777 [00:01<00:00, 639.14 Segments/s][A
+                                                                               [AOverall Progress:  27%|██▋       | 25/93 [00:20<01:07,  1.00 Computational Sequence Entries/s]
+  0%|          | 0/590 [00:00<?, ? Segments/s][A
+Aligning Clx4VXItLTE:   0%|          | 0/590 [00:00<?, ? Segments/s][A
+Aligning Clx4VXItLTE:  11%|█         | 63/590 [00:00<00:00, 626.43 Segments/s][A
+Aligning Clx4VXItLTE:  22%|██▏       | 127/590 [00:00<00:00, 631.97 Segments/s][A
+Aligning Clx4VXItLTE:  32%|███▏      | 191/590 [00:00<00:00, 630.75 Segments/s][A
+Aligning Clx4VXItLTE:  43%|████▎     | 255/590 [00:00<00:00, 632.08 Segments/s][A
+Aligning Clx4VXItLTE:  54%|█████▍    | 319/590 [00:00<00:00, 632.78 Segments/s][A
+Aligning Clx4VXItLTE:  65%|██████▍   | 383/590 [00:00<00:00, 632.20 Segments/s][A
+Aligning Clx4VXItLTE:  76%|███████▌  | 447/590 [00:00<00:00, 626.50 Segments/s][A
+Aligning Clx4VXItLTE:  86%|████████▋ | 510/590 [00:00<00:00, 625.55 Segments/s][A
+Aligning Clx4VXItLTE:  97%|█████████▋| 573/590 [00:00<00:00, 625.25 Segments/s][A
+                                                                               [AOverall Progress:  28%|██▊       | 26/93 [00:21<01:05,  1.02 Computational Sequence Entries/s]
+  0%|          | 0/411 [00:00<?, ? Segments/s][A
+Aligning Dg_0XKD0Mf4:   0%|          | 0/411 [00:00<?, ? Segments/s][A
+Aligning Dg_0XKD0Mf4:  18%|█▊        | 74/411 [00:00<00:00, 736.14 Segments/s][A
+Aligning Dg_0XKD0Mf4:  36%|███▋      | 149/411 [00:00<00:00, 743.94 Segments/s][A
+Aligning Dg_0XKD0Mf4:  55%|█████▍    | 224/411 [00:00<00:00, 740.97 Segments/s][A
+Aligning Dg_0XKD0Mf4:  73%|███████▎  | 299/411 [00:00<00:00, 743.89 Segments/s][A
+Aligning Dg_0XKD0Mf4:  91%|█████████ | 374/411 [00:00<00:00, 745.62 Segments/s][A
+                                                                               [AOverall Progress:  29%|██▉       | 27/93 [00:22<00:56,  1.17 Computational Sequence Entries/s]
+  0%|          | 0/559 [00:00<?, ? Segments/s][A
+Aligning G-xst2euQUc:   0%|          | 0/559 [00:00<?, ? Segments/s][A
+Aligning G-xst2euQUc:  13%|█▎        | 71/559 [00:00<00:00, 703.34 Segments/s][A
+Aligning G-xst2euQUc:  25%|██▌       | 142/559 [00:00<00:00, 702.78 Segments/s][A
+Aligning G-xst2euQUc:  38%|███▊      | 213/559 [00:00<00:00, 703.56 Segments/s][A
+Aligning G-xst2euQUc:  51%|█████     | 284/559 [00:00<00:00, 705.73 Segments/s][A
+Aligning G-xst2euQUc:  64%|██████▎   | 355/559 [00:00<00:00, 700.75 Segments/s][A
+Aligning G-xst2euQUc:  76%|███████▌  | 426/559 [00:00<00:00, 698.17 Segments/s][A
+Aligning G-xst2euQUc:  89%|████████▊ | 496/559 [00:00<00:00, 696.96 Segments/s][A
+                                                                               [AOverall Progress:  30%|███       | 28/93 [00:23<00:54,  1.19 Computational Sequence Entries/s]
+  0%|          | 0/763 [00:00<?, ? Segments/s][A
+Aligning G6GlGvlkxAQ:   0%|          | 0/763 [00:00<?, ? Segments/s][A
+Aligning G6GlGvlkxAQ:   8%|▊         | 63/763 [00:00<00:01, 623.48 Segments/s][A
+Aligning G6GlGvlkxAQ:  17%|█▋        | 126/763 [00:00<00:01, 626.41 Segments/s][A
+Aligning G6GlGvlkxAQ:  25%|██▍       | 189/763 [00:00<00:00, 621.98 Segments/s][A
+Aligning G6GlGvlkxAQ:  33%|███▎      | 252/763 [00:00<00:00, 622.63 Segments/s][A
+Aligning G6GlGvlkxAQ:  41%|████▏     | 315/763 [00:00<00:00, 622.70 Segments/s][A
+Aligning G6GlGvlkxAQ:  50%|████▉     | 378/763 [00:00<00:00, 624.10 Segments/s][A
+Aligning G6GlGvlkxAQ:  58%|█████▊    | 441/763 [00:00<00:00, 623.64 Segments/s][A
+Aligning G6GlGvlkxAQ:  66%|██████▌   | 504/763 [00:00<00:00, 623.42 Segments/s][A
+Aligning G6GlGvlkxAQ:  74%|███████▍  | 567/763 [00:00<00:00, 621.42 Segments/s][A
+Aligning G6GlGvlkxAQ:  83%|████████▎ | 630/763 [00:01<00:00, 619.21 Segments/s][A
+Aligning G6GlGvlkxAQ:  91%|█████████ | 693/763 [00:01<00:00, 620.08 Segments/s][A
+Aligning G6GlGvlkxAQ:  99%|█████████▉| 756/763 [00:01<00:00, 619.91 Segments/s][A
+                                                                               [AOverall Progress:  31%|███       | 29/93 [00:24<01:01,  1.05 Computational Sequence Entries/s]
+  0%|          | 0/417 [00:00<?, ? Segments/s][A
+Aligning GWuJjcEuzt8:   0%|          | 0/417 [00:00<?, ? Segments/s][A
+Aligning GWuJjcEuzt8:  17%|█▋        | 72/417 [00:00<00:00, 717.63 Segments/s][A
+Aligning GWuJjcEuzt8:  35%|███▍      | 144/417 [00:00<00:00, 718.87 Segments/s][A
+Aligning GWuJjcEuzt8:  52%|█████▏    | 216/417 [00:00<00:00, 719.08 Segments/s][A
+Aligning GWuJjcEuzt8:  69%|██████▉   | 289/417 [00:00<00:00, 719.95 Segments/s][A
+Aligning GWuJjcEuzt8:  87%|████████▋ | 362/417 [00:00<00:00, 720.28 Segments/s][A
+                                                                               [AOverall Progress:  32%|███▏      | 30/93 [00:25<00:53,  1.19 Computational Sequence Entries/s]
+  0%|          | 0/622 [00:00<?, ? Segments/s][A
+Aligning HEsqda8_d0Q:   0%|          | 0/622 [00:00<?, ? Segments/s][A
+Aligning HEsqda8_d0Q:  11%|█         | 66/622 [00:00<00:00, 659.84 Segments/s][A
+Aligning HEsqda8_d0Q:  22%|██▏       | 134/622 [00:00<00:00, 666.70 Segments/s][A
+Aligning HEsqda8_d0Q:  32%|███▏      | 202/622 [00:00<00:00, 670.38 Segments/s][A
+Aligning HEsqda8_d0Q:  43%|████▎     | 270/622 [00:00<00:00, 668.51 Segments/s][A
+Aligning HEsqda8_d0Q:  54%|█████▍    | 337/622 [00:00<00:00, 668.74 Segments/s][A
+Aligning HEsqda8_d0Q:  65%|██████▌   | 405/622 [00:00<00:00, 670.70 Segments/s][A
+Aligning HEsqda8_d0Q:  76%|███████▌  | 473/622 [00:00<00:00, 671.73 Segments/s][A
+Aligning HEsqda8_d0Q:  87%|████████▋ | 541/622 [00:00<00:00, 671.47 Segments/s][A
+Aligning HEsqda8_d0Q:  98%|█████████▊| 609/622 [00:00<00:00, 670.15 Segments/s][A
+                                                                               [AOverall Progress:  33%|███▎      | 31/93 [00:25<00:53,  1.15 Computational Sequence Entries/s]
+  0%|          | 0/640 [00:00<?, ? Segments/s][A
+Aligning I5y0__X72p0:   0%|          | 0/640 [00:00<?, ? Segments/s][A
+Aligning I5y0__X72p0:  10%|█         | 64/640 [00:00<00:00, 632.55 Segments/s][A
+Aligning I5y0__X72p0:  20%|██        | 128/640 [00:00<00:00, 633.65 Segments/s][A
+Aligning I5y0__X72p0:  30%|███       | 192/640 [00:00<00:00, 634.69 Segments/s][A
+Aligning I5y0__X72p0:  40%|████      | 256/640 [00:00<00:00, 634.72 Segments/s][A
+Aligning I5y0__X72p0:  50%|█████     | 320/640 [00:00<00:00, 628.15 Segments/s][A
+Aligning I5y0__X72p0:  60%|█████▉    | 383/640 [00:00<00:00, 622.48 Segments/s][A
+Aligning I5y0__X72p0:  70%|██████▉   | 446/640 [00:00<00:00, 624.18 Segments/s][A
+Aligning I5y0__X72p0:  80%|███████▉  | 509/640 [00:00<00:00, 625.89 Segments/s][A
+Aligning I5y0__X72p0:  90%|████████▉ | 573/640 [00:00<00:00, 627.68 Segments/s][A
+Aligning I5y0__X72p0:  99%|█████████▉| 636/640 [00:01<00:00, 628.27 Segments/s][A
+                                                                               [AOverall Progress:  34%|███▍      | 32/93 [00:27<00:55,  1.09 Computational Sequence Entries/s]
+  0%|          | 0/316 [00:00<?, ? Segments/s][A
+Aligning Iu2PFX3z_1s:   0%|          | 0/316 [00:00<?, ? Segments/s][A
+Aligning Iu2PFX3z_1s:  26%|██▋       | 83/316 [00:00<00:00, 822.17 Segments/s][A
+Aligning Iu2PFX3z_1s:  53%|█████▎    | 166/316 [00:00<00:00, 825.28 Segments/s][A
+Aligning Iu2PFX3z_1s:  79%|███████▉  | 249/316 [00:00<00:00, 824.64 Segments/s][A
+                                                                               [AOverall Progress:  35%|███▌      | 33/93 [00:27<00:45,  1.32 Computational Sequence Entries/s]
+  0%|          | 0/450 [00:00<?, ? Segments/s][A
+Aligning IumbAb8q2dM:   0%|          | 0/450 [00:00<?, ? Segments/s][A
+Aligning IumbAb8q2dM:  16%|█▌        | 73/450 [00:00<00:00, 726.38 Segments/s][A
+Aligning IumbAb8q2dM:  32%|███▏      | 146/450 [00:00<00:00, 724.41 Segments/s][A
+Aligning IumbAb8q2dM:  49%|████▊     | 219/450 [00:00<00:00, 725.79 Segments/s][A
+Aligning IumbAb8q2dM:  65%|██████▍   | 292/450 [00:00<00:00, 727.12 Segments/s][A
+Aligning IumbAb8q2dM:  81%|████████  | 365/450 [00:00<00:00, 726.29 Segments/s][A
+Aligning IumbAb8q2dM:  97%|█████████▋| 438/450 [00:00<00:00, 724.68 Segments/s][A
+                                                                               [AOverall Progress:  37%|███▋      | 34/93 [00:28<00:42,  1.40 Computational Sequence Entries/s]
+  0%|          | 0/219 [00:00<?, ? Segments/s][A
+Aligning Jkswaaud0hk:   0%|          | 0/219 [00:00<?, ? Segments/s][A
+Aligning Jkswaaud0hk:  43%|████▎     | 95/219 [00:00<00:00, 943.38 Segments/s][A
+Aligning Jkswaaud0hk:  87%|████████▋ | 190/219 [00:00<00:00, 943.29 Segments/s][A
+                                                                               [AOverall Progress:  38%|███▊      | 35/93 [00:28<00:33,  1.75 Computational Sequence Entries/s]
+  0%|          | 0/735 [00:00<?, ? Segments/s][A
+Aligning LSi-o-IrDMs:   0%|          | 0/735 [00:00<?, ? Segments/s][A
+Aligning LSi-o-IrDMs:   9%|▊         | 63/735 [00:00<00:01, 626.53 Segments/s][A
+Aligning LSi-o-IrDMs:  17%|█▋        | 127/735 [00:00<00:00, 630.84 Segments/s][A
+Aligning LSi-o-IrDMs:  26%|██▌       | 191/735 [00:00<00:00, 632.40 Segments/s][A
+Aligning LSi-o-IrDMs:  35%|███▍      | 255/735 [00:00<00:00, 634.05 Segments/s][A
+Aligning LSi-o-IrDMs:  43%|████▎     | 319/735 [00:00<00:00, 633.94 Segments/s][A
+Aligning LSi-o-IrDMs:  52%|█████▏    | 383/735 [00:00<00:00, 634.05 Segments/s][A
+Aligning LSi-o-IrDMs:  61%|██████    | 447/735 [00:00<00:00, 633.27 Segments/s][A
+Aligning LSi-o-IrDMs:  70%|██████▉   | 511/735 [00:00<00:00, 631.15 Segments/s][A
+Aligning LSi-o-IrDMs:  78%|███████▊  | 575/735 [00:00<00:00, 627.37 Segments/s][A
+Aligning LSi-o-IrDMs:  87%|████████▋ | 638/735 [00:01<00:00, 627.98 Segments/s][A
+Aligning LSi-o-IrDMs:  96%|█████████▌| 702/735 [00:01<00:00, 629.16 Segments/s][A
+                                                                               [AOverall Progress:  39%|███▊      | 36/93 [00:29<00:42,  1.34 Computational Sequence Entries/s]
+  0%|          | 0/385 [00:00<?, ? Segments/s][A
+Aligning MLal-t_vJPM:   0%|          | 0/385 [00:00<?, ? Segments/s][A
+Aligning MLal-t_vJPM:  20%|██        | 78/385 [00:00<00:00, 777.54 Segments/s][A
+Aligning MLal-t_vJPM:  41%|████      | 157/385 [00:00<00:00, 780.30 Segments/s][A
+Aligning MLal-t_vJPM:  61%|██████▏   | 236/385 [00:00<00:00, 779.94 Segments/s][A
+Aligning MLal-t_vJPM:  82%|████████▏ | 314/385 [00:00<00:00, 778.54 Segments/s][A
+                                                                               [AOverall Progress:  40%|███▉      | 37/93 [00:29<00:37,  1.49 Computational Sequence Entries/s]
+  0%|          | 0/266 [00:00<?, ? Segments/s][A
+Aligning Njd1F0vZSm4:   0%|          | 0/266 [00:00<?, ? Segments/s][A
+Aligning Njd1F0vZSm4:  32%|███▏      | 86/266 [00:00<00:00, 858.05 Segments/s][A
+Aligning Njd1F0vZSm4:  65%|██████▍   | 172/266 [00:00<00:00, 856.07 Segments/s][A
+Aligning Njd1F0vZSm4:  97%|█████████▋| 258/266 [00:00<00:00, 857.20 Segments/s][A
+                                                                               [AOverall Progress:  41%|████      | 38/93 [00:30<00:31,  1.77 Computational Sequence Entries/s]
+  0%|          | 0/621 [00:00<?, ? Segments/s][A
+Aligning Nzq88NnDkEk:   0%|          | 0/621 [00:00<?, ? Segments/s][A
+Aligning Nzq88NnDkEk:  11%|█         | 67/621 [00:00<00:00, 661.14 Segments/s][A
+Aligning Nzq88NnDkEk:  22%|██▏       | 134/621 [00:00<00:00, 665.71 Segments/s][A
+Aligning Nzq88NnDkEk:  32%|███▏      | 201/621 [00:00<00:00, 665.63 Segments/s][A
+Aligning Nzq88NnDkEk:  43%|████▎     | 268/621 [00:00<00:00, 665.87 Segments/s][A
+Aligning Nzq88NnDkEk:  54%|█████▍    | 335/621 [00:00<00:00, 666.90 Segments/s][A
+Aligning Nzq88NnDkEk:  65%|██████▍   | 402/621 [00:00<00:00, 666.27 Segments/s][A
+Aligning Nzq88NnDkEk:  76%|███████▌  | 469/621 [00:00<00:00, 665.49 Segments/s][A
+Aligning Nzq88NnDkEk:  86%|████████▋ | 536/621 [00:00<00:00, 663.90 Segments/s][A
+Aligning Nzq88NnDkEk:  97%|█████████▋| 603/621 [00:00<00:00, 662.09 Segments/s][A
+                                                                               [AOverall Progress:  42%|████▏     | 39/93 [00:31<00:36,  1.48 Computational Sequence Entries/s]
+  0%|          | 0/311 [00:00<?, ? Segments/s][A
+Aligning OQvJTdtJ2H4:   0%|          | 0/311 [00:00<?, ? Segments/s][A
+Aligning OQvJTdtJ2H4:  26%|██▋       | 82/311 [00:00<00:00, 815.03 Segments/s][A
+Aligning OQvJTdtJ2H4:  53%|█████▎    | 164/311 [00:00<00:00, 816.45 Segments/s][A
+Aligning OQvJTdtJ2H4:  79%|███████▉  | 246/311 [00:00<00:00, 816.02 Segments/s][A
+                                                                               [AOverall Progress:  43%|████▎     | 40/93 [00:31<00:31,  1.70 Computational Sequence Entries/s]
+  0%|          | 0/597 [00:00<?, ? Segments/s][A
+Aligning OtBXNcAL_lE:   0%|          | 0/597 [00:00<?, ? Segments/s][A
+Aligning OtBXNcAL_lE:  11%|█         | 64/597 [00:00<00:00, 631.80 Segments/s][A
+Aligning OtBXNcAL_lE:  21%|██▏       | 128/597 [00:00<00:00, 635.71 Segments/s][A
+Aligning OtBXNcAL_lE:  32%|███▏      | 193/597 [00:00<00:00, 638.38 Segments/s][A
+Aligning OtBXNcAL_lE:  43%|████▎     | 258/597 [00:00<00:00, 640.52 Segments/s][A
+Aligning OtBXNcAL_lE:  54%|█████▍    | 323/597 [00:00<00:00, 641.06 Segments/s][A
+Aligning OtBXNcAL_lE:  65%|██████▍   | 388/597 [00:00<00:00, 640.10 Segments/s][A
+Aligning OtBXNcAL_lE:  76%|███████▌  | 453/597 [00:00<00:00, 638.26 Segments/s][A
+Aligning OtBXNcAL_lE:  87%|████████▋ | 517/597 [00:00<00:00, 638.43 Segments/s][A
+Aligning OtBXNcAL_lE:  97%|█████████▋| 581/597 [00:00<00:00, 637.99 Segments/s][A
+                                                                               [AOverall Progress:  44%|████▍     | 41/93 [00:32<00:35,  1.44 Computational Sequence Entries/s]
+  0%|          | 0/740 [00:00<?, ? Segments/s][A
+Aligning Oz06ZWiO20M:   0%|          | 0/740 [00:00<?, ? Segments/s][A
+Aligning Oz06ZWiO20M:   9%|▊         | 64/740 [00:00<00:01, 636.60 Segments/s][A
+Aligning Oz06ZWiO20M:  17%|█▋        | 128/740 [00:00<00:00, 637.80 Segments/s][A
+Aligning Oz06ZWiO20M:  26%|██▌       | 192/740 [00:00<00:00, 637.64 Segments/s][A
+Aligning Oz06ZWiO20M:  35%|███▍      | 256/740 [00:00<00:00, 635.87 Segments/s][A
+Aligning Oz06ZWiO20M:  43%|████▎     | 320/740 [00:00<00:00, 636.21 Segments/s][A
+Aligning Oz06ZWiO20M:  52%|█████▏    | 384/740 [00:00<00:00, 635.14 Segments/s][A
+Aligning Oz06ZWiO20M:  61%|██████    | 448/740 [00:00<00:00, 634.58 Segments/s][A
+Aligning Oz06ZWiO20M:  69%|██████▉   | 512/740 [00:00<00:00, 633.66 Segments/s][A
+Aligning Oz06ZWiO20M:  78%|███████▊  | 576/740 [00:00<00:00, 627.00 Segments/s][A
+Aligning Oz06ZWiO20M:  86%|████████▋ | 639/740 [00:01<00:00, 627.89 Segments/s][A
+Aligning Oz06ZWiO20M:  95%|█████████▍| 702/740 [00:01<00:00, 627.98 Segments/s][A
+                                                                               [AOverall Progress:  45%|████▌     | 42/93 [00:33<00:42,  1.20 Computational Sequence Entries/s]
+  0%|          | 0/395 [00:00<?, ? Segments/s][A
+Aligning POKffnXeBds:   0%|          | 0/395 [00:00<?, ? Segments/s][A
+Aligning POKffnXeBds:  21%|██▏       | 84/395 [00:00<00:00, 833.11 Segments/s][A
+Aligning POKffnXeBds:  43%|████▎     | 168/395 [00:00<00:00, 836.49 Segments/s][A
+Aligning POKffnXeBds:  64%|██████▍   | 252/395 [00:00<00:00, 834.30 Segments/s][A
+Aligning POKffnXeBds:  85%|████████▌ | 336/395 [00:00<00:00, 826.53 Segments/s][A
+                                                                               [AOverall Progress:  46%|████▌     | 43/93 [00:34<00:36,  1.37 Computational Sequence Entries/s]
+  0%|          | 0/385 [00:00<?, ? Segments/s][A
+Aligning PZ-lDQFboO8:   0%|          | 0/385 [00:00<?, ? Segments/s][A
+Aligning PZ-lDQFboO8:  21%|██        | 81/385 [00:00<00:00, 806.22 Segments/s][A
+Aligning PZ-lDQFboO8:  42%|████▏     | 162/385 [00:00<00:00, 802.86 Segments/s][A
+Aligning PZ-lDQFboO8:  63%|██████▎   | 243/385 [00:00<00:00, 803.10 Segments/s][A
+Aligning PZ-lDQFboO8:  84%|████████▍ | 324/385 [00:00<00:00, 805.47 Segments/s][A
+                                                                               [AOverall Progress:  47%|████▋     | 44/93 [00:34<00:32,  1.53 Computational Sequence Entries/s]
+  0%|          | 0/663 [00:00<?, ? Segments/s][A
+Aligning QN9ZIUWUXsY:   0%|          | 0/663 [00:00<?, ? Segments/s][A
+Aligning QN9ZIUWUXsY:  10%|▉         | 63/663 [00:00<00:00, 627.71 Segments/s][A
+Aligning QN9ZIUWUXsY:  19%|█▉        | 127/663 [00:00<00:00, 629.75 Segments/s][A
+Aligning QN9ZIUWUXsY:  29%|██▊       | 190/663 [00:00<00:00, 629.43 Segments/s][A
+Aligning QN9ZIUWUXsY:  38%|███▊      | 254/663 [00:00<00:00, 633.46 Segments/s][A
+Aligning QN9ZIUWUXsY:  48%|████▊     | 318/663 [00:00<00:00, 635.23 Segments/s][A
+Aligning QN9ZIUWUXsY:  58%|█████▊    | 382/663 [00:00<00:00, 633.98 Segments/s][A
+Aligning QN9ZIUWUXsY:  67%|██████▋   | 446/663 [00:00<00:00, 634.83 Segments/s][A
+Aligning QN9ZIUWUXsY:  77%|███████▋  | 510/663 [00:00<00:00, 631.87 Segments/s][A
+Aligning QN9ZIUWUXsY:  87%|████████▋ | 574/663 [00:00<00:00, 629.58 Segments/s][A
+Aligning QN9ZIUWUXsY:  96%|█████████▌| 637/663 [00:01<00:00, 629.22 Segments/s][A
+                                                                               [AOverall Progress:  48%|████▊     | 45/93 [00:35<00:37,  1.29 Computational Sequence Entries/s]
+  0%|          | 0/484 [00:00<?, ? Segments/s][A
+Aligning Qr1Ca94K55A:   0%|          | 0/484 [00:00<?, ? Segments/s][A
+Aligning Qr1Ca94K55A:  14%|█▍        | 70/484 [00:00<00:00, 699.20 Segments/s][A
+Aligning Qr1Ca94K55A:  29%|██▉       | 142/484 [00:00<00:00, 706.95 Segments/s][A
+Aligning Qr1Ca94K55A:  44%|████▍     | 213/484 [00:00<00:00, 706.33 Segments/s][A
+Aligning Qr1Ca94K55A:  59%|█████▊    | 284/484 [00:00<00:00, 705.35 Segments/s][A
+Aligning Qr1Ca94K55A:  73%|███████▎  | 355/484 [00:00<00:00, 705.12 Segments/s][A
+Aligning Qr1Ca94K55A:  88%|████████▊ | 427/484 [00:00<00:00, 707.06 Segments/s][A
+                                                                               [AOverall Progress:  49%|████▉     | 46/93 [00:36<00:35,  1.34 Computational Sequence Entries/s]
+  0%|          | 0/706 [00:00<?, ? Segments/s][A
+Aligning Sqr0AcuoNnk:   0%|          | 0/706 [00:00<?, ? Segments/s][A
+Aligning Sqr0AcuoNnk:   9%|▉         | 64/706 [00:00<00:01, 639.01 Segments/s][A
+Aligning Sqr0AcuoNnk:  18%|█▊        | 128/706 [00:00<00:00, 636.59 Segments/s][A
+Aligning Sqr0AcuoNnk:  27%|██▋       | 193/706 [00:00<00:00, 639.30 Segments/s][A
+Aligning Sqr0AcuoNnk:  36%|███▋      | 257/706 [00:00<00:00, 638.70 Segments/s][A
+Aligning Sqr0AcuoNnk:  45%|████▌     | 321/706 [00:00<00:00, 637.87 Segments/s][A
+Aligning Sqr0AcuoNnk:  55%|█████▍    | 385/706 [00:00<00:00, 637.86 Segments/s][A
+Aligning Sqr0AcuoNnk:  64%|██████▎   | 450/706 [00:00<00:00, 638.79 Segments/s][A
+Aligning Sqr0AcuoNnk:  73%|███████▎  | 514/706 [00:00<00:00, 636.36 Segments/s][A
+Aligning Sqr0AcuoNnk:  82%|████████▏ | 578/706 [00:00<00:00, 632.30 Segments/s][A
+Aligning Sqr0AcuoNnk:  91%|█████████ | 642/706 [00:01<00:00, 630.49 Segments/s][A
+Aligning Sqr0AcuoNnk: 100%|██████████| 706/706 [00:01<00:00, 631.13 Segments/s][A
+                                                                               [AOverall Progress:  51%|█████     | 47/93 [00:37<00:39,  1.17 Computational Sequence Entries/s]
+  0%|          | 0/317 [00:00<?, ? Segments/s][A
+Aligning TvyZBvOMOTc:   0%|          | 0/317 [00:00<?, ? Segments/s][A
+Aligning TvyZBvOMOTc:  28%|██▊       | 90/317 [00:00<00:00, 893.93 Segments/s][A
+Aligning TvyZBvOMOTc:  57%|█████▋    | 180/317 [00:00<00:00, 888.35 Segments/s][A
+Aligning TvyZBvOMOTc:  85%|████████▍ | 269/317 [00:00<00:00, 882.31 Segments/s][A
+                                                                               [AOverall Progress:  52%|█████▏    | 48/93 [00:37<00:31,  1.41 Computational Sequence Entries/s]
+  0%|          | 0/611 [00:00<?, ? Segments/s][A
+Aligning VCslbP0mgZI:   0%|          | 0/611 [00:00<?, ? Segments/s][A
+Aligning VCslbP0mgZI:  11%|█         | 65/611 [00:00<00:00, 641.80 Segments/s][A
+Aligning VCslbP0mgZI:  21%|██▏       | 130/611 [00:00<00:00, 642.97 Segments/s][A
+Aligning VCslbP0mgZI:  32%|███▏      | 195/611 [00:00<00:00, 640.13 Segments/s][A
+Aligning VCslbP0mgZI:  43%|████▎     | 260/611 [00:00<00:00, 638.57 Segments/s][A
+Aligning VCslbP0mgZI:  53%|█████▎    | 324/611 [00:00<00:00, 637.72 Segments/s][A
+Aligning VCslbP0mgZI:  64%|██████▎   | 389/611 [00:00<00:00, 639.19 Segments/s][A
+Aligning VCslbP0mgZI:  74%|███████▍  | 454/611 [00:00<00:00, 640.63 Segments/s][A
+Aligning VCslbP0mgZI:  85%|████████▍ | 519/611 [00:00<00:00, 639.91 Segments/s][A
+Aligning VCslbP0mgZI:  95%|█████████▌| 583/611 [00:00<00:00, 636.43 Segments/s][A
+                                                                               [AOverall Progress:  53%|█████▎    | 49/93 [00:38<00:34,  1.28 Computational Sequence Entries/s]
+  0%|          | 0/751 [00:00<?, ? Segments/s][A
+Aligning VbQk4H8hgr0:   0%|          | 0/751 [00:00<?, ? Segments/s][A
+Aligning VbQk4H8hgr0:   9%|▊         | 64/751 [00:00<00:01, 634.94 Segments/s][A
+Aligning VbQk4H8hgr0:  17%|█▋        | 128/751 [00:00<00:00, 630.95 Segments/s][A
+Aligning VbQk4H8hgr0:  26%|██▌       | 192/751 [00:00<00:00, 633.29 Segments/s][A
+Aligning VbQk4H8hgr0:  34%|███▍      | 256/751 [00:00<00:00, 632.16 Segments/s][A
+Aligning VbQk4H8hgr0:  43%|████▎     | 320/751 [00:00<00:00, 632.02 Segments/s][A
+Aligning VbQk4H8hgr0:  51%|█████     | 384/751 [00:00<00:00, 633.43 Segments/s][A
+Aligning VbQk4H8hgr0:  60%|█████▉    | 448/751 [00:00<00:00, 634.24 Segments/s][A
+Aligning VbQk4H8hgr0:  68%|██████▊   | 512/751 [00:00<00:00, 633.94 Segments/s][A
+Aligning VbQk4H8hgr0:  77%|███████▋  | 576/751 [00:00<00:00, 633.69 Segments/s][A
+Aligning VbQk4H8hgr0:  85%|████████▌ | 640/751 [00:01<00:00, 631.61 Segments/s][A
+Aligning VbQk4H8hgr0:  94%|█████████▎| 704/751 [00:01<00:00, 630.57 Segments/s][A
+                                                                               [AOverall Progress:  54%|█████▍    | 50/93 [00:39<00:38,  1.11 Computational Sequence Entries/s]
+  0%|          | 0/622 [00:00<?, ? Segments/s][A
+Aligning Vj1wYRQjB-o:   0%|          | 0/622 [00:00<?, ? Segments/s][A
+Aligning Vj1wYRQjB-o:  10%|█         | 65/622 [00:00<00:00, 641.59 Segments/s][A
+Aligning Vj1wYRQjB-o:  21%|██        | 130/622 [00:00<00:00, 640.60 Segments/s][A
+Aligning Vj1wYRQjB-o:  31%|███▏      | 195/622 [00:00<00:00, 640.85 Segments/s][A
+Aligning Vj1wYRQjB-o:  42%|████▏     | 260/622 [00:00<00:00, 640.15 Segments/s][A
+Aligning Vj1wYRQjB-o:  52%|█████▏    | 325/622 [00:00<00:00, 636.53 Segments/s][A
+Aligning Vj1wYRQjB-o:  63%|██████▎   | 389/622 [00:00<00:00, 636.04 Segments/s][A
+Aligning Vj1wYRQjB-o:  73%|███████▎  | 454/622 [00:00<00:00, 637.47 Segments/s][A
+Aligning Vj1wYRQjB-o:  83%|████████▎ | 518/622 [00:00<00:00, 637.31 Segments/s][A
+Aligning Vj1wYRQjB-o:  94%|█████████▎| 582/622 [00:00<00:00, 636.49 Segments/s][A
+                                                                               [AOverall Progress:  55%|█████▍    | 51/93 [00:40<00:38,  1.08 Computational Sequence Entries/s]
+  0%|          | 0/612 [00:00<?, ? Segments/s][A
+Aligning W8NXH0Djyww:   0%|          | 0/612 [00:00<?, ? Segments/s][A
+Aligning W8NXH0Djyww:  10%|█         | 64/612 [00:00<00:00, 636.19 Segments/s][A
+Aligning W8NXH0Djyww:  21%|██        | 129/612 [00:00<00:00, 641.61 Segments/s][A
+Aligning W8NXH0Djyww:  32%|███▏      | 194/612 [00:00<00:00, 643.78 Segments/s][A
+Aligning W8NXH0Djyww:  42%|████▏     | 259/612 [00:00<00:00, 643.55 Segments/s][A
+Aligning W8NXH0Djyww:  53%|█████▎    | 324/612 [00:00<00:00, 639.91 Segments/s][A
+Aligning W8NXH0Djyww:  63%|██████▎   | 388/612 [00:00<00:00, 638.13 Segments/s][A
+Aligning W8NXH0Djyww:  74%|███████▍  | 452/612 [00:00<00:00, 636.49 Segments/s][A
+Aligning W8NXH0Djyww:  84%|████████▍ | 516/612 [00:00<00:00, 636.79 Segments/s][A
+Aligning W8NXH0Djyww:  95%|█████████▍| 580/612 [00:00<00:00, 637.15 Segments/s][A
+                                                                               [AOverall Progress:  56%|█████▌    | 52/93 [00:41<00:38,  1.07 Computational Sequence Entries/s]
+  0%|          | 0/621 [00:00<?, ? Segments/s][A
+Aligning WKA5OygbEKI:   0%|          | 0/621 [00:00<?, ? Segments/s][A
+Aligning WKA5OygbEKI:  11%|█         | 66/621 [00:00<00:00, 653.24 Segments/s][A
+Aligning WKA5OygbEKI:  21%|██▏       | 132/621 [00:00<00:00, 652.78 Segments/s][A
+Aligning WKA5OygbEKI:  32%|███▏      | 198/621 [00:00<00:00, 653.35 Segments/s][A
+Aligning WKA5OygbEKI:  43%|████▎     | 264/621 [00:00<00:00, 652.45 Segments/s][A
+Aligning WKA5OygbEKI:  53%|█████▎    | 330/621 [00:00<00:00, 651.86 Segments/s][A
+Aligning WKA5OygbEKI:  64%|██████▍   | 396/621 [00:00<00:00, 650.98 Segments/s][A
+Aligning WKA5OygbEKI:  74%|███████▍  | 462/621 [00:00<00:00, 649.30 Segments/s][A
+Aligning WKA5OygbEKI:  85%|████████▍ | 527/621 [00:00<00:00, 648.27 Segments/s][A
+Aligning WKA5OygbEKI:  95%|█████████▌| 592/621 [00:00<00:00, 645.16 Segments/s][A
+                                                                               [AOverall Progress:  57%|█████▋    | 53/93 [00:42<00:37,  1.06 Computational Sequence Entries/s]
+  0%|          | 0/249 [00:00<?, ? Segments/s][A
+Aligning X3j2zQgwYgE:   0%|          | 0/249 [00:00<?, ? Segments/s][A
+Aligning X3j2zQgwYgE:  36%|███▌      | 89/249 [00:00<00:00, 886.20 Segments/s][A
+Aligning X3j2zQgwYgE:  72%|███████▏  | 179/249 [00:00<00:00, 891.36 Segments/s][A
+                                                                               [AOverall Progress:  58%|█████▊    | 54/93 [00:43<00:29,  1.34 Computational Sequence Entries/s]
+  0%|          | 0/220 [00:00<?, ? Segments/s][A
+Aligning ZAIRrfG22O0:   0%|          | 0/220 [00:00<?, ? Segments/s][A
+Aligning ZAIRrfG22O0:  44%|████▍     | 97/220 [00:00<00:00, 964.58 Segments/s][A
+Aligning ZAIRrfG22O0:  88%|████████▊ | 194/220 [00:00<00:00, 958.87 Segments/s][A
+                                                                               [AOverall Progress:  59%|█████▉    | 55/93 [00:43<00:22,  1.69 Computational Sequence Entries/s]
+  0%|          | 0/537 [00:00<?, ? Segments/s][A
+Aligning ZUXBRvtny7o:   0%|          | 0/537 [00:00<?, ? Segments/s][A
+Aligning ZUXBRvtny7o:  12%|█▏        | 65/537 [00:00<00:00, 643.47 Segments/s][A
+Aligning ZUXBRvtny7o:  24%|██▍       | 130/537 [00:00<00:00, 646.70 Segments/s][A
+Aligning ZUXBRvtny7o:  36%|███▋      | 195/537 [00:00<00:00, 647.40 Segments/s][A
+Aligning ZUXBRvtny7o:  48%|████▊     | 260/537 [00:00<00:00, 646.49 Segments/s][A
+Aligning ZUXBRvtny7o:  61%|██████    | 325/537 [00:00<00:00, 642.21 Segments/s][A
+Aligning ZUXBRvtny7o:  73%|███████▎  | 390/537 [00:00<00:00, 642.44 Segments/s][A
+Aligning ZUXBRvtny7o:  85%|████████▍ | 455/537 [00:00<00:00, 642.18 Segments/s][A
+Aligning ZUXBRvtny7o:  97%|█████████▋| 520/537 [00:00<00:00, 641.38 Segments/s][A
+                                                                               [AOverall Progress:  60%|██████    | 56/93 [00:44<00:24,  1.51 Computational Sequence Entries/s]
+  0%|          | 0/675 [00:00<?, ? Segments/s][A
+Aligning _dI--eQ6qVU:   0%|          | 0/675 [00:00<?, ? Segments/s][A
+Aligning _dI--eQ6qVU:   9%|▉         | 64/675 [00:00<00:00, 636.49 Segments/s][A
+Aligning _dI--eQ6qVU:  19%|█▉        | 129/675 [00:00<00:00, 639.36 Segments/s][A
+Aligning _dI--eQ6qVU:  29%|██▊       | 194/675 [00:00<00:00, 641.89 Segments/s][A
+Aligning _dI--eQ6qVU:  38%|███▊      | 259/675 [00:00<00:00, 641.75 Segments/s][A
+Aligning _dI--eQ6qVU:  48%|████▊     | 324/675 [00:00<00:00, 640.56 Segments/s][A
+Aligning _dI--eQ6qVU:  58%|█████▊    | 389/675 [00:00<00:00, 639.88 Segments/s][A
+Aligning _dI--eQ6qVU:  67%|██████▋   | 453/675 [00:00<00:00, 638.53 Segments/s][A
+Aligning _dI--eQ6qVU:  77%|███████▋  | 517/675 [00:00<00:00, 637.90 Segments/s][A
+Aligning _dI--eQ6qVU:  86%|████████▌ | 581/675 [00:00<00:00, 637.48 Segments/s][A
+Aligning _dI--eQ6qVU:  96%|█████████▌| 645/675 [00:01<00:00, 635.57 Segments/s][A
+                                                                               [AOverall Progress:  61%|██████▏   | 57/93 [00:45<00:28,  1.28 Computational Sequence Entries/s]
+  0%|          | 0/591 [00:00<?, ? Segments/s][A
+Aligning aiEXnCPZubE:   0%|          | 0/591 [00:00<?, ? Segments/s][A
+Aligning aiEXnCPZubE:  11%|█         | 65/591 [00:00<00:00, 641.31 Segments/s][A
+Aligning aiEXnCPZubE:  22%|██▏       | 130/591 [00:00<00:00, 638.41 Segments/s][A
+Aligning aiEXnCPZubE:  33%|███▎      | 194/591 [00:00<00:00, 638.19 Segments/s][A
+Aligning aiEXnCPZubE:  44%|████▍     | 259/591 [00:00<00:00, 639.39 Segments/s][A
+Aligning aiEXnCPZubE:  55%|█████▍    | 323/591 [00:00<00:00, 637.66 Segments/s][A
+Aligning aiEXnCPZubE:  65%|██████▌   | 387/591 [00:00<00:00, 638.16 Segments/s][A
+Aligning aiEXnCPZubE:  76%|███████▋  | 451/591 [00:00<00:00, 636.86 Segments/s][A
+Aligning aiEXnCPZubE:  87%|████████▋ | 515/591 [00:00<00:00, 636.60 Segments/s][A
+Aligning aiEXnCPZubE:  98%|█████████▊| 579/591 [00:00<00:00, 636.79 Segments/s][A
+                                                                               [AOverall Progress:  62%|██████▏   | 58/93 [00:46<00:28,  1.21 Computational Sequence Entries/s]
+  0%|          | 0/557 [00:00<?, ? Segments/s][A
+Aligning atnd_PF-Lbs:   0%|          | 0/557 [00:00<?, ? Segments/s][A
+Aligning atnd_PF-Lbs:  12%|█▏        | 65/557 [00:00<00:00, 646.52 Segments/s][A
+Aligning atnd_PF-Lbs:  23%|██▎       | 130/557 [00:00<00:00, 646.09 Segments/s][A
+Aligning atnd_PF-Lbs:  35%|███▌      | 195/557 [00:00<00:00, 642.32 Segments/s][A
+Aligning atnd_PF-Lbs:  47%|████▋     | 260/557 [00:00<00:00, 643.44 Segments/s][A
+Aligning atnd_PF-Lbs:  58%|█████▊    | 325/557 [00:00<00:00, 642.21 Segments/s][A
+Aligning atnd_PF-Lbs:  70%|███████   | 390/557 [00:00<00:00, 641.74 Segments/s][A
+Aligning atnd_PF-Lbs:  82%|████████▏ | 455/557 [00:00<00:00, 642.91 Segments/s][A
+Aligning atnd_PF-Lbs:  93%|█████████▎| 520/557 [00:00<00:00, 639.26 Segments/s][A
+                                                                               [AOverall Progress:  63%|██████▎   | 59/93 [00:47<00:28,  1.19 Computational Sequence Entries/s]
+  0%|          | 0/443 [00:00<?, ? Segments/s][A
+Aligning bOL9jKpeJRs:   0%|          | 0/443 [00:00<?, ? Segments/s][A
+Aligning bOL9jKpeJRs:  17%|█▋        | 76/443 [00:00<00:00, 753.39 Segments/s][A
+Aligning bOL9jKpeJRs:  34%|███▍      | 152/443 [00:00<00:00, 755.33 Segments/s][A
+Aligning bOL9jKpeJRs:  51%|█████▏    | 228/443 [00:00<00:00, 756.74 Segments/s][A
+Aligning bOL9jKpeJRs:  69%|██████▊   | 304/443 [00:00<00:00, 757.39 Segments/s][A
+Aligning bOL9jKpeJRs:  86%|████████▌ | 380/443 [00:00<00:00, 756.48 Segments/s][A
+                                                                               [AOverall Progress:  65%|██████▍   | 60/93 [00:47<00:25,  1.31 Computational Sequence Entries/s]
+  0%|          | 0/595 [00:00<?, ? Segments/s][A
+Aligning bvLlb-M3UXU:   0%|          | 0/595 [00:00<?, ? Segments/s][A
+Aligning bvLlb-M3UXU:  11%|█         | 65/595 [00:00<00:00, 641.47 Segments/s][A
+Aligning bvLlb-M3UXU:  22%|██▏       | 130/595 [00:00<00:00, 641.26 Segments/s][A
+Aligning bvLlb-M3UXU:  33%|███▎      | 195/595 [00:00<00:00, 642.33 Segments/s][A
+Aligning bvLlb-M3UXU:  44%|████▎     | 260/595 [00:00<00:00, 642.18 Segments/s][A
+Aligning bvLlb-M3UXU:  55%|█████▍    | 325/595 [00:00<00:00, 639.42 Segments/s][A
+Aligning bvLlb-M3UXU:  65%|██████▌   | 389/595 [00:00<00:00, 637.44 Segments/s][A
+Aligning bvLlb-M3UXU:  76%|███████▌  | 453/595 [00:00<00:00, 638.06 Segments/s][A
+Aligning bvLlb-M3UXU:  87%|████████▋ | 517/595 [00:00<00:00, 637.51 Segments/s][A
+Aligning bvLlb-M3UXU:  98%|█████████▊| 581/595 [00:00<00:00, 637.06 Segments/s][A
+                                                                               [AOverall Progress:  66%|██████▌   | 61/93 [00:48<00:26,  1.23 Computational Sequence Entries/s]
+  0%|          | 0/694 [00:00<?, ? Segments/s][A
+Aligning c5xsKMxpXnc:   0%|          | 0/694 [00:00<?, ? Segments/s][A
+Aligning c5xsKMxpXnc:   9%|▉         | 64/694 [00:00<00:00, 637.16 Segments/s][A
+Aligning c5xsKMxpXnc:  19%|█▊        | 129/694 [00:00<00:00, 639.74 Segments/s][A
+Aligning c5xsKMxpXnc:  28%|██▊       | 194/694 [00:00<00:00, 640.72 Segments/s][A
+Aligning c5xsKMxpXnc:  37%|███▋      | 259/694 [00:00<00:00, 641.86 Segments/s][A
+Aligning c5xsKMxpXnc:  47%|████▋     | 324/694 [00:00<00:00, 641.81 Segments/s][A
+Aligning c5xsKMxpXnc:  56%|█████▌    | 389/694 [00:00<00:00, 638.76 Segments/s][A
+Aligning c5xsKMxpXnc:  65%|██████▌   | 453/694 [00:00<00:00, 635.44 Segments/s][A
+Aligning c5xsKMxpXnc:  74%|███████▍  | 517/694 [00:00<00:00, 634.76 Segments/s][A
+Aligning c5xsKMxpXnc:  84%|████████▎ | 581/694 [00:00<00:00, 633.96 Segments/s][A
+Aligning c5xsKMxpXnc:  93%|█████████▎| 645/694 [00:01<00:00, 633.76 Segments/s][A
+                                                                               [AOverall Progress:  67%|██████▋   | 62/93 [00:49<00:27,  1.11 Computational Sequence Entries/s]
+  0%|          | 0/448 [00:00<?, ? Segments/s][A
+Aligning c7UH_rxdZv4:   0%|          | 0/448 [00:00<?, ? Segments/s][A
+Aligning c7UH_rxdZv4:  15%|█▍        | 66/448 [00:00<00:00, 651.47 Segments/s][A
+Aligning c7UH_rxdZv4:  29%|██▉       | 132/448 [00:00<00:00, 652.70 Segments/s][A
+Aligning c7UH_rxdZv4:  44%|████▍     | 198/448 [00:00<00:00, 652.91 Segments/s][A
+Aligning c7UH_rxdZv4:  59%|█████▉    | 264/448 [00:00<00:00, 651.52 Segments/s][A
+Aligning c7UH_rxdZv4:  74%|███████▎  | 330/448 [00:00<00:00, 644.32 Segments/s][A
+Aligning c7UH_rxdZv4:  88%|████████▊ | 395/448 [00:00<00:00, 643.09 Segments/s][A
+                                                                               [AOverall Progress:  68%|██████▊   | 63/93 [00:50<00:25,  1.20 Computational Sequence Entries/s]
+  0%|          | 0/548 [00:00<?, ? Segments/s][A
+Aligning cM3Yna7AavY:   0%|          | 0/548 [00:00<?, ? Segments/s][A
+Aligning cM3Yna7AavY:  12%|█▏        | 66/548 [00:00<00:00, 650.00 Segments/s][A
+Aligning cM3Yna7AavY:  24%|██▍       | 132/548 [00:00<00:00, 650.32 Segments/s][A
+Aligning cM3Yna7AavY:  36%|███▌      | 198/548 [00:00<00:00, 647.82 Segments/s][A
+Aligning cM3Yna7AavY:  48%|████▊     | 263/548 [00:00<00:00, 647.11 Segments/s][A
+Aligning cM3Yna7AavY:  60%|█████▉    | 328/548 [00:00<00:00, 647.46 Segments/s][A
+Aligning cM3Yna7AavY:  72%|███████▏  | 393/548 [00:00<00:00, 644.09 Segments/s][A
+Aligning cM3Yna7AavY:  84%|████████▎ | 458/548 [00:00<00:00, 643.22 Segments/s][A
+Aligning cM3Yna7AavY:  95%|█████████▌| 523/548 [00:00<00:00, 643.89 Segments/s][A
+                                                                               [AOverall Progress:  69%|██████▉   | 64/93 [00:51<00:24,  1.19 Computational Sequence Entries/s]
+  0%|          | 0/497 [00:00<?, ? Segments/s][A
+Aligning cW1FSBF59ik:   0%|          | 0/497 [00:00<?, ? Segments/s][A
+Aligning cW1FSBF59ik:  13%|█▎        | 65/497 [00:00<00:00, 646.47 Segments/s][A
+Aligning cW1FSBF59ik:  26%|██▌       | 130/497 [00:00<00:00, 645.93 Segments/s][A
+Aligning cW1FSBF59ik:  39%|███▉      | 196/497 [00:00<00:00, 648.85 Segments/s][A
+Aligning cW1FSBF59ik:  53%|█████▎    | 262/497 [00:00<00:00, 649.59 Segments/s][A
+Aligning cW1FSBF59ik:  66%|██████▌   | 328/497 [00:00<00:00, 649.90 Segments/s][A
+Aligning cW1FSBF59ik:  79%|███████▉  | 393/497 [00:00<00:00, 649.91 Segments/s][A
+Aligning cW1FSBF59ik:  92%|█████████▏| 458/497 [00:00<00:00, 648.51 Segments/s][A
+                                                                               [AOverall Progress:  70%|██████▉   | 65/93 [00:51<00:22,  1.22 Computational Sequence Entries/s]
+  0%|          | 0/717 [00:00<?, ? Segments/s][A
+Aligning cXypl4FnoZo:   0%|          | 0/717 [00:00<?, ? Segments/s][A
+Aligning cXypl4FnoZo:   9%|▉         | 65/717 [00:00<00:01, 642.83 Segments/s][A
+Aligning cXypl4FnoZo:  18%|█▊        | 130/717 [00:00<00:00, 641.03 Segments/s][A
+Aligning cXypl4FnoZo:  27%|██▋       | 195/717 [00:00<00:00, 637.90 Segments/s][A
+Aligning cXypl4FnoZo:  36%|███▌      | 259/717 [00:00<00:00, 637.01 Segments/s][A
+Aligning cXypl4FnoZo:  45%|████▌     | 323/717 [00:00<00:00, 637.26 Segments/s][A
+Aligning cXypl4FnoZo:  54%|█████▍    | 387/717 [00:00<00:00, 637.09 Segments/s][A
+Aligning cXypl4FnoZo:  63%|██████▎   | 451/717 [00:00<00:00, 636.02 Segments/s][A
+Aligning cXypl4FnoZo:  72%|███████▏  | 515/717 [00:00<00:00, 636.08 Segments/s][A
+Aligning cXypl4FnoZo:  81%|████████  | 579/717 [00:00<00:00, 637.19 Segments/s][A
+Aligning cXypl4FnoZo:  90%|████████▉ | 643/717 [00:01<00:00, 637.99 Segments/s][A
+Aligning cXypl4FnoZo:  99%|█████████▊| 707/717 [00:01<00:00, 638.44 Segments/s][A
+                                                                               [AOverall Progress:  71%|███████   | 66/93 [00:53<00:24,  1.10 Computational Sequence Entries/s]
+  0%|          | 0/572 [00:00<?, ? Segments/s][A
+Aligning d3_k5Xpfmik:   0%|          | 0/572 [00:00<?, ? Segments/s][A
+Aligning d3_k5Xpfmik:  12%|█▏        | 66/572 [00:00<00:00, 652.05 Segments/s][A
+Aligning d3_k5Xpfmik:  23%|██▎       | 132/572 [00:00<00:00, 651.27 Segments/s][A
+Aligning d3_k5Xpfmik:  35%|███▍      | 198/572 [00:00<00:00, 647.24 Segments/s][A
+Aligning d3_k5Xpfmik:  46%|████▌     | 263/572 [00:00<00:00, 644.34 Segments/s][A
+Aligning d3_k5Xpfmik:  57%|█████▋    | 328/572 [00:00<00:00, 642.63 Segments/s][A
+Aligning d3_k5Xpfmik:  69%|██████▊   | 393/572 [00:00<00:00, 642.24 Segments/s][A
+Aligning d3_k5Xpfmik:  80%|████████  | 458/572 [00:00<00:00, 641.69 Segments/s][A
+Aligning d3_k5Xpfmik:  91%|█████████▏| 523/572 [00:00<00:00, 641.31 Segments/s][A
+                                                                               [AOverall Progress:  72%|███████▏  | 67/93 [00:53<00:23,  1.11 Computational Sequence Entries/s]
+  0%|          | 0/481 [00:00<?, ? Segments/s][A
+Aligning d6hH302o4v8:   0%|          | 0/481 [00:00<?, ? Segments/s][A
+Aligning d6hH302o4v8:  15%|█▍        | 71/481 [00:00<00:00, 701.07 Segments/s][A
+Aligning d6hH302o4v8:  30%|██▉       | 142/481 [00:00<00:00, 706.00 Segments/s][A
+Aligning d6hH302o4v8:  44%|████▍     | 213/481 [00:00<00:00, 706.46 Segments/s][A
+Aligning d6hH302o4v8:  59%|█████▉    | 284/481 [00:00<00:00, 705.54 Segments/s][A
+Aligning d6hH302o4v8:  74%|███████▍  | 355/481 [00:00<00:00, 704.52 Segments/s][A
+Aligning d6hH302o4v8:  89%|████████▊ | 426/481 [00:00<00:00, 704.69 Segments/s][A
+                                                                               [AOverall Progress:  73%|███████▎  | 68/93 [00:54<00:20,  1.19 Computational Sequence Entries/s]
+  0%|          | 0/287 [00:00<?, ? Segments/s][A
+Aligning dq3Nf_lMPnE:   0%|          | 0/287 [00:00<?, ? Segments/s][A
+Aligning dq3Nf_lMPnE:  29%|██▉       | 83/287 [00:00<00:00, 820.83 Segments/s][A
+Aligning dq3Nf_lMPnE:  58%|█████▊    | 166/287 [00:00<00:00, 821.06 Segments/s][A
+Aligning dq3Nf_lMPnE:  87%|████████▋ | 249/287 [00:00<00:00, 820.00 Segments/s][A
+                                                                               [AOverall Progress:  74%|███████▍  | 69/93 [00:55<00:16,  1.45 Computational Sequence Entries/s]
+  0%|          | 0/687 [00:00<?, ? Segments/s][A
+Aligning etzxEpPuc6I:   0%|          | 0/687 [00:00<?, ? Segments/s][A
+Aligning etzxEpPuc6I:   9%|▉         | 65/687 [00:00<00:00, 640.89 Segments/s][A
+Aligning etzxEpPuc6I:  19%|█▉        | 130/687 [00:00<00:00, 642.66 Segments/s][A
+Aligning etzxEpPuc6I:  28%|██▊       | 195/687 [00:00<00:00, 643.32 Segments/s][A
+Aligning etzxEpPuc6I:  38%|███▊      | 260/687 [00:00<00:00, 637.32 Segments/s][A
+Aligning etzxEpPuc6I:  47%|████▋     | 324/687 [00:00<00:00, 635.24 Segments/s][A
+Aligning etzxEpPuc6I:  56%|█████▋    | 388/687 [00:00<00:00, 635.93 Segments/s][A
+Aligning etzxEpPuc6I:  66%|██████▌   | 452/687 [00:00<00:00, 636.71 Segments/s][A
+Aligning etzxEpPuc6I:  75%|███████▌  | 516/687 [00:00<00:00, 636.51 Segments/s][A
+Aligning etzxEpPuc6I:  84%|████████▍ | 580/687 [00:00<00:00, 635.11 Segments/s][A
+Aligning etzxEpPuc6I:  94%|█████████▎| 644/687 [00:01<00:00, 632.96 Segments/s][A
+                                                                               [AOverall Progress:  75%|███████▌  | 70/93 [00:56<00:18,  1.24 Computational Sequence Entries/s]
+  0%|          | 0/500 [00:00<?, ? Segments/s][A
+Aligning f9O3YtZ2VfI:   0%|          | 0/500 [00:00<?, ? Segments/s][A
+Aligning f9O3YtZ2VfI:  14%|█▍        | 70/500 [00:00<00:00, 692.44 Segments/s][A
+Aligning f9O3YtZ2VfI:  28%|██▊       | 140/500 [00:00<00:00, 693.08 Segments/s][A
+Aligning f9O3YtZ2VfI:  42%|████▏     | 210/500 [00:00<00:00, 695.06 Segments/s][A
+Aligning f9O3YtZ2VfI:  56%|█████▌    | 280/500 [00:00<00:00, 692.49 Segments/s][A
+Aligning f9O3YtZ2VfI:  70%|███████   | 350/500 [00:00<00:00, 692.27 Segments/s][A
+Aligning f9O3YtZ2VfI:  84%|████████▍ | 420/500 [00:00<00:00, 691.87 Segments/s][A
+Aligning f9O3YtZ2VfI:  98%|█████████▊| 490/500 [00:00<00:00, 689.82 Segments/s][A
+                                                                               [AOverall Progress:  76%|███████▋  | 71/93 [00:56<00:17,  1.28 Computational Sequence Entries/s]
+  0%|          | 0/456 [00:00<?, ? Segments/s][A
+Aligning f_pcplsH_V0:   0%|          | 0/456 [00:00<?, ? Segments/s][A
+Aligning f_pcplsH_V0:  14%|█▍        | 66/456 [00:00<00:00, 651.47 Segments/s][A
+Aligning f_pcplsH_V0:  29%|██▉       | 132/456 [00:00<00:00, 652.45 Segments/s][A
+Aligning f_pcplsH_V0:  43%|████▎     | 198/456 [00:00<00:00, 653.07 Segments/s][A
+Aligning f_pcplsH_V0:  58%|█████▊    | 264/456 [00:00<00:00, 653.96 Segments/s][A
+Aligning f_pcplsH_V0:  72%|███████▏  | 330/456 [00:00<00:00, 653.30 Segments/s][A
+Aligning f_pcplsH_V0:  87%|████████▋ | 396/456 [00:00<00:00, 652.09 Segments/s][A
+                                                                               [AOverall Progress:  77%|███████▋  | 72/93 [00:57<00:15,  1.32 Computational Sequence Entries/s]
+  0%|          | 0/642 [00:00<?, ? Segments/s][A
+Aligning fvVhgmXxadc:   0%|          | 0/642 [00:00<?, ? Segments/s][A
+Aligning fvVhgmXxadc:  10%|█         | 65/642 [00:00<00:00, 642.25 Segments/s][A
+Aligning fvVhgmXxadc:  20%|██        | 130/642 [00:00<00:00, 643.63 Segments/s][A
+Aligning fvVhgmXxadc:  30%|███       | 195/642 [00:00<00:00, 644.17 Segments/s][A
+Aligning fvVhgmXxadc:  40%|████      | 260/642 [00:00<00:00, 644.33 Segments/s][A
+Aligning fvVhgmXxadc:  51%|█████     | 325/642 [00:00<00:00, 643.42 Segments/s][A
+Aligning fvVhgmXxadc:  61%|██████    | 390/642 [00:00<00:00, 643.10 Segments/s][A
+Aligning fvVhgmXxadc:  71%|███████   | 455/642 [00:00<00:00, 641.51 Segments/s][A
+Aligning fvVhgmXxadc:  81%|████████  | 520/642 [00:00<00:00, 640.26 Segments/s][A
+Aligning fvVhgmXxadc:  91%|█████████ | 585/642 [00:00<00:00, 638.80 Segments/s][A
+                                                                               [AOverall Progress:  78%|███████▊  | 73/93 [00:58<00:16,  1.20 Computational Sequence Entries/s]
+  0%|          | 0/306 [00:00<?, ? Segments/s][A
+Aligning iiK8YX8oH1E:   0%|          | 0/306 [00:00<?, ? Segments/s][A
+Aligning iiK8YX8oH1E:  27%|██▋       | 84/306 [00:00<00:00, 836.54 Segments/s][A
+Aligning iiK8YX8oH1E:  55%|█████▍    | 168/306 [00:00<00:00, 832.13 Segments/s][A
+Aligning iiK8YX8oH1E:  82%|████████▏ | 252/306 [00:00<00:00, 832.00 Segments/s][A
+                                                                               [AOverall Progress:  80%|███████▉  | 74/93 [00:58<00:13,  1.44 Computational Sequence Entries/s]
+  0%|          | 0/638 [00:00<?, ? Segments/s][A
+Aligning jUzDDGyPkXU:   0%|          | 0/638 [00:00<?, ? Segments/s][A
+Aligning jUzDDGyPkXU:  10%|█         | 65/638 [00:00<00:00, 640.28 Segments/s][A
+Aligning jUzDDGyPkXU:  20%|██        | 130/638 [00:00<00:00, 640.03 Segments/s][A
+Aligning jUzDDGyPkXU:  31%|███       | 195/638 [00:00<00:00, 643.74 Segments/s][A
+Aligning jUzDDGyPkXU:  41%|████      | 260/638 [00:00<00:00, 644.98 Segments/s][A
+Aligning jUzDDGyPkXU:  51%|█████     | 325/638 [00:00<00:00, 643.42 Segments/s][A
+Aligning jUzDDGyPkXU:  61%|██████    | 390/638 [00:00<00:00, 640.97 Segments/s][A
+Aligning jUzDDGyPkXU:  71%|███████▏  | 455/638 [00:00<00:00, 641.34 Segments/s][A
+Aligning jUzDDGyPkXU:  82%|████████▏ | 520/638 [00:00<00:00, 638.85 Segments/s][A
+Aligning jUzDDGyPkXU:  92%|█████████▏| 585/638 [00:00<00:00, 639.44 Segments/s][A
+                                                                               [AOverall Progress:  81%|████████  | 75/93 [00:59<00:14,  1.28 Computational Sequence Entries/s]
+  0%|          | 0/623 [00:00<?, ? Segments/s][A
+Aligning k5Y_838nuGo:   0%|          | 0/623 [00:00<?, ? Segments/s][A
+Aligning k5Y_838nuGo:  10%|█         | 65/623 [00:00<00:00, 645.61 Segments/s][A
+Aligning k5Y_838nuGo:  21%|██        | 130/623 [00:00<00:00, 646.62 Segments/s][A
+Aligning k5Y_838nuGo:  31%|███▏      | 195/623 [00:00<00:00, 647.24 Segments/s][A
+Aligning k5Y_838nuGo:  42%|████▏     | 260/623 [00:00<00:00, 645.88 Segments/s][A
+Aligning k5Y_838nuGo:  52%|█████▏    | 325/623 [00:00<00:00, 644.34 Segments/s][A
+Aligning k5Y_838nuGo:  63%|██████▎   | 390/623 [00:00<00:00, 640.92 Segments/s][A
+Aligning k5Y_838nuGo:  73%|███████▎  | 455/623 [00:00<00:00, 641.51 Segments/s][A
+Aligning k5Y_838nuGo:  83%|████████▎ | 520/623 [00:00<00:00, 641.59 Segments/s][A
+Aligning k5Y_838nuGo:  94%|█████████▍| 585/623 [00:00<00:00, 641.18 Segments/s][A
+                                                                               [AOverall Progress:  82%|████████▏ | 76/93 [01:00<00:14,  1.19 Computational Sequence Entries/s]
+  0%|          | 0/655 [00:00<?, ? Segments/s][A
+Aligning lXPQBPVc5Cw:   0%|          | 0/655 [00:00<?, ? Segments/s][A
+Aligning lXPQBPVc5Cw:  10%|▉         | 65/655 [00:00<00:00, 641.09 Segments/s][A
+Aligning lXPQBPVc5Cw:  20%|█▉        | 130/655 [00:00<00:00, 642.67 Segments/s][A
+Aligning lXPQBPVc5Cw:  30%|██▉       | 195/655 [00:00<00:00, 643.39 Segments/s][A
+Aligning lXPQBPVc5Cw:  40%|███▉      | 260/655 [00:00<00:00, 643.48 Segments/s][A
+Aligning lXPQBPVc5Cw:  50%|████▉     | 325/655 [00:00<00:00, 641.31 Segments/s][A
+Aligning lXPQBPVc5Cw:  60%|█████▉    | 390/655 [00:00<00:00, 640.21 Segments/s][A
+Aligning lXPQBPVc5Cw:  69%|██████▉   | 455/655 [00:00<00:00, 640.82 Segments/s][A
+Aligning lXPQBPVc5Cw:  79%|███████▉  | 520/655 [00:00<00:00, 640.55 Segments/s][A
+Aligning lXPQBPVc5Cw:  89%|████████▉ | 585/655 [00:00<00:00, 637.51 Segments/s][A
+Aligning lXPQBPVc5Cw:  99%|█████████▉| 649/655 [00:01<00:00, 635.57 Segments/s][A
+                                                                               [AOverall Progress:  83%|████████▎ | 77/93 [01:01<00:14,  1.12 Computational Sequence Entries/s]
+  0%|          | 0/593 [00:00<?, ? Segments/s][A
+Aligning nbWiPyCm4g0:   0%|          | 0/593 [00:00<?, ? Segments/s][A
+Aligning nbWiPyCm4g0:  11%|█         | 65/593 [00:00<00:00, 649.36 Segments/s][A
+Aligning nbWiPyCm4g0:  22%|██▏       | 130/593 [00:00<00:00, 648.78 Segments/s][A
+Aligning nbWiPyCm4g0:  33%|███▎      | 195/593 [00:00<00:00, 647.07 Segments/s][A
+Aligning nbWiPyCm4g0:  44%|████▍     | 260/593 [00:00<00:00, 646.58 Segments/s][A
+Aligning nbWiPyCm4g0:  55%|█████▍    | 325/593 [00:00<00:00, 643.82 Segments/s][A
+Aligning nbWiPyCm4g0:  66%|██████▌   | 390/593 [00:00<00:00, 642.99 Segments/s][A
+Aligning nbWiPyCm4g0:  77%|███████▋  | 455/593 [00:00<00:00, 642.91 Segments/s][A
+Aligning nbWiPyCm4g0:  88%|████████▊ | 520/593 [00:00<00:00, 640.98 Segments/s][A
+Aligning nbWiPyCm4g0:  99%|█████████▊| 585/593 [00:00<00:00, 639.91 Segments/s][A
+                                                                               [AOverall Progress:  84%|████████▍ | 78/93 [01:02<00:13,  1.11 Computational Sequence Entries/s]
+  0%|          | 0/574 [00:00<?, ? Segments/s][A
+Aligning nzpVDcQ0ywM:   0%|          | 0/574 [00:00<?, ? Segments/s][A
+Aligning nzpVDcQ0ywM:  11%|█         | 64/574 [00:00<00:00, 635.34 Segments/s][A
+Aligning nzpVDcQ0ywM:  22%|██▏       | 129/574 [00:00<00:00, 642.50 Segments/s][A
+Aligning nzpVDcQ0ywM:  34%|███▍      | 194/574 [00:00<00:00, 644.98 Segments/s][A
+Aligning nzpVDcQ0ywM:  45%|████▌     | 259/574 [00:00<00:00, 645.98 Segments/s][A
+Aligning nzpVDcQ0ywM:  56%|█████▋    | 324/574 [00:00<00:00, 646.59 Segments/s][A
+Aligning nzpVDcQ0ywM:  68%|██████▊   | 389/574 [00:00<00:00, 646.04 Segments/s][A
+Aligning nzpVDcQ0ywM:  79%|███████▉  | 454/574 [00:00<00:00, 645.64 Segments/s][A
+Aligning nzpVDcQ0ywM:  90%|█████████ | 519/574 [00:00<00:00, 644.87 Segments/s][A
+                                                                               [AOverall Progress:  85%|████████▍ | 79/93 [01:03<00:12,  1.11 Computational Sequence Entries/s]
+  0%|          | 0/413 [00:00<?, ? Segments/s][A
+Aligning ob23OKe5a9Q:   0%|          | 0/413 [00:00<?, ? Segments/s][A
+Aligning ob23OKe5a9Q:  17%|█▋        | 72/413 [00:00<00:00, 717.80 Segments/s][A
+Aligning ob23OKe5a9Q:  35%|███▍      | 144/413 [00:00<00:00, 718.72 Segments/s][A
+Aligning ob23OKe5a9Q:  53%|█████▎    | 217/413 [00:00<00:00, 720.07 Segments/s][A
+Aligning ob23OKe5a9Q:  70%|███████   | 290/413 [00:00<00:00, 720.50 Segments/s][A
+Aligning ob23OKe5a9Q:  88%|████████▊ | 363/413 [00:00<00:00, 720.91 Segments/s][A
+                                                                               [AOverall Progress:  86%|████████▌ | 80/93 [01:04<00:10,  1.25 Computational Sequence Entries/s]
+  0%|          | 0/489 [00:00<?, ? Segments/s][A
+Aligning pLTX3ipuDJI:   0%|          | 0/489 [00:00<?, ? Segments/s][A
+Aligning pLTX3ipuDJI:  16%|█▌        | 77/489 [00:00<00:00, 764.81 Segments/s][A
+Aligning pLTX3ipuDJI:  31%|███▏      | 154/489 [00:00<00:00, 763.46 Segments/s][A
+Aligning pLTX3ipuDJI:  47%|████▋     | 231/489 [00:00<00:00, 762.04 Segments/s][A
+Aligning pLTX3ipuDJI:  63%|██████▎   | 308/489 [00:00<00:00, 759.04 Segments/s][A
+Aligning pLTX3ipuDJI:  79%|███████▊  | 384/489 [00:00<00:00, 758.45 Segments/s][A
+Aligning pLTX3ipuDJI:  94%|█████████▍| 460/489 [00:00<00:00, 757.50 Segments/s][A
+                                                                               [AOverall Progress:  87%|████████▋ | 81/93 [01:04<00:09,  1.32 Computational Sequence Entries/s]
+  0%|          | 0/720 [00:00<?, ? Segments/s][A
+Aligning phBUpBr1hSo:   0%|          | 0/720 [00:00<?, ? Segments/s][A
+Aligning phBUpBr1hSo:   9%|▉         | 64/720 [00:00<00:01, 636.44 Segments/s][A
+Aligning phBUpBr1hSo:  18%|█▊        | 129/720 [00:00<00:00, 639.84 Segments/s][A
+Aligning phBUpBr1hSo:  27%|██▋       | 194/720 [00:00<00:00, 640.66 Segments/s][A
+Aligning phBUpBr1hSo:  36%|███▌      | 259/720 [00:00<00:00, 639.00 Segments/s][A
+Aligning phBUpBr1hSo:  45%|████▍     | 323/720 [00:00<00:00, 637.42 Segments/s][A
+Aligning phBUpBr1hSo:  54%|█████▍    | 388/720 [00:00<00:00, 638.89 Segments/s][A
+Aligning phBUpBr1hSo:  63%|██████▎   | 452/720 [00:00<00:00, 637.87 Segments/s][A
+Aligning phBUpBr1hSo:  72%|███████▏  | 516/720 [00:00<00:00, 635.65 Segments/s][A
+Aligning phBUpBr1hSo:  81%|████████  | 580/720 [00:00<00:00, 635.80 Segments/s][A
+Aligning phBUpBr1hSo:  89%|████████▉ | 644/720 [00:01<00:00, 636.04 Segments/s][A
+Aligning phBUpBr1hSo:  98%|█████████▊| 708/720 [00:01<00:00, 634.38 Segments/s][A
+                                                                               [AOverall Progress:  88%|████████▊ | 82/93 [01:06<00:09,  1.15 Computational Sequence Entries/s]
+  0%|          | 0/701 [00:00<?, ? Segments/s][A
+Aligning rnaNMUZpvvg:   0%|          | 0/701 [00:00<?, ? Segments/s][A
+Aligning rnaNMUZpvvg:   9%|▉         | 63/701 [00:00<00:01, 622.88 Segments/s][A
+Aligning rnaNMUZpvvg:  18%|█▊        | 127/701 [00:00<00:00, 628.02 Segments/s][A
+Aligning rnaNMUZpvvg:  27%|██▋       | 191/701 [00:00<00:00, 632.34 Segments/s][A
+Aligning rnaNMUZpvvg:  36%|███▋      | 255/701 [00:00<00:00, 635.27 Segments/s][A
+Aligning rnaNMUZpvvg:  46%|████▌     | 319/701 [00:00<00:00, 635.67 Segments/s][A
+Aligning rnaNMUZpvvg:  55%|█████▍    | 383/701 [00:00<00:00, 634.30 Segments/s][A
+Aligning rnaNMUZpvvg:  64%|██████▍   | 447/701 [00:00<00:00, 634.70 Segments/s][A
+Aligning rnaNMUZpvvg:  73%|███████▎  | 511/701 [00:00<00:00, 634.78 Segments/s][A
+Aligning rnaNMUZpvvg:  82%|████████▏ | 575/701 [00:00<00:00, 635.11 Segments/s][A
+Aligning rnaNMUZpvvg:  91%|█████████ | 639/701 [00:01<00:00, 632.58 Segments/s][A
+                                                                               [AOverall Progress:  89%|████████▉ | 83/93 [01:07<00:09,  1.06 Computational Sequence Entries/s]
+  0%|          | 0/589 [00:00<?, ? Segments/s][A
+Aligning tIrG4oNLFzE:   0%|          | 0/589 [00:00<?, ? Segments/s][A
+Aligning tIrG4oNLFzE:  11%|█         | 65/589 [00:00<00:00, 641.72 Segments/s][A
+Aligning tIrG4oNLFzE:  22%|██▏       | 130/589 [00:00<00:00, 644.35 Segments/s][A
+Aligning tIrG4oNLFzE:  33%|███▎      | 195/589 [00:00<00:00, 644.14 Segments/s][A
+Aligning tIrG4oNLFzE:  44%|████▍     | 260/589 [00:00<00:00, 643.74 Segments/s][A
+Aligning tIrG4oNLFzE:  55%|█████▌    | 325/589 [00:00<00:00, 643.33 Segments/s][A
+Aligning tIrG4oNLFzE:  66%|██████▌   | 390/589 [00:00<00:00, 642.80 Segments/s][A
+Aligning tIrG4oNLFzE:  77%|███████▋  | 455/589 [00:00<00:00, 642.03 Segments/s][A
+Aligning tIrG4oNLFzE:  88%|████████▊ | 520/589 [00:00<00:00, 641.63 Segments/s][A
+Aligning tIrG4oNLFzE:  99%|█████████▉| 585/589 [00:00<00:00, 641.30 Segments/s][A
+                                                                               [AOverall Progress:  90%|█████████ | 84/93 [01:08<00:08,  1.07 Computational Sequence Entries/s]
+  0%|          | 0/429 [00:00<?, ? Segments/s][A
+Aligning tStelxIAHjw:   0%|          | 0/429 [00:00<?, ? Segments/s][A
+Aligning tStelxIAHjw:  17%|█▋        | 75/429 [00:00<00:00, 743.47 Segments/s][A
+Aligning tStelxIAHjw:  35%|███▍      | 150/429 [00:00<00:00, 744.10 Segments/s][A
+Aligning tStelxIAHjw:  52%|█████▏    | 225/429 [00:00<00:00, 744.93 Segments/s][A
+Aligning tStelxIAHjw:  70%|██████▉   | 300/429 [00:00<00:00, 742.47 Segments/s][A
+Aligning tStelxIAHjw:  87%|████████▋ | 375/429 [00:00<00:00, 740.04 Segments/s][A
+                                                                               [AOverall Progress:  91%|█████████▏| 85/93 [01:08<00:06,  1.21 Computational Sequence Entries/s]
+  0%|          | 0/376 [00:00<?, ? Segments/s][A
+Aligning tmZoasNr4rU:   0%|          | 0/376 [00:00<?, ? Segments/s][A
+Aligning tmZoasNr4rU:  18%|█▊        | 66/376 [00:00<00:00, 653.61 Segments/s][A
+Aligning tmZoasNr4rU:  35%|███▌      | 132/376 [00:00<00:00, 653.77 Segments/s][A
+Aligning tmZoasNr4rU:  53%|█████▎    | 198/376 [00:00<00:00, 652.76 Segments/s][A
+Aligning tmZoasNr4rU:  70%|███████   | 264/376 [00:00<00:00, 651.36 Segments/s][A
+Aligning tmZoasNr4rU:  88%|████████▊ | 330/376 [00:00<00:00, 648.08 Segments/s][A
+                                                                               [AOverall Progress:  92%|█████████▏| 86/93 [01:09<00:05,  1.33 Computational Sequence Entries/s]
+  0%|          | 0/470 [00:00<?, ? Segments/s][A
+Aligning v0zCBqDeKcE:   0%|          | 0/470 [00:00<?, ? Segments/s][A
+Aligning v0zCBqDeKcE:  14%|█▍        | 66/470 [00:00<00:00, 654.83 Segments/s][A
+Aligning v0zCBqDeKcE:  28%|██▊       | 132/470 [00:00<00:00, 654.77 Segments/s][A
+Aligning v0zCBqDeKcE:  42%|████▏     | 198/470 [00:00<00:00, 654.66 Segments/s][A
+Aligning v0zCBqDeKcE:  56%|█████▌    | 264/470 [00:00<00:00, 653.57 Segments/s][A
+Aligning v0zCBqDeKcE:  70%|███████   | 330/470 [00:00<00:00, 652.61 Segments/s][A
+Aligning v0zCBqDeKcE:  84%|████████▍ | 396/470 [00:00<00:00, 650.63 Segments/s][A
+Aligning v0zCBqDeKcE:  98%|█████████▊| 462/470 [00:00<00:00, 647.93 Segments/s][A
+                                                                               [AOverall Progress:  94%|█████████▎| 87/93 [01:09<00:04,  1.34 Computational Sequence Entries/s]
+  0%|          | 0/610 [00:00<?, ? Segments/s][A
+Aligning vvZ4IcEtiZc:   0%|          | 0/610 [00:00<?, ? Segments/s][A
+Aligning vvZ4IcEtiZc:  11%|█         | 65/610 [00:00<00:00, 647.42 Segments/s][A
+Aligning vvZ4IcEtiZc:  21%|██▏       | 130/610 [00:00<00:00, 647.41 Segments/s][A
+Aligning vvZ4IcEtiZc:  32%|███▏      | 195/610 [00:00<00:00, 647.61 Segments/s][A
+Aligning vvZ4IcEtiZc:  43%|████▎     | 260/610 [00:00<00:00, 648.26 Segments/s][A
+Aligning vvZ4IcEtiZc:  53%|█████▎    | 325/610 [00:00<00:00, 647.65 Segments/s][A
+Aligning vvZ4IcEtiZc:  64%|██████▍   | 390/610 [00:00<00:00, 647.56 Segments/s][A
+Aligning vvZ4IcEtiZc:  75%|███████▍  | 455/610 [00:00<00:00, 647.54 Segments/s][A
+Aligning vvZ4IcEtiZc:  85%|████████▌ | 520/610 [00:00<00:00, 647.38 Segments/s][A
+Aligning vvZ4IcEtiZc:  96%|█████████▌| 585/610 [00:00<00:00, 646.19 Segments/s][A
+                                                                               [AOverall Progress:  95%|█████████▍| 88/93 [01:10<00:04,  1.24 Computational Sequence Entries/s]
+  0%|          | 0/589 [00:00<?, ? Segments/s][A
+Aligning vyB00TXsimI:   0%|          | 0/589 [00:00<?, ? Segments/s][A
+Aligning vyB00TXsimI:  11%|█         | 65/589 [00:00<00:00, 642.51 Segments/s][A
+Aligning vyB00TXsimI:  22%|██▏       | 130/589 [00:00<00:00, 640.47 Segments/s][A
+Aligning vyB00TXsimI:  33%|███▎      | 195/589 [00:00<00:00, 644.10 Segments/s][A
+Aligning vyB00TXsimI:  44%|████▍     | 260/589 [00:00<00:00, 646.08 Segments/s][A
+Aligning vyB00TXsimI:  55%|█████▌    | 325/589 [00:00<00:00, 644.09 Segments/s][A
+Aligning vyB00TXsimI:  66%|██████▌   | 390/589 [00:00<00:00, 643.28 Segments/s][A
+Aligning vyB00TXsimI:  77%|███████▋  | 455/589 [00:00<00:00, 642.60 Segments/s][A
+Aligning vyB00TXsimI:  88%|████████▊ | 520/589 [00:00<00:00, 641.75 Segments/s][A
+Aligning vyB00TXsimI:  99%|█████████▉| 585/589 [00:00<00:00, 639.25 Segments/s][A
+                                                                               [AOverall Progress:  96%|█████████▌| 89/93 [01:11<00:03,  1.19 Computational Sequence Entries/s]
+  0%|          | 0/690 [00:00<?, ? Segments/s][A
+Aligning wMbj6ajWbic:   0%|          | 0/690 [00:00<?, ? Segments/s][A
+Aligning wMbj6ajWbic:   9%|▉         | 64/690 [00:00<00:00, 632.47 Segments/s][A
+Aligning wMbj6ajWbic:  19%|█▊        | 128/690 [00:00<00:00, 636.44 Segments/s][A
+Aligning wMbj6ajWbic:  28%|██▊       | 193/690 [00:00<00:00, 639.61 Segments/s][A
+Aligning wMbj6ajWbic:  37%|███▋      | 258/690 [00:00<00:00, 641.39 Segments/s][A
+Aligning wMbj6ajWbic:  47%|████▋     | 323/690 [00:00<00:00, 641.61 Segments/s][A
+Aligning wMbj6ajWbic:  56%|█████▌    | 388/690 [00:00<00:00, 641.45 Segments/s][A
+Aligning wMbj6ajWbic:  66%|██████▌   | 453/690 [00:00<00:00, 640.55 Segments/s][A
+Aligning wMbj6ajWbic:  75%|███████▌  | 518/690 [00:00<00:00, 639.87 Segments/s][A
+Aligning wMbj6ajWbic:  84%|████████▍ | 582/690 [00:00<00:00, 639.27 Segments/s][A
+Aligning wMbj6ajWbic:  94%|█████████▎| 646/690 [00:01<00:00, 638.01 Segments/s][A
+                                                                               [AOverall Progress:  97%|█████████▋| 90/93 [01:12<00:02,  1.10 Computational Sequence Entries/s]
+  0%|          | 0/581 [00:00<?, ? Segments/s][A
+Aligning yDtzw_Y-7RU:   0%|          | 0/581 [00:00<?, ? Segments/s][A
+Aligning yDtzw_Y-7RU:  11%|█         | 65/581 [00:00<00:00, 646.27 Segments/s][A
+Aligning yDtzw_Y-7RU:  23%|██▎       | 131/581 [00:00<00:00, 648.42 Segments/s][A
+Aligning yDtzw_Y-7RU:  34%|███▎      | 196/581 [00:00<00:00, 648.23 Segments/s][A
+Aligning yDtzw_Y-7RU:  45%|████▍     | 261/581 [00:00<00:00, 646.60 Segments/s][A
+Aligning yDtzw_Y-7RU:  56%|█████▌    | 326/581 [00:00<00:00, 645.82 Segments/s][A
+Aligning yDtzw_Y-7RU:  67%|██████▋   | 391/581 [00:00<00:00, 645.70 Segments/s][A
+Aligning yDtzw_Y-7RU:  78%|███████▊  | 456/581 [00:00<00:00, 645.87 Segments/s][A
+Aligning yDtzw_Y-7RU:  90%|████████▉ | 521/581 [00:00<00:00, 645.90 Segments/s][A
+                                                                               [AOverall Progress:  98%|█████████▊| 91/93 [01:13<00:01,  1.10 Computational Sequence Entries/s]
+  0%|          | 0/616 [00:00<?, ? Segments/s][A
+Aligning yvsjCA6Y5Fc:   0%|          | 0/616 [00:00<?, ? Segments/s][A
+Aligning yvsjCA6Y5Fc:  11%|█         | 65/616 [00:00<00:00, 640.12 Segments/s][A
+Aligning yvsjCA6Y5Fc:  21%|██        | 130/616 [00:00<00:00, 641.51 Segments/s][A
+Aligning yvsjCA6Y5Fc:  32%|███▏      | 195/616 [00:00<00:00, 643.56 Segments/s][A
+Aligning yvsjCA6Y5Fc:  42%|████▏     | 260/616 [00:00<00:00, 643.85 Segments/s][A
+Aligning yvsjCA6Y5Fc:  53%|█████▎    | 325/616 [00:00<00:00, 645.07 Segments/s][A
+Aligning yvsjCA6Y5Fc:  63%|██████▎   | 390/616 [00:00<00:00, 644.77 Segments/s][A
+Aligning yvsjCA6Y5Fc:  74%|███████▍  | 455/616 [00:00<00:00, 642.99 Segments/s][A
+Aligning yvsjCA6Y5Fc:  84%|████████▍ | 520/616 [00:00<00:00, 638.61 Segments/s][A
+Aligning yvsjCA6Y5Fc:  95%|█████████▍| 584/616 [00:00<00:00, 638.27 Segments/s][A
+                                                                               [AOverall Progress:  99%|█████████▉| 92/93 [01:14<00:00,  1.08 Computational Sequence Entries/s]
+  0%|          | 0/676 [00:00<?, ? Segments/s][A
+Aligning zhpQhgha_KU:   0%|          | 0/676 [00:00<?, ? Segments/s][A
+Aligning zhpQhgha_KU:  10%|▉         | 65/676 [00:00<00:00, 640.12 Segments/s][A
+Aligning zhpQhgha_KU:  19%|█▉        | 130/676 [00:00<00:00, 639.57 Segments/s][A
+Aligning zhpQhgha_KU:  29%|██▉       | 195/676 [00:00<00:00, 639.96 Segments/s][A
+Aligning zhpQhgha_KU:  38%|███▊      | 259/676 [00:00<00:00, 639.52 Segments/s][A
+Aligning zhpQhgha_KU:  48%|████▊     | 323/676 [00:00<00:00, 637.41 Segments/s][A
+Aligning zhpQhgha_KU:  57%|█████▋    | 387/676 [00:00<00:00, 638.24 Segments/s][A
+Aligning zhpQhgha_KU:  67%|██████▋   | 451/676 [00:00<00:00, 637.80 Segments/s][A
+Aligning zhpQhgha_KU:  76%|███████▌  | 515/676 [00:00<00:00, 637.83 Segments/s][A
+Aligning zhpQhgha_KU:  86%|████████▌ | 579/676 [00:00<00:00, 636.43 Segments/s][A
+Aligning zhpQhgha_KU:  95%|█████████▌| 643/676 [00:01<00:00, 633.99 Segments/s][A
+                                                                               [AOverall Progress: 100%|██████████| 93/93 [01:15<00:00,  1.04 Computational Sequence Entries/s]                                                                                              [92m[1m[2024-12-17 09:52:52.337] | Success | [0mAlignment to <CMU_MOSI_TimestampedWords> complete.
+[94m[1m[2024-12-17 09:52:52.337] | Status  | [0mReplacing dataset content with aligned computational sequences
+[92m[1m[2024-12-17 09:52:52.358] | Success | [0mInitialized empty <CMU_MOSI_TimestampedWords> computational sequence.
+[94m[1m[2024-12-17 09:52:52.359] | Status  | [0mChecking the format of the data in <CMU_MOSI_TimestampedWords> computational sequence ...
+  0%|          | 0/49955 [00:00<?, ? Computational Sequence Entries/s] 73%|███████▎  | 36641/49955 [00:00<00:00, 366405.11 Computational Sequence Entries/s]                                                                                      [92m[1m[2024-12-17 09:52:52.485] | Success | [0m<CMU_MOSI_TimestampedWords> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:52.485] | Status  | [0mChecking the format of the metadata in <CMU_MOSI_TimestampedWords> computational sequence ...
+[93m[1m[2024-12-17 09:52:52.485] | Warning | [0m<CMU_MOSI_TimestampedWords> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:52.486] | Success | [0mInitialized empty <CMU_MOSI_TimestampedWordVectors> computational sequence.
+[94m[1m[2024-12-17 09:52:52.486] | Status  | [0mChecking the format of the data in <CMU_MOSI_TimestampedWordVectors> computational sequence ...
+  0%|          | 0/49955 [00:00<?, ? Computational Sequence Entries/s]                                                                      [92m[1m[2024-12-17 09:52:52.575] | Success | [0m<CMU_MOSI_TimestampedWordVectors> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:52.575] | Status  | [0mChecking the format of the metadata in <CMU_MOSI_TimestampedWordVectors> computational sequence ...
+[93m[1m[2024-12-17 09:52:52.575] | Warning | [0m<CMU_MOSI_TimestampedWordVectors> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:52.575] | Success | [0mInitialized empty <CMU_MOSI_Visual_Facet_41> computational sequence.
+[94m[1m[2024-12-17 09:52:52.575] | Status  | [0mChecking the format of the data in <CMU_MOSI_Visual_Facet_41> computational sequence ...
+  0%|          | 0/49936 [00:00<?, ? Computational Sequence Entries/s]                                                                      [92m[1m[2024-12-17 09:52:52.661] | Success | [0m<CMU_MOSI_Visual_Facet_41> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:52.661] | Status  | [0mChecking the format of the metadata in <CMU_MOSI_Visual_Facet_41> computational sequence ...
+[93m[1m[2024-12-17 09:52:52.661] | Warning | [0m<CMU_MOSI_Visual_Facet_41> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:52.661] | Success | [0mInitialized empty <CMU_MOSI_COVAREP> computational sequence.
+[94m[1m[2024-12-17 09:52:52.661] | Status  | [0mChecking the format of the data in <CMU_MOSI_COVAREP> computational sequence ...
+  0%|          | 0/49955 [00:00<?, ? Computational Sequence Entries/s]                                                                      [92m[1m[2024-12-17 09:52:52.745] | Success | [0m<CMU_MOSI_COVAREP> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:52.745] | Status  | [0mChecking the format of the metadata in <CMU_MOSI_COVAREP> computational sequence ...
+[93m[1m[2024-12-17 09:52:52.745] | Warning | [0m<CMU_MOSI_COVAREP> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:52.763] | Success | [0mComputational sequence read from file /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_Opinion_Labels.csd ...
+[94m[1m[2024-12-17 09:52:52.922] | Status  | [0mChecking the integrity of the <Opinion Segment Labels> computational sequence ...
+[94m[1m[2024-12-17 09:52:52.922] | Status  | [0mChecking the format of the data in <Opinion Segment Labels> computational sequence ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s]                                                                   [92m[1m[2024-12-17 09:52:52.997] | Success | [0m<Opinion Segment Labels> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:52.997] | Status  | [0mChecking the format of the metadata in <Opinion Segment Labels> computational sequence ...
+[93m[1m[2024-12-17 09:52:52.998] | Warning | [0m<Opinion Segment Labels> computational sequence does not have all the required metadata ... continuing 
+[94m[1m[2024-12-17 09:52:52.998] | Status  | [0mUnify was called ...
+[92m[1m[2024-12-17 09:52:53.120] | Success | [0mUnify completed ...
+[94m[1m[2024-12-17 09:52:53.123] | Status  | [0mPre-alignment based on <CMU_MOSI_Opinion_Labels> computational sequence started ...
+[94m[1m[2024-12-17 09:52:53.343] | Status  | [0mPre-alignment done for <CMU_MOSI_TimestampedWordVectors> ...
+[94m[1m[2024-12-17 09:52:53.483] | Status  | [0mPre-alignment done for <CMU_MOSI_TimestampedWords> ...
+[94m[1m[2024-12-17 09:52:53.623] | Status  | [0mPre-alignment done for <CMU_MOSI_Visual_Facet_41> ...
+[94m[1m[2024-12-17 09:52:53.765] | Status  | [0mPre-alignment done for <CMU_MOSI_COVAREP> ...
+[94m[1m[2024-12-17 09:52:53.768] | Status  | [0mAlignment starting ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s]Overall Progress:   0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s]
+  0%|          | 0/13 [00:00<?, ? Segments/s][A
+Aligning 03bSnISJMiM:   0%|          | 0/13 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/25 [00:00<?, ? Segments/s][A
+Aligning 0h-zjBukYpk:   0%|          | 0/25 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/14 [00:00<?, ? Segments/s][A
+Aligning 1DmNV9C1hbY:   0%|          | 0/14 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/30 [00:00<?, ? Segments/s][A
+Aligning 1iG0909rllw:   0%|          | 0/30 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/63 [00:00<?, ? Segments/s][A
+Aligning 2WGyTLYerpo:   0%|          | 0/63 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/30 [00:00<?, ? Segments/s][A
+Aligning 2iD-tVS8NPw:   0%|          | 0/30 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:   6%|▋         | 6/93 [00:00<00:01, 50.55 Computational Sequence Entries/s]
+  0%|          | 0/24 [00:00<?, ? Segments/s][A
+Aligning 5W7Z1C_fDaE:   0%|          | 0/24 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/12 [00:00<?, ? Segments/s][A
+Aligning 6Egk_28TtTM:   0%|          | 0/12 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/14 [00:00<?, ? Segments/s][A
+Aligning 6_0THN4chvY:   0%|          | 0/14 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/19 [00:00<?, ? Segments/s][A
+Aligning 73jzhE8R1TQ:   0%|          | 0/19 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/39 [00:00<?, ? Segments/s][A
+Aligning 7JsX8y1ysxY:   0%|          | 0/39 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/23 [00:00<?, ? Segments/s][A
+Aligning 8OtFthrtaJM:   0%|          | 0/23 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/30 [00:00<?, ? Segments/s][A
+Aligning 8d-gEyoeBzc:   0%|          | 0/30 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  14%|█▍        | 13/93 [00:00<00:01, 58.31 Computational Sequence Entries/s]
+  0%|          | 0/26 [00:00<?, ? Segments/s][A
+Aligning 8qrpnFRGt2A:   0%|          | 0/26 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/25 [00:00<?, ? Segments/s][A
+Aligning 9J25DZhivz8:   0%|          | 0/25 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/25 [00:00<?, ? Segments/s][A
+Aligning 9T9Hf74oK10:   0%|          | 0/25 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/12 [00:00<?, ? Segments/s][A
+Aligning 9c67fiY0wGQ:   0%|          | 0/12 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/33 [00:00<?, ? Segments/s][A
+Aligning 9qR7uwkblbs:   0%|          | 0/33 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/31 [00:00<?, ? Segments/s][A
+Aligning Af8D0E4ZXaw:   0%|          | 0/31 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  20%|██        | 19/93 [00:00<00:01, 56.43 Computational Sequence Entries/s]
+  0%|          | 0/31 [00:00<?, ? Segments/s][A
+Aligning BI97DNYfe5I:   0%|          | 0/31 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/31 [00:00<?, ? Segments/s][A
+Aligning BXuRRbG0Ugk:   0%|          | 0/31 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/22 [00:00<?, ? Segments/s][A
+Aligning Bfr499ggo-0:   0%|          | 0/22 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/30 [00:00<?, ? Segments/s][A
+Aligning BioHAh1qJAQ:   0%|          | 0/30 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/26 [00:00<?, ? Segments/s][A
+Aligning BvYR0L6f2Ig:   0%|          | 0/26 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/44 [00:00<?, ? Segments/s][A
+Aligning Ci-AH39fi3Y:   0%|          | 0/44 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  27%|██▋       | 25/93 [00:00<00:01, 52.35 Computational Sequence Entries/s]
+  0%|          | 0/31 [00:00<?, ? Segments/s][A
+Aligning Clx4VXItLTE:   0%|          | 0/31 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/18 [00:00<?, ? Segments/s][A
+Aligning Dg_0XKD0Mf4:   0%|          | 0/18 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/21 [00:00<?, ? Segments/s][A
+Aligning G-xst2euQUc:   0%|          | 0/21 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/29 [00:00<?, ? Segments/s][A
+Aligning G6GlGvlkxAQ:   0%|          | 0/29 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/18 [00:00<?, ? Segments/s][A
+Aligning GWuJjcEuzt8:   0%|          | 0/18 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/34 [00:00<?, ? Segments/s][A
+Aligning HEsqda8_d0Q:   0%|          | 0/34 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  33%|███▎      | 31/93 [00:00<00:01, 53.96 Computational Sequence Entries/s]
+  0%|          | 0/39 [00:00<?, ? Segments/s][A
+Aligning I5y0__X72p0:   0%|          | 0/39 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/16 [00:00<?, ? Segments/s][A
+Aligning Iu2PFX3z_1s:   0%|          | 0/16 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/22 [00:00<?, ? Segments/s][A
+Aligning IumbAb8q2dM:   0%|          | 0/22 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/20 [00:00<?, ? Segments/s][A
+Aligning Jkswaaud0hk:   0%|          | 0/20 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/29 [00:00<?, ? Segments/s][A
+Aligning LSi-o-IrDMs:   0%|          | 0/29 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/18 [00:00<?, ? Segments/s][A
+Aligning MLal-t_vJPM:   0%|          | 0/18 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/13 [00:00<?, ? Segments/s][A
+Aligning Njd1F0vZSm4:   0%|          | 0/13 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  41%|████      | 38/93 [00:00<00:00, 57.99 Computational Sequence Entries/s]
+  0%|          | 0/32 [00:00<?, ? Segments/s][A
+Aligning Nzq88NnDkEk:   0%|          | 0/32 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/16 [00:00<?, ? Segments/s][A
+Aligning OQvJTdtJ2H4:   0%|          | 0/16 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/24 [00:00<?, ? Segments/s][A
+Aligning OtBXNcAL_lE:   0%|          | 0/24 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/25 [00:00<?, ? Segments/s][A
+Aligning Oz06ZWiO20M:   0%|          | 0/25 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/13 [00:00<?, ? Segments/s][A
+Aligning POKffnXeBds:   0%|          | 0/13 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/12 [00:00<?, ? Segments/s][A
+Aligning PZ-lDQFboO8:   0%|          | 0/12 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/18 [00:00<?, ? Segments/s][A
+Aligning QN9ZIUWUXsY:   0%|          | 0/18 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/14 [00:00<?, ? Segments/s][A
+Aligning Qr1Ca94K55A:   0%|          | 0/14 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  49%|████▉     | 46/93 [00:00<00:00, 63.58 Computational Sequence Entries/s]
+  0%|          | 0/22 [00:00<?, ? Segments/s][A
+Aligning Sqr0AcuoNnk:   0%|          | 0/22 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/15 [00:00<?, ? Segments/s][A
+Aligning TvyZBvOMOTc:   0%|          | 0/15 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/17 [00:00<?, ? Segments/s][A
+Aligning VCslbP0mgZI:   0%|          | 0/17 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/55 [00:00<?, ? Segments/s][A
+Aligning VbQk4H8hgr0:   0%|          | 0/55 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/9 [00:00<?, ? Segments/s][A
+Aligning Vj1wYRQjB-o:   0%|          | 0/9 [00:00<?, ? Segments/s][A
+                                                                  [A
+  0%|          | 0/32 [00:00<?, ? Segments/s][A
+Aligning W8NXH0Djyww:   0%|          | 0/32 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/22 [00:00<?, ? Segments/s][A
+Aligning WKA5OygbEKI:   0%|          | 0/22 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  57%|█████▋    | 53/93 [00:00<00:00, 61.92 Computational Sequence Entries/s]
+  0%|          | 0/11 [00:00<?, ? Segments/s][A
+Aligning X3j2zQgwYgE:   0%|          | 0/11 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/9 [00:00<?, ? Segments/s][A
+Aligning ZAIRrfG22O0:   0%|          | 0/9 [00:00<?, ? Segments/s][A
+                                                                  [A
+  0%|          | 0/34 [00:00<?, ? Segments/s][A
+Aligning ZUXBRvtny7o:   0%|          | 0/34 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/28 [00:00<?, ? Segments/s][A
+Aligning _dI--eQ6qVU:   0%|          | 0/28 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/30 [00:00<?, ? Segments/s][A
+Aligning aiEXnCPZubE:   0%|          | 0/30 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/21 [00:00<?, ? Segments/s][A
+Aligning atnd_PF-Lbs:   0%|          | 0/21 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/34 [00:00<?, ? Segments/s][A
+Aligning bOL9jKpeJRs:   0%|          | 0/34 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  65%|██████▍   | 60/93 [00:01<00:00, 62.01 Computational Sequence Entries/s]
+  0%|          | 0/25 [00:00<?, ? Segments/s][A
+Aligning bvLlb-M3UXU:   0%|          | 0/25 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/15 [00:00<?, ? Segments/s][A
+Aligning c5xsKMxpXnc:   0%|          | 0/15 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/33 [00:00<?, ? Segments/s][A
+Aligning c7UH_rxdZv4:   0%|          | 0/33 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/16 [00:00<?, ? Segments/s][A
+Aligning cM3Yna7AavY:   0%|          | 0/16 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/24 [00:00<?, ? Segments/s][A
+Aligning cW1FSBF59ik:   0%|          | 0/24 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/29 [00:00<?, ? Segments/s][A
+Aligning cXypl4FnoZo:   0%|          | 0/29 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/19 [00:00<?, ? Segments/s][A
+Aligning d3_k5Xpfmik:   0%|          | 0/19 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  72%|███████▏  | 67/93 [00:01<00:00, 62.62 Computational Sequence Entries/s]
+  0%|          | 0/43 [00:00<?, ? Segments/s][A
+Aligning d6hH302o4v8:   0%|          | 0/43 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/15 [00:00<?, ? Segments/s][A
+Aligning dq3Nf_lMPnE:   0%|          | 0/15 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/19 [00:00<?, ? Segments/s][A
+Aligning etzxEpPuc6I:   0%|          | 0/19 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/30 [00:00<?, ? Segments/s][A
+Aligning f9O3YtZ2VfI:   0%|          | 0/30 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/15 [00:00<?, ? Segments/s][A
+Aligning f_pcplsH_V0:   0%|          | 0/15 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/14 [00:00<?, ? Segments/s][A
+Aligning fvVhgmXxadc:   0%|          | 0/14 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/18 [00:00<?, ? Segments/s][A
+Aligning iiK8YX8oH1E:   0%|          | 0/18 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  80%|███████▉  | 74/93 [00:01<00:00, 64.07 Computational Sequence Entries/s]
+  0%|          | 0/27 [00:00<?, ? Segments/s][A
+Aligning jUzDDGyPkXU:   0%|          | 0/27 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/31 [00:00<?, ? Segments/s][A
+Aligning k5Y_838nuGo:   0%|          | 0/31 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/30 [00:00<?, ? Segments/s][A
+Aligning lXPQBPVc5Cw:   0%|          | 0/30 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/10 [00:00<?, ? Segments/s][A
+Aligning nbWiPyCm4g0:   0%|          | 0/10 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/24 [00:00<?, ? Segments/s][A
+Aligning nzpVDcQ0ywM:   0%|          | 0/24 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/14 [00:00<?, ? Segments/s][A
+Aligning ob23OKe5a9Q:   0%|          | 0/14 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/16 [00:00<?, ? Segments/s][A
+Aligning pLTX3ipuDJI:   0%|          | 0/16 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  87%|████████▋ | 81/93 [00:01<00:00, 64.87 Computational Sequence Entries/s]
+  0%|          | 0/21 [00:00<?, ? Segments/s][A
+Aligning phBUpBr1hSo:   0%|          | 0/21 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/22 [00:00<?, ? Segments/s][A
+Aligning rnaNMUZpvvg:   0%|          | 0/22 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/18 [00:00<?, ? Segments/s][A
+Aligning tIrG4oNLFzE:   0%|          | 0/18 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/16 [00:00<?, ? Segments/s][A
+Aligning tStelxIAHjw:   0%|          | 0/16 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/20 [00:00<?, ? Segments/s][A
+Aligning tmZoasNr4rU:   0%|          | 0/20 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/16 [00:00<?, ? Segments/s][A
+Aligning v0zCBqDeKcE:   0%|          | 0/16 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/12 [00:00<?, ? Segments/s][A
+Aligning vvZ4IcEtiZc:   0%|          | 0/12 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/22 [00:00<?, ? Segments/s][A
+Aligning vyB00TXsimI:   0%|          | 0/22 [00:00<?, ? Segments/s][A
+                                                                   [AOverall Progress:  96%|█████████▌| 89/93 [00:01<00:00, 68.86 Computational Sequence Entries/s]
+  0%|          | 0/30 [00:00<?, ? Segments/s][A
+Aligning wMbj6ajWbic:   0%|          | 0/30 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/24 [00:00<?, ? Segments/s][A
+Aligning yDtzw_Y-7RU:   0%|          | 0/24 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/23 [00:00<?, ? Segments/s][A
+Aligning yvsjCA6Y5Fc:   0%|          | 0/23 [00:00<?, ? Segments/s][A
+                                                                   [A
+  0%|          | 0/35 [00:00<?, ? Segments/s][A
+Aligning zhpQhgha_KU:   0%|          | 0/35 [00:00<?, ? Segments/s][A
+                                                                   [A                                                                                              [92m[1m[2024-12-17 09:52:55.280] | Success | [0mAlignment to <CMU_MOSI_Opinion_Labels> complete.
+[94m[1m[2024-12-17 09:52:55.280] | Status  | [0mReplacing dataset content with aligned computational sequences
+[92m[1m[2024-12-17 09:52:55.537] | Success | [0mInitialized empty <CMU_MOSI_TimestampedWords> computational sequence.
+[94m[1m[2024-12-17 09:52:55.539] | Status  | [0mChecking the format of the data in <CMU_MOSI_TimestampedWords> computational sequence ...
+  0%|          | 0/2198 [00:00<?, ? Computational Sequence Entries/s]                                                                     [92m[1m[2024-12-17 09:52:55.544] | Success | [0m<CMU_MOSI_TimestampedWords> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:55.544] | Status  | [0mChecking the format of the metadata in <CMU_MOSI_TimestampedWords> computational sequence ...
+[93m[1m[2024-12-17 09:52:55.545] | Warning | [0m<CMU_MOSI_TimestampedWords> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:55.545] | Success | [0mInitialized empty <CMU_MOSI_TimestampedWordVectors> computational sequence.
+[94m[1m[2024-12-17 09:52:55.545] | Status  | [0mChecking the format of the data in <CMU_MOSI_TimestampedWordVectors> computational sequence ...
+  0%|          | 0/2198 [00:00<?, ? Computational Sequence Entries/s]                                                                     [92m[1m[2024-12-17 09:52:55.548] | Success | [0m<CMU_MOSI_TimestampedWordVectors> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:55.548] | Status  | [0mChecking the format of the metadata in <CMU_MOSI_TimestampedWordVectors> computational sequence ...
+[93m[1m[2024-12-17 09:52:55.548] | Warning | [0m<CMU_MOSI_TimestampedWordVectors> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:55.548] | Success | [0mInitialized empty <CMU_MOSI_Visual_Facet_41> computational sequence.
+[94m[1m[2024-12-17 09:52:55.548] | Status  | [0mChecking the format of the data in <CMU_MOSI_Visual_Facet_41> computational sequence ...
+  0%|          | 0/2198 [00:00<?, ? Computational Sequence Entries/s]                                                                     [92m[1m[2024-12-17 09:52:55.552] | Success | [0m<CMU_MOSI_Visual_Facet_41> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:55.552] | Status  | [0mChecking the format of the metadata in <CMU_MOSI_Visual_Facet_41> computational sequence ...
+[93m[1m[2024-12-17 09:52:55.552] | Warning | [0m<CMU_MOSI_Visual_Facet_41> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:55.552] | Success | [0mInitialized empty <CMU_MOSI_COVAREP> computational sequence.
+[94m[1m[2024-12-17 09:52:55.552] | Status  | [0mChecking the format of the data in <CMU_MOSI_COVAREP> computational sequence ...
+  0%|          | 0/2198 [00:00<?, ? Computational Sequence Entries/s]                                                                     [92m[1m[2024-12-17 09:52:55.555] | Success | [0m<CMU_MOSI_COVAREP> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:55.555] | Status  | [0mChecking the format of the metadata in <CMU_MOSI_COVAREP> computational sequence ...
+[93m[1m[2024-12-17 09:52:55.555] | Warning | [0m<CMU_MOSI_COVAREP> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:55.555] | Success | [0mInitialized empty <CMU_MOSI_Opinion_Labels> computational sequence.
+[94m[1m[2024-12-17 09:52:55.555] | Status  | [0mChecking the format of the data in <CMU_MOSI_Opinion_Labels> computational sequence ...
+  0%|          | 0/2198 [00:00<?, ? Computational Sequence Entries/s]                                                                     /home1/s4680340/BSc-Thesis/BscThesisvenv/lib/python3.9/site-packages/numpy/lib/_nanfunctions_impl.py:1882: RuntimeWarning: invalid value encountered in subtract
+  np.subtract(arr, avg, out=arr, casting='unsafe', where=where)
+/home1/s4680340/BSc-Thesis/Thesis/modelText.py:147: RuntimeWarning: invalid value encountered in subtract
+  acoustic = np.nan_to_num((acoustic - acoustic_mean) / (EPS + std_dev_acoustic))
+[92m[1m[2024-12-17 09:52:55.559] | Success | [0m<CMU_MOSI_Opinion_Labels> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:55.559] | Status  | [0mChecking the format of the metadata in <CMU_MOSI_Opinion_Labels> computational sequence ...
+[93m[1m[2024-12-17 09:52:55.559] | Warning | [0m<CMU_MOSI_Opinion_Labels> computational sequence does not have all the required metadata ... continuing 
+lengths: train 52, dev 10, test 31
+
+['2iD-tVS8NPw', '8d-gEyoeBzc', 'Qr1Ca94K55A', 'Ci-AH39fi3Y', '8qrpnFRGt2A', 'Bfr499ggo-0', 'QN9ZIUWUXsY', '9T9Hf74oK10', '7JsX8y1ysxY', '1iG0909rllw', 'Oz06ZWiO20M', 'BioHAh1qJAQ', '9c67fiY0wGQ', 'Iu2PFX3z_1s', 'Nzq88NnDkEk', 'Clx4VXItLTE', '9J25DZhivz8', 'Af8D0E4ZXaw', 'TvyZBvOMOTc', 'W8NXH0Djyww', '8OtFthrtaJM', '0h-zjBukYpk', 'Vj1wYRQjB-o', 'GWuJjcEuzt8', 'BI97DNYfe5I', 'PZ-lDQFboO8', '1DmNV9C1hbY', 'OQvJTdtJ2H4', 'I5y0__X72p0', '9qR7uwkblbs', 'G6GlGvlkxAQ', '6_0THN4chvY', 'Njd1F0vZSm4', 'BvYR0L6f2Ig', '03bSnISJMiM', 'Dg_0XKD0Mf4', '5W7Z1C_fDaE', 'VbQk4H8hgr0', 'G-xst2euQUc', 'MLal-t_vJPM', 'BXuRRbG0Ugk', 'LSi-o-IrDMs', 'Jkswaaud0hk', '2WGyTLYerpo', '6Egk_28TtTM', 'Sqr0AcuoNnk', 'POKffnXeBds', '73jzhE8R1TQ', 'OtBXNcAL_lE', 'HEsqda8_d0Q', 'VCslbP0mgZI', 'IumbAb8q2dM']
+['WKA5OygbEKI', 'c5xsKMxpXnc', 'atnd_PF-Lbs', 'bvLlb-M3UXU', 'bOL9jKpeJRs', '_dI--eQ6qVU', 'ZAIRrfG22O0', 'X3j2zQgwYgE', 'aiEXnCPZubE', 'ZUXBRvtny7o']
+['tmZoasNr4rU', 'zhpQhgha_KU', 'lXPQBPVc5Cw', 'iiK8YX8oH1E', 'tStelxIAHjw', 'nzpVDcQ0ywM', 'etzxEpPuc6I', 'cW1FSBF59ik', 'd6hH302o4v8', 'k5Y_838nuGo', 'pLTX3ipuDJI', 'jUzDDGyPkXU', 'f_pcplsH_V0', 'yvsjCA6Y5Fc', 'nbWiPyCm4g0', 'rnaNMUZpvvg', 'wMbj6ajWbic', 'cM3Yna7AavY', 'yDtzw_Y-7RU', 'vyB00TXsimI', 'dq3Nf_lMPnE', 'phBUpBr1hSo', 'd3_k5Xpfmik', 'v0zCBqDeKcE', 'tIrG4oNLFzE', 'fvVhgmXxadc', 'ob23OKe5a9Q', 'cXypl4FnoZo', 'vvZ4IcEtiZc', 'f9O3YtZ2VfI', 'c7UH_rxdZv4']
+Dropped 0 inconsistent datapoints.
+Vocabulary size: 2729
+[92m[1m[2024-12-17 09:52:56.687] | Success | [0mComputational sequence read from file /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_TimestampedWordVectors.csd ...
+[94m[1m[2024-12-17 09:52:56.691] | Status  | [0mChecking the integrity of the <glove_vectors> computational sequence ...
+[94m[1m[2024-12-17 09:52:56.691] | Status  | [0mChecking the format of the data in <glove_vectors> computational sequence ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s]                                                                   [92m[1m[2024-12-17 09:52:56.721] | Success | [0m<glove_vectors> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:56.721] | Status  | [0mChecking the format of the metadata in <glove_vectors> computational sequence ...
+[93m[1m[2024-12-17 09:52:56.721] | Warning | [0m<glove_vectors> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:56.721] | Success | [0mDataset initialized successfully ... 
+Segments in the dataset: ['03bSnISJMiM', '0h-zjBukYpk', '1DmNV9C1hbY', '1iG0909rllw', '2WGyTLYerpo']
+
+Sample segment: 03bSnISJMiM
+Word vectors for the segment (shape): (464, 300)
+First 5 word vectors:
+[[-0.12809   0.021729 -0.33177  ...  0.072228 -0.39837   0.10065 ]
+ [-0.44526   0.26707  -0.64482  ...  0.014858 -0.1739    0.027843]
+ [-0.12809   0.021729 -0.33177  ...  0.072228 -0.39837   0.10065 ]
+ ...
+ [-0.12809   0.021729 -0.33177  ...  0.072228 -0.39837   0.10065 ]
+ [-0.57446   0.12077  -0.21101  ...  0.033191 -0.099587  0.15787 ]
+ [-0.12809   0.021729 -0.33177  ...  0.072228 -0.39837   0.10065 ]]
+[92m[1m[2024-12-17 09:52:56.723] | Success | [0mComputational sequence read from file /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_TimestampedWordVectors.csd ...
+[94m[1m[2024-12-17 09:52:56.727] | Status  | [0mChecking the integrity of the <glove_vectors> computational sequence ...
+[94m[1m[2024-12-17 09:52:56.727] | Status  | [0mChecking the format of the data in <glove_vectors> computational sequence ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s]                                                                   [92m[1m[2024-12-17 09:52:56.756] | Success | [0m<glove_vectors> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:52:56.756] | Status  | [0mChecking the format of the metadata in <glove_vectors> computational sequence ...
+[93m[1m[2024-12-17 09:52:56.756] | Warning | [0m<glove_vectors> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:52:56.756] | Success | [0mDataset initialized successfully ... 
+Word vectors have been saved to word_vectors.csv
+[92m[1m[2024-12-17 09:53:04.591] | Success | [0mComputational sequence read from file /home1/s4680340/BSc-Thesis/Thesis/data/CMU_MOSI_TimestampedWordVectors.csd ...
+[94m[1m[2024-12-17 09:53:04.596] | Status  | [0mChecking the integrity of the <glove_vectors> computational sequence ...
+[94m[1m[2024-12-17 09:53:04.596] | Status  | [0mChecking the format of the data in <glove_vectors> computational sequence ...
+  0%|          | 0/93 [00:00<?, ? Computational Sequence Entries/s]                                                                   [92m[1m[2024-12-17 09:53:04.625] | Success | [0m<glove_vectors> computational sequence data in correct format.
+[94m[1m[2024-12-17 09:53:04.625] | Status  | [0mChecking the format of the metadata in <glove_vectors> computational sequence ...
+[93m[1m[2024-12-17 09:53:04.625] | Warning | [0m<glove_vectors> computational sequence does not have all the required metadata ... continuing 
+[92m[1m[2024-12-17 09:53:04.625] | Success | [0mDataset initialized successfully ... 
+Traceback (most recent call last):
+  File "/home1/s4680340/BSc-Thesis/Thesis/modelText.py", line 435, in <module>
+    build()
+  File "/home1/s4680340/BSc-Thesis/Thesis/modelText.py", line 391, in build
+    save_word_to_vector_mapping()
+  File "/home1/s4680340/BSc-Thesis/Thesis/modelText.py", line 239, in save_word_to_vector_mapping
+    word = word_interval[-1].decode('utf-8')  # Decode the word (last element in the interval)
+AttributeError: 'numpy.float64' object has no attribute 'decode'
+
+###############################################################################
+Hábrók Cluster
+Job 14266655 for user s4680340
+Finished at: Tue Dec 17 10:53:06 CET 2024
+
+Job details:
+============
+
+Job ID                         : 14266655
+Name                           : jobscript.sh
+User                           : s4680340
+Partition                      : regularshort
+Nodes                          : node9
+Number of Nodes                : 1
+Cores                          : 4
+Number of Tasks                : 1
+State                          : RUNNING  
+Submit                         : 2024-12-17T10:50:46
+Start                          : 2024-12-17T10:50:46
+End                            : --
+Reserved walltime              : 00:20:00
+Used walltime                  : 00:02:20
+Used CPU time                  : -- 
+% User (Computation)           : --
+% System (I/O)                 : --
+Total memory reserved          : 16G
+Maximum memory used            : --
+
+Acknowledgements:
+=================
+
+Please see this page for information about acknowledging Hábrók in your publications:
+
+https://wiki.hpc.rug.nl/habrok/introduction/scientific_output
+
+################################################################################

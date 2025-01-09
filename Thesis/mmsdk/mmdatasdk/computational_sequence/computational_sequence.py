@@ -63,7 +63,8 @@ class computational_sequence():
 
 	def __initialize_from_csd(self,resource,destinationA,validate):
 		if destinationA is not None:
-			destination = destinationA.replace("://", "__")
+			# destination = destinationA.replace("://", "__")
+			destination = destinationA
 		else:
 			# Handle the case where destinationA is None
 			destination = "default_value"  # or some other default
@@ -82,7 +83,9 @@ class computational_sequence():
 			self.resource=resource
 			self.main_file=destination
 		else:
-			self.main_file=resource.replace("://", "__")
+			# self.main_file=resource.replace("://", "__")
+			self.main_file=resource
+
 
 		h5handle,data,metadata=read_CSD(self.main_file)
 		if type(metadata) is not dict:

@@ -1,14 +1,14 @@
 from typing import Optional
 
 # path to the SDK folder
-SDK_PATH: Optional[str] = '/home1/s4680340/BSc-Thesis/Thesis'
+SDK_PATH: Optional[str] = '/home1/s4680340/BScThesis/Thesis'
 print("SDK_PATH:", SDK_PATH)
 
 # path to the folder where you want to store data
-DATA_PATH: Optional[str] = '/home1/s4680340/BSc-Thesis/Thesis/data'
+DATA_PATH: Optional[str] = '/home1/s4680340/BScThesis/Thesis/data'
 
 # path to a pretrained word embedding file!!
-WORD_EMB_PATH: Optional[str] = '/home1/s4680340/BSc-Thesis/Thesis/data/CMU-MOSI_TimestampedWordVectors.csd'
+WORD_EMB_PATH: Optional[str] = '/home1/s4680340/BScThesis/Thesis/data/CMU-MOSI_TimestampedWordVectors.csd'
 
 # path to loaded word embedding matrix and corresponding word2id mapping
 CACHE_PATH: Optional[str] = None

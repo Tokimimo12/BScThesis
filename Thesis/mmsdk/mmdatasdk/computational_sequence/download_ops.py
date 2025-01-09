@@ -15,7 +15,8 @@ def read_URL(url, destination):
     if destination is None:
         log.error("Destination is not specified when downloading data", error=True)
 
-    normalized_destination = destination.replace("://", "__")
+    # normalized_destination = destination.replace("://", "__")
+    normalized_destination = destination
     print(f"Normalized destination path: {normalized_destination}")
 
 
@@ -23,7 +24,7 @@ def read_URL(url, destination):
         log.error(f"{normalized_destination} file already exists ...", error=True)
 
     #Normalize the DIRECTORY
-    normalized_directory = os.path.dirname(destination).replace("://", "__")
+    normalized_directory = os.path.dirname(destination)
 
     if normalized_directory and not os.path.isdir(normalized_directory):
         # Print the normalized directory path

@@ -331,9 +331,15 @@ def test_model(model, test_loader):
 
             y_tilde = model(a, l)
             loss = nn.MSELoss(reduction='sum')(y_tilde, y)
+            print(f"Batch Loss: {loss.item()}")
+
+            y_true.append(y.detach().cpu().numpy())
+            y_pred.append(y_tilde.detach().cpu().numpy())
+
             test_loss += loss.item()
-            y_true.append(y.cpu().numpy())
-            y_pred.append(y_tilde.cpu().numpy())
+            
+    avg_test_loss = test_loss / len(test_loader)
+    print(f"Test set performance (Average Loss): {avg_test_loss}")
 
     y_true = np.concatenate(y_true, axis=0)
     y_pred = np.concatenate(y_pred, axis=0)

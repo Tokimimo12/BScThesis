@@ -18,5 +18,5 @@ pip install --no-cache-dir -r $HOME/BScThesis/Thesis/requirements.txt
 # python modelAudio.py WORKS!!!!
 # python modelText.py
 python modelMDRE.py
-python original.py
+# python original.py
 # python SingleEncoderModelText.py

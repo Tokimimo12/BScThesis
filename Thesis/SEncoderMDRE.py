@@ -92,8 +92,8 @@ class EncoderMDRE(nn.Module):
         batch_size = lengths.size(0)
 
         # Encode audio and text
-        audio_features = self.audio_model(audio_inputs)  # [batch_size, audio_hidden_dim]
-        text_features = self.text_model(text_inputs)     # [batch_size, text_hidden_dim]
+        audio_features = self.audio_model(audio_inputs, lengths)  # [batch_size, audio_hidden_dim]
+        text_features = self.text_model(text_inputs, lengths)     # [batch_size, text_hidden_dim]
 
         # Concatenate features
         combined_features = torch.cat((audio_features, text_features), dim=1)  # [batch_size, audio_hidden_dim + text_hidden_dim]

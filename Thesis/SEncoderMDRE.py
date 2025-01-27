@@ -19,6 +19,7 @@ class EncoderMDRE(nn.Module):
                  hidden_dim_text,
                  dr_text: float,
                  output_size : int,
+                 FUSION_TEHNIQUE = "concat",
                  word_to_vector_path=None
                  ):
         super(EncoderMDRE, self).__init__()
@@ -43,6 +44,7 @@ class EncoderMDRE(nn.Module):
         # self.batch_size = batch_size
         # self.lr = lr
         self.output_size = int(output_size)
+        self.FUSION_TEHNIQUE = FUSION_TEHNIQUE
         
         if self.use_glove: 
             self.embed_dim = 300 
@@ -50,17 +52,17 @@ class EncoderMDRE(nn.Module):
         else: 
             print("\n----No glove embedding----\n")
 
-        # Define sub-models
-        self.audio_model = SingleEncoderModelAudio(
-            input_size=self.encoder_size_audio,
-            hidden_dim=self.hidden_dim_audio,
-            num_layers=self.num_layer_audio,
-            dropout_rate=self.dr_audio,
-            output_size=self.output_size
-        )
 
-        print("\n----Audio model initialized----\n")
-
+        # print(f"""\n----Text model initialized----: 
+        #       word2id={word2id},  
+        #       dic_size={dic_size},
+        #       use_glove={use_glove},
+        #       encoder_size={encoder_size_text},
+        #       num_layers={num_layer_text},
+        #       hidden_dim={hidden_dim_text},
+        #       dr={dr_text},
+        #       output_size={output_size},
+        #       word_to_vector_path={word_to_vector_path}\n""")
         self.text_model = SingleEncoderModelText(
             word2id=self.word2id,  
             dic_size=self.dic_size,
@@ -72,43 +74,90 @@ class EncoderMDRE(nn.Module):
             output_size=self.output_size,
             word_to_vector_path=self.word_to_vector_path
         )
+        # print(f"Text model initialized")
+        # Define sub-models
+        # print(f"""\n----Audio model initialized---- 
+        #       input_size= {encoder_size_audio}, 
+        #       hidden_dim= {hidden_dim_audio}, 
+        #       num_layers= {num_layer_audio}, 
+        #       dropout_rate= {dr_audio}, 
+        #       output_size = {output_size}\n""")
+        self.audio_model = SingleEncoderModelAudio(
+            input_size=self.encoder_size_audio,
+            hidden_dim=self.hidden_dim_audio,
+            num_layers=self.num_layer_audio,
+            dropout_rate=self.dr_audio,
+            output_size=self.output_size
+        )
+        # print(f"Audio model initialized")
 
-        print("\n----Text model initialized----\n")
+        self.text_weight = nn.Parameter(torch.randn(1))  # Learnable weight for text features
+        self.audio_weight = nn.Parameter(torch.randn(1))  # Learnable weight for audio features
 
         # Define output projection layers
         # self.output_layer = nn.Linear(
         #     (self.hidden_dim_audio // 2) + (self.hidden_dim_text // 2), self.output_size
         # )
         combined_dim = hidden_dim_audio + hidden_dim_text
+        # print(f"\n----Combined dim: {combined_dim}----\n")
         self.fc = nn.Linear(combined_dim, output_size)
 
+        self.tanh = nn.Tanh()
 
         # Loss function
         self.loss_fn = nn.MSELoss()
 
-        print("\n----Model architecture----\n")
+        # print("\n----Model architecture----\n")
 
-    def forward(self, audio_inputs, text_inputs, lengths):
+    def forward(self, text_inputs, audio_inputs, lengths, FUSION_TEHNIQUE="concat"):
         batch_size = lengths.size(0)
 
         # Encode audio and text
-        audio_features = self.audio_model(audio_inputs)  # [batch_size, audio_hidden_dim]
-        text_features = self.text_model(text_inputs)     # [batch_size, text_hidden_dim]
+        # print("text_inputs shape1:", text_inputs.shape)
+        # print("audio_inputs shape1:", audio_inputs.shape)
+        # print("lengths:", lengths)
+        text_inputs = text_inputs.long()  # Convert to torch.LongTensor if not already
+        _, _, text_features_last_hidden = self.text_model(text_inputs, lengths)     # [batch_size, text_hidden_dim]
 
-        # Concatenate features
-        combined_features = torch.cat((audio_features, text_features), dim=1)  # [batch_size, audio_hidden_dim + text_hidden_dim]
+        _, _, audio_features_last_hidden = self.audio_model(audio_inputs, lengths)  # [batch_size, audio_hidden_dim]
+        # print("text_features shape2:", text_features_last_hidden.shape)
+
+        # print("audio_features shape2:", audio_features_last_hidden.shape)
+
+        
+        # print("FUSION_TEHNIQUE:", self.FUSION_TEHNIQUE)
+        
+        if FUSION_TEHNIQUE == "concat":
+            combined_features = torch.cat((text_features_last_hidden, audio_features_last_hidden), dim=1)
+        elif FUSION_TEHNIQUE == "multiplication":        
+            interaction_features = text_features_last_hidden * audio_features_last_hidden
+            combined_features = torch.cat((text_features_last_hidden, audio_features_last_hidden, interaction_features), dim=1)
+        elif FUSION_TEHNIQUE == "max":
+            combined_features = torch.max((text_features_last_hidden, audio_features_last_hidden), dim=1)
+        elif FUSION_TEHNIQUE == "weighted_sum":
+            weighted_text = text_features_last_hidden * self.text_weight
+            weighted_audio = audio_features_last_hidden * self.audio_weight
+            combined_features = weighted_text + weighted_audio
+        else:
+            raise ValueError(f"Unsupported FUSION_TEHNIQUE: {FUSION_TEHNIQUE}")
+        
+        
+        # print("combined_features shape:", combined_features.shape)    
 
         # Output projection
         output = self.fc(combined_features)  # [batch_size, output_dim]
-        return output
+        output2 = 3 * self.tanh(output)
+        # print("output2 shape:", output2.shape)
+
+        return output2
 
     def compute_loss(self, logits, labels):
         print("---loss computed---")
         return self.loss_fn(logits, labels)
 
-    def create_optimizer(self):
+    def create_optimizer(self, lr):
         print("---optimizer created---")
-        return optim.Adam(self.parameters(), lr=self.lr)
+        return optim.Adam(self.parameters(), lr=lr)
 
 # Example usage
 # Instantiate with appropriate parameters

@@ -20,6 +20,7 @@ from sklearn.metrics import accuracy_score
 from constants import SDK_PATH, DATA_PATH, WORD_EMB_PATH, CACHE_PATH
 from SingleEncoderModelAudio import SingleEncoderModelAudio
 from mmsdk.mmdatasdk.dataset.standard_datasets.CMU_MOSI.cmu_mosi_std_folds import standard_train_fold, standard_valid_fold, standard_test_fold
+from sklearn.metrics import precision_score, recall_score, f1_score
 
 def initialize_sdk():
     if SDK_PATH is None:
@@ -255,7 +256,7 @@ def train_model(model, train_loader, dev_loader):
                 y = y.cuda()
                 l = l.cuda()
 
-            y_tilde = model(a, l)
+            _, y_tilde, _ = model(a, l)
             loss = criterion(y_tilde, y)
             loss.backward()
             torch.nn.utils.clip_grad_value_([param for param in model.parameters() if param.requires_grad], grad_clip_value)
@@ -276,7 +277,7 @@ def train_model(model, train_loader, dev_loader):
                     a = a.cuda()
                     y = y.cuda()
                     l = l.cuda()
-                y_tilde = model(a, l)
+                _, y_tilde, _ = model(a, l)
                 loss = criterion(y_tilde, y)
                 valid_loss += loss.item()
 
@@ -307,6 +308,14 @@ def train_model(model, train_loader, dev_loader):
 
     return model
 
+def evaluate(y_true, y_pred):
+    metrics = {
+        "accuracy": accuracy_score(y_true, y_pred),
+        "precision": precision_score(y_true, y_pred, average='weighted'),
+        "recall": recall_score(y_true, y_pred, average='weighted'),
+        "f1_score": f1_score(y_true, y_pred, average='weighted')
+    }
+    return metrics
 
 def test_model(model, test_loader):
     """
@@ -329,7 +338,7 @@ def test_model(model, test_loader):
                 y = y.cuda()
                 l = l.cuda()
 
-            y_tilde = model(a, l)
+            _, y_tilde, _ = model(a, l)
             loss = nn.MSELoss(reduction='sum')(y_tilde, y)
             print(f"Batch Loss: {loss.item()}")
 
@@ -344,13 +353,27 @@ def test_model(model, test_loader):
     y_true = np.concatenate(y_true, axis=0)
     y_pred = np.concatenate(y_pred, axis=0)
 
+    
+    print("First 10 True Values and Predictions:")
+    for true, pred in zip(y_true[:10], y_pred[:10]):
+        print(f"True Value: {true}, Predicted Value: {pred}")
+    
+    print(f"Min and Max of y_true: Min = {np.min(y_true)}, Max = {np.max(y_true)}")
+    print(f"Min and Max of y_pred: Min = {np.min(y_pred)}, Max = {np.max(y_pred)}")
+
+    # Convert to sentiment categories
     y_true_categories = [convert_to_sentiment_category(score) for score in y_true]
     y_pred_categories = [convert_to_sentiment_category(score) for score in y_pred]
+    
+    
+    # Evaluate metrics
+    metrics = evaluate(y_true_categories, y_pred_categories)
+    print(f"Accuracy: {metrics['accuracy']}")
+    print(f"Precision: {metrics['precision']}")
+    print(f"Recall: {metrics['recall']}")
+    print(f"F1 Score: {metrics['f1_score']}")
 
-    accuracy = accuracy_score(y_true_categories, y_pred_categories)
-    print(f"Accuracy: {accuracy}")
-
-    return accuracy
+    return metrics
 
 
 def build():
@@ -384,9 +407,9 @@ def build():
     trained_model = train_model(model, train_loader, dev_loader)
 
     print("Starting testing...")
-    accuracy = test_model(trained_model, test_loader)
+    metrics= test_model(trained_model, test_loader)
 
-    return trained_model, accuracy
+    return trained_model, metrics
 
 
 if __name__ == "__main__":

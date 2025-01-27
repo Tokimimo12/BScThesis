@@ -1,4 +1,4 @@
-torch>=1.13.0
+torch>=2.0
 numpy>=1.26.2
 h5py>=3.10.0
 validators>=0.22.0

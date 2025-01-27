@@ -146,8 +146,9 @@ def align_labels(dataset):
     label_recipe = {label_field: os.path.join(DATA_PATH, label_field) + '.csd'}
     dataset.add_computational_sequences(label_recipe, destination=None)
     dataset.align(label_field)
-    
+
     return dataset, label_field
+    
 
 
 def split_data(DATASETMD):
@@ -631,7 +632,7 @@ def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num
                 y = y.cuda()
                 l = l.cuda()
 
-            y_tilde = model(t, l)
+            _, y_tilde, _ = model(t, l)
             loss = criterion(y_tilde, y)
             loss.backward()
             torch.nn.utils.clip_grad_value_([param for param in model.parameters() if param.requires_grad], grad_clip_value)
@@ -652,7 +653,7 @@ def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num
                     t = t.cuda()
                     y = y.cuda()
                     l = l.cuda()
-                y_tilde = model(t, l)
+                _, y_tilde, _ = model(t, l)
                 loss = criterion(y_tilde, y)
                 valid_loss += loss.item()
 
@@ -706,7 +707,7 @@ def test_model(model, test_loader):
                 l = l.cuda()
             print(f"l: {l}")
 
-            y_tilde = model(t, l)
+            _, y_tilde, _ = model(t, l)
             loss = nn.MSELoss(reduction='sum')(y_tilde, y)
             print(f"Batch Loss: {loss.item()}")
 
@@ -842,6 +843,7 @@ def build():
     # print(f"Embedding verification for '{word_to_check}': {'Passed' if is_correct else 'Failed'}")
 
     # model.verify_all_embeddings(word2id=word2id, word_to_vector_path='/home1/s4680340/BScThesis/Thesis/word_to_vector_mapping.csv', output_file = 'embedding_verification.csv')
+    # model.save_embeddings_to_csv(word2id, word_to_vector_path, output_file='embedding_verification.csv')
     model.check_embedding_layer(word2id, word_to_vector_path)
     
     embedding_weights = model.embedding.weight.data

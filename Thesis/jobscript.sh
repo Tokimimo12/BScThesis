@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=00:20:00
+#SBATCH --time=24:50:00
 #SBATCH --partition=regular
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=4
@@ -15,8 +15,10 @@ source $HOME/BScThesis/BscThesisvenv/bin/activate
 pip install --no-cache-dir -r $HOME/BScThesis/Thesis/requirements.txt
 
 # Run the preprocessing script
-# python modelAudio.py WORKS!!!!
+# python modelAudio.py
 # python modelText.py
-python modelMDRE.py
-python original.py
+# python modelMDREFinal.py
+# python original.py
 # python SingleEncoderModelText.py
+
+python main.py

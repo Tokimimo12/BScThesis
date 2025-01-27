@@ -10,6 +10,7 @@ import sys
 import mmsdk
 import csv
 import pandas as pd
+from sklearn.model_selection import KFold
 
 from collections import defaultdict
 from torch import optim
@@ -24,6 +25,8 @@ from SingleEncoderModelText import SingleEncoderModelText
 from SingleEncoderModelAudio import SingleEncoderModelAudio
 from SEncoderMDRE import EncoderMDRE
 from mmsdk.mmdatasdk.dataset.standard_datasets.CMU_MOSI.cmu_mosi_std_folds import standard_train_fold, standard_valid_fold, standard_test_fold
+from sklearn.metrics import precision_score, recall_score, f1_score
+
 
 def initialize_sdk():
     if SDK_PATH is None:
@@ -259,58 +262,23 @@ def preprocess_data_modified(dataset,
     
     return train, dev, test, word_to_ids
 
-
-def load_embeddings(w2i, path_to_embedding, embedding_size=300):
-    """Load GloVe-like word embeddings and create embedding matrix."""
-    emb_mat = np.random.randn(len(w2i), embedding_size)
-    with open(path_to_embedding, 'r', encoding='utf-8', errors='replace') as f:
-        for line in tqdm(f, total=2196017):
-            content = line.strip().split()
-            vector = np.asarray(content[-embedding_size:], dtype=float)
-            word = ' '.join(content[:-embedding_size])
-            if word in w2i:
-                emb_mat[w2i[word]] = vector
-
-    emb_mat_tensor = torch.tensor(emb_mat).float()
-    torch.save(emb_mat_tensor, 'embedding_matrix.pt')
-    print("Embedding matrix saved as 'embedding_matrix.pt'.")
-    return emb_mat_tensor
-
-
-    # TODO: modify from here onwards to fit the MDRE
+from matplotlib import pyplot as plt
 
 
 def collate_batch(batch, pad_value):
     """Collate function to handle variable-length sequences in a batch."""
     batch = sorted(batch, key=lambda x: len(x[0][0]), reverse=True)
+    labels = torch.cat([torch.from_numpy(sample[1]) for sample in batch], dim=0).float()
+
     sentences = pad_sequence([torch.LongTensor(sample[0][0]) for sample in batch], padding_value=pad_value, batch_first=True)
     acoustic = pad_sequence([torch.FloatTensor(sample[0][2]) for sample in batch], batch_first=True)
 
-    labels = torch.cat([torch.from_numpy(sample[1]) for sample in batch], dim=0).float()
-    lengths = torch.LongTensor([len(sample[0][0]) for sample in batch])
-    return acoustic, sentences, labels, lengths
+    lengths = torch.LongTensor([sample[0][0].shape[0] for sample in batch])
+    # print("lengths:",lengths)
+    return sentences, acoustic, labels, lengths
 
 
-def convert_to_sentiment_category(score):
-    if score == 3:
-        return 'strongly positive'
-    elif score >= 2 and score < 3:
-        return 'positive'
-    elif score >= 1 and score < 2:
-        return 'weakly positive'
-    elif score < 1 and score > -1:
-        return 'neutral'
-    elif score <= -1 and score > -2:
-        return 'weakly negative'
-    elif score <= -2 and score > -3:
-        return 'negative'
-    elif score == -3:
-        return 'strongly negative'
-    else:
-        return 'unknown'
-
-
-def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num_trials = 3, grad_clip_value=1.0):
+def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num_trials=3, grad_clip_value=1.0):
     """
     Trains the model using the given training and development data loaders.
     """
@@ -343,7 +311,15 @@ def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num
         for batch in train_iter:
             model.zero_grad()
             t, a, y, l = batch
+
+            print(f"Batch t shape: {t.shape}")
+            print(f"Batch a shape: {a.shape}")
+            print(f"Batch y shape: {y.shape}")
+            print(f"Batch l shape: {l.shape}")
+
             batch_size = t.size(0)
+            print("batch_size:", batch_size)
+            # print("l:", l)
             if CUDA:
                 t = t.cuda()
                 a = a.cuda()
@@ -351,12 +327,16 @@ def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num
                 l = l.cuda()
 
             y_tilde = model(t, a, l)
+            print(f"Model output y_tilde shape: {y_tilde.shape}")
+
             loss = criterion(y_tilde, y)
             loss.backward()
             torch.nn.utils.clip_grad_value_([param for param in model.parameters() if param.requires_grad], grad_clip_value)
             optimizer.step()
+
             train_iter.set_description(f"Epoch {e}/{MAX_EPOCH}, current batch loss: {round(loss.item()/batch_size, 4)}")
             train_loss += loss.item()
+
         train_loss = train_loss / len(train_loader)
         train_losses.append(train_loss)
         print(f"Training loss: {round(train_loss, 4)}")
@@ -367,12 +347,21 @@ def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num
             for batch in dev_loader:
                 model.zero_grad()
                 t, a, y, l = batch
+
+                print(f"Validation batch t shape: {t.shape}")
+                print(f"Validation batch a shape: {a.shape}")
+                print(f"Validation batch y shape: {y.shape}")
+                print(f"Validation batch l shape: {l.shape}")
+
                 if CUDA:
                     t = t.cuda()
                     a = a.cuda()
                     y = y.cuda()
                     l = l.cuda()
+
                 y_tilde = model(t, a, l)
+                print(f"Validation model output y_tilde shape: {y_tilde.shape}")
+
                 loss = criterion(y_tilde, y)
                 valid_loss += loss.item()
 
@@ -403,11 +392,76 @@ def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num
 
     return model
 
+def evaluate(y_true, y_pred):
+    metrics = {
+        "accuracy": accuracy_score(y_true, y_pred),
+        "precision": precision_score(y_true, y_pred, average='weighted'),
+        "recall": recall_score(y_true, y_pred, average='weighted'),
+        "f1_score": f1_score(y_true, y_pred, average='weighted')
+    }
+    return metrics
 
-def test_model(model, test_loader):
-    """
-    Tests the model using the given test data loader.
-    """
+def convert_to_sentiment_category(score):
+    score = float(score)
+    if score >= 2. and score <= 3.:
+        return 'strongly positive'
+    elif score >= 1. and score < 2.:
+        return 'positive'
+    elif score < 1. and score > 0.:
+        return 'weakly positive'
+    elif score == 0.:
+        return 'neutral'
+    elif score <= 0. and score > -1.:
+        return 'weakly negative'
+    elif score <= -1. and score > -2.:
+        return 'negative'
+    elif score <= -2. and score >= -3.:
+        return 'neutral'
+    else:
+        return 'unknown'
+    
+def plot_sentiment_histogram(csv_file):
+    data = pd.read_csv(csv_file)
+    
+    # Extract the labels (assumes the label is the last column)
+    labels = data.iloc[:, -1].tolist()
+
+    labels = [re.sub(r"\[(.*?)\]", r'\1', label) for label in labels]
+
+    print("labels:", labels)
+    
+    labels = [re.sub(r"\'(.*?)\'", r'\1', label) for label in labels]
+
+
+    labels = [float(label) if isinstance(label, str) and label.replace('.', '', 1).isdigit() else np.nan for label in labels]
+
+    print("labels:", labels)
+
+
+    # Apply the sentiment category conversion function to the labels
+    sentiment_categories = [convert_to_sentiment_category(score) for score in labels]
+    
+    # Count the occurrences of each sentiment category
+    category_counts = pd.Series(sentiment_categories).value_counts()
+
+    # Create a directory called 'plots' if it doesn't exist
+    if not os.path.exists('plots'):
+        os.makedirs('plots')
+    
+    # Plot the histogram
+    plt.figure(figsize=(10, 6))
+    category_counts.plot(kind='bar', color='skyblue', edgecolor='black')
+    plt.title('Sentiment Category Distribution')
+    plt.xlabel('Sentiment Category')
+    plt.ylabel('Frequency')
+    plt.xticks(rotation=45, ha='right')
+    
+    # Save the plot as 'histogram.png' in the 'plots' directory
+    plt.tight_layout()
+    plt.savefig('plots/histogram.png')
+
+
+def test_model_classification(model, test_loader):
     CUDA = torch.cuda.is_available()
     model.load_state_dict(torch.load('modelmdre.std'))
     print("Model loaded successfully!")
@@ -441,13 +495,24 @@ def test_model(model, test_loader):
     y_true = np.concatenate(y_true, axis=0)
     y_pred = np.concatenate(y_pred, axis=0)
 
+    print("First 10 True Values and Predictions:")
+    for true, pred in zip(y_true[:10], y_pred[:10]):
+        print(f"True Value: {true}, Predicted Value: {pred}")
+
+    # Convert to sentiment categories
     y_true_categories = [convert_to_sentiment_category(score) for score in y_true]
     y_pred_categories = [convert_to_sentiment_category(score) for score in y_pred]
 
-    accuracy = accuracy_score(y_true_categories, y_pred_categories)
-    print(f"Accuracy: {accuracy}")
 
-    return accuracy
+    
+    # Evaluate metrics
+    metrics = evaluate(y_true_categories, y_pred_categories)
+    print(f"Accuracy: {metrics['accuracy']}")
+    print(f"Precision: {metrics['precision']}")
+    print(f"Recall: {metrics['recall']}")
+    print(f"F1 Score: {metrics['f1_score']}")
+
+    return metrics
 
 
 def build():
@@ -458,21 +523,14 @@ def build():
     dataset, visual_field, acoustic_field, text_field, wordvectors_field = load_features_and_save(datasetMD)
     dataset, label_field = align_labels(dataset)
     train_split, dev_split, test_split = split_data(datasetMD)
-    # save_fields_to_csv_with_row_count()    
     train, dev, test, word2id = preprocess_data_modified(dataset, visual_field, acoustic_field, text_field, wordvectors_field, label_field, train_split, dev_split, test_split)
-    
-    print("words: ", word2id)
-    
+    plot_sentiment_histogram("labels.csv")
+    # save_fields_to_csv_with_row_count()        
     # save_word_to_vector_mapping()
+ 
 
-    # pretrained_emb = None
-    # if os.path.exists(CACHE_PATH):
-    #     pretrained_emb, word2id = torch.load(CACHE_PATH)
-    #     print(f"Size of vocabulary (word2id) after pretrained 1: {len(word2id)}")
-    # elif WORD_EMB_PATH:
-    #     pretrained_emb = load_embeddings(word2id, WORD_EMB_PATH)
-    #     torch.save((pretrained_emb, word2id), CACHE_PATH)
-    
+    print("words: ", word2id)
+
 
     audio_input_size = 74
     audio_hidden_dim = 128
@@ -487,6 +545,7 @@ def build():
     text_dropout=0.2
     output_size= int(1)
 
+    batch_size = 56
     model = EncoderMDRE(
         word2id = word2id,
         encoder_size_audio = audio_input_size,
@@ -504,68 +563,20 @@ def build():
     )
     word_to_vector_path='/home1/s4680340/BScThesis/Thesis/word_to_vector_mapping.csv'
 
-    # word_to_check = "quality"
-    # is_correct = model.verify_embedding(word_to_check, '/home1/s4680340/BScThesis/Thesis/word_to_vector_mapping.csv')
-    # print(f"Embedding verification for '{word_to_check}': {'Passed' if is_correct else 'Failed'}")
-
-    # model.verify_all_embeddings(word2id=word2id, word_to_vector_path='/home1/s4680340/BScThesis/Thesis/word_to_vector_mapping.csv', output_file = 'embedding_verification.csv')
-    
-    # model.check_embedding_layer(word2id, word_to_vector_path)
-    
-    # embedding_weights = model.embedding.weight.data
-    # print(f"Embedding weights shape: {embedding_weights.shape}")
-
-    # dummy_input = torch.tensor([[1, 2, 3], [4, 5, 0]])  # Example input
-    # lengths = torch.tensor([3, 2])  # Sequence lengths
-    # output = model(dummy_input, lengths)
-    # print(f"Model output: {output}")
-
-
-    batch_size = 32
-    seq_len_audio = 100
-    seq_len_text = 50
-    lengths = torch.tensor((seq_len_text, seq_len_audio))
-
-    audio_inputs = torch.randn(batch_size, seq_len_audio, audio_input_size)  # Simulated audio data
-    text_inputs = torch.randint(0, len(word2id), (batch_size, seq_len_text))  # Simulated text data (tokenized)
-
-    # Forward pass
-    outputs = model(audio_inputs, text_inputs, lengths) 
-    print(outputs.shape)  # torch.Size([32, 5])
-
-
-
-    '''
-    
-
-    print("Initializing model...")
-    model = SingleEncoderModelText(
-        dic_size=len(word2id),
-        use_glove=True,
-        encoder_size=300,
-        num_layers=2,
-        hidden_dim=128,
-        dr=0.2,
-        output_size=1,
-        word_to_vector_path='/home1/s4680340/BScThesis/Thesis/word_to_vector_mapping.csv'
-    )
-
-    
-    '''
-    batch_size = 56
     train_loader = DataLoader(train, shuffle=True, batch_size=batch_size, collate_fn=lambda batch: collate_batch(batch, word2id['<pad>']))
     dev_loader = DataLoader(dev, shuffle=False, batch_size=batch_size * 3, collate_fn=lambda batch: collate_batch(batch, word2id['<pad>']))
     test_loader = DataLoader(test, shuffle=False, batch_size=batch_size * 3, collate_fn=lambda batch: collate_batch(batch, word2id['<pad>']))
 
-    
     print("Starting training...")
-    # trained_model = train_model(model, train_loader, dev_loader, max_epoch=1000, patience=8, grad_clip_value=1.0)
+    trained_model = train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, grad_clip_value=1.0)
 
-    # print("Starting testing...")
-    # accuracy = test_model(trained_model, test_loader)
+    print("Starting testing...")
+    metrics = test_model_classification(trained_model, test_loader)
 
-    # return trained_model, accuracy
+    return trained_model, metrics
+
+
 if __name__ == "__main__":
     build()
-    # model, test_accuracy = build()
-    # print(f"Model training completed with test accuracy: {test_accuracy:.4f}")
+    model, metrics = build()
+    print(f"Model training completed with test metrics: {metrics}")

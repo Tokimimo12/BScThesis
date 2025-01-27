@@ -181,7 +181,7 @@ label_field = 'CMU_MOSI_Opinion_Labels'
 
 # we add and align to lables to obtain labeled segments
 # this time we don't apply collapse functions so that the temporal sequences are preserved
-label_recipe = {label_field: os.path.join(DATA_PATH, "http__immortal.multicomp.cs.cmu.edu", "CMU-MOSI", "labels", label_field) + '.csd'}
+label_recipe = {label_field: os.path.join(DATA_PATH, label_field) + '.csd'}
 dataset.add_computational_sequences(label_recipe, destination=None)
 dataset.align(label_field)
 

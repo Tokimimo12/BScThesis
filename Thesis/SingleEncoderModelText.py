@@ -19,6 +19,7 @@ class SingleEncoderModelText(nn.Module):
         self.hidden_dim = hidden_dim
         self.dr = dr
         self.output_size = output_size
+        # self.FUSION_TEHNIQUE = FUSION_TEHNIQUE
         
         # Embedding dimensions
         if self.use_glove: self.embed_dim = 300  
@@ -91,23 +92,28 @@ class SingleEncoderModelText(nn.Module):
 
     def forward(self, x, lengths):
         batch_size = lengths.size(0)
+        x = x.float()
 
         if (x.min() < 0 or x.max() >= self.dic_size):
             raise ValueError(
                 f"Input indices out of range! Min index: {x.min()}, Max index: {x.max()}, Vocabulary size: {self.dic_size}"
             )
-        
+        x = x.long()  
         embedded = self.embedding(x)  # [batch_size, seq_length] -> [batch_size, seq_length, embed_dim]
-        
-        gru_out, hidden = self.gru(embedded)  # gru_out: [batch_size, seq_length, hidden_dim], hidden: [num_layers, batch_size, hidden_dim]
-        
+        # print("embedded shape text:", embedded.shape)
+        output, hidden = self.gru(embedded)  # gru_out: [batch_size, seq_length, hidden_dim], hidden: [num_layers, batch_size, hidden_dim]
+        # print("output shape text:", output.shape)
+        # print("hidden shape text:", hidden.shape)
         last_hidden = hidden[-1]  # Shape: [batch_size, hidden_dim]
-        
-        output = self.fc2(last_hidden)  # [batch_size, output_size]
-        
-        output2 = 3 * self.tanh(output)
-        
-        return output2
+        # print("last_hidden shape text:", last_hidden.shape)
+        output1 = self.fc2(last_hidden)  # [batch_size, output_size]
+        # print("output1 shape text:", output1.shape)
+        output2 = 3 * self.tanh(output1)
+        # return output2
+        # print("output2 shape text:", output2.shape)
+
+        return output, output2, last_hidden
+    
     
     def compute_loss(self, batch_pred, y_labels):
         loss_fn = nn.MSELoss()

@@ -102,10 +102,8 @@ class EncoderMDRE(nn.Module):
         # print(f"\n----Combined dim: {combined_dim}----\n")
         self.fc = nn.Linear(combined_dim, output_size)
 
-        self.tanh = nn.Tanh()
-
         # Loss function
-        self.loss_fn = nn.MSELoss()
+        self.loss_fn = nn.CrossEntropyLoss()
 
         # print("\n----Model architecture----\n")
 
@@ -146,10 +144,9 @@ class EncoderMDRE(nn.Module):
 
         # Output projection
         output = self.fc(combined_features)  # [batch_size, output_dim]
-        output2 = 3 * self.tanh(output)
         # print("output2 shape:", output2.shape)
 
-        return output2
+        return output
 
     def compute_loss(self, logits, labels):
         print("---loss computed---")

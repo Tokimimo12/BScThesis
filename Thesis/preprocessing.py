@@ -120,6 +120,19 @@ class Preprocessing:
             _visual = dataset[visual_field][segment]['features']
             _acoustic = dataset[acoustic_field][segment]['features']
             _wordvectors = dataset[wordvectors_field][segment]['features']
+
+            print ("label:", label)
+            num_classes = 7
+            class_index = Preprocessing.convert_to_sentiment_category(label)
+            print ("class_index:", class_index)
+            one_hot_label = np.zeros(num_classes)
+            one_hot_label[class_index] = 1
+            print ("one_hot_label:", one_hot_label)
+
+            dataset[label_field][segment]['features'] = one_hot_label  # Replace with the class index
+            label = one_hot_label
+
+            print ("labeltest:", label)
             
             if not (_words.shape[0] == _visual.shape[0] == _acoustic.shape[0] == _wordvectors.shape[0]):
                 num_drop += 1
@@ -432,4 +445,25 @@ class Preprocessing:
         different_df.to_csv('different.csv', index=False)
 
         print("CSV files created: common.csv and different.csv")
+
+    @staticmethod
+    def convert_to_sentiment_category(score):
+        score = float(score)
+        if 2. <= score <= 3.:
+            return 6 #'strongly positive'
+        elif 1. <= score < 2.:
+            return 5 #'positive'
+        elif 0. < score < 1.:
+            return 4 #'weakly positive'
+        elif score == 0.:
+            return 3 #'neutral'
+        elif -1. < score < 0.:
+            return 2 #'weakly negative'
+        elif -2. < score <= -1.:
+            return 1 #'negative'
+        elif -3. <= score <= -2.:
+            return 0 #'strongly negative'
+        else:
+            print(f"Warning: Sentiment score out of expected range: {score}")
+            return None  
 

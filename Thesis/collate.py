@@ -1,5 +1,6 @@
 import torch
 from torch.nn.utils.rnn import pad_sequence
+import numpy as np
 
 class CollateBatch:
     """
@@ -27,8 +28,8 @@ class CollateBatch:
             tuple: Processed sentences, acoustic features, labels, and lengths.
         """
         batch = sorted(batch, key=lambda x: len(x[0][0]), reverse=True)
-        labels = torch.cat([torch.from_numpy(sample[1]) for sample in batch], dim=0).float()
-
+        labels = torch.tensor(np.array([sample[1] for sample in batch]), dtype=torch.float32)    
+        # print("in collate: labels:", labels)
         # sentences = None
         # acoustic = None
 

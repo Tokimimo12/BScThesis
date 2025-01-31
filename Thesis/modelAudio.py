@@ -21,6 +21,7 @@ from constants import SDK_PATH, DATA_PATH, WORD_EMB_PATH, CACHE_PATH
 from SingleEncoderModelAudio import SingleEncoderModelAudio
 from mmsdk.mmdatasdk.dataset.standard_datasets.CMU_MOSI.cmu_mosi_std_folds import standard_train_fold, standard_valid_fold, standard_test_fold
 from sklearn.metrics import precision_score, recall_score, f1_score
+from torch.nn import functional as F
 
 def initialize_sdk():
     if SDK_PATH is None:
@@ -106,14 +107,30 @@ def preprocess_data(DATASETMD, dataset, visual_field, acoustic_field, text_field
     train, dev, test = [], [], []
     EPS = 1e-8
     num_drop = 0
+    num_classes = 7  # 7 sentiment classes
 
     for segment in dataset[label_field].keys():
         vid = re.search(pattern, segment).group(1)
-        label = dataset[label_field][segment]['features']
+        label = dataset[label_field][segment]['features'] 
+        label1 = dataset[label_field][segment]['features'][0][0]  # Extract single float label
         _words = dataset[text_field][segment]['features']
         _visual = dataset[visual_field][segment]['features']
         _acoustic = dataset[acoustic_field][segment]['features']
         _wordvectors = dataset[wordvectors_field][segment]['features']
+
+        print ("label:", label)
+        # print ("label1:", label1)
+
+        class_index = convert_to_sentiment_category(label)
+        print ("class_index:", class_index)
+        one_hot_label = np.zeros(num_classes)
+        one_hot_label[class_index] = 1
+        print ("one_hot_label:", one_hot_label)
+
+        dataset[label_field][segment]['features'] = one_hot_label  # Replace with the class index
+        label = one_hot_label
+
+        print ("labeltest:", label)
 
         if not (_words.shape[0] == _visual.shape[0] == _acoustic.shape[0] == _wordvectors.shape[0]):
             num_drop += 1
@@ -187,7 +204,22 @@ def multi_collate_acoustic(batch):
     batch = sorted(batch, key=lambda x: x[0][2].shape[0], reverse=True)
     
     # Extract labels and acoustic features from the batch
-    labels = torch.cat([torch.from_numpy(sample[1]) for sample in batch], dim=0).float()
+    # labels = torch.cat([torch.from_numpy(sample[1]) for sample in batch], dim=0).float()
+
+    # labels = torch.tensor(np.array([convert_to_sentiment_category(sample[1]) for sample in batch]), dtype=torch.long)
+    
+    
+    # labels = torch.tensor(np.array([sample[1] for sample in batch]), dtype=torch.long)
+    # # One-hot encoding
+    # num_classes = 7  # Set this to the number of classes
+    # one_hot_labels = torch.zeros(labels.size(0), num_classes).scatter_(1, labels.unsqueeze(1), 1)
+    # print("One-hot encoded labels:", one_hot_labels)
+
+    # print("in collate: labels:", labels)
+    labels = torch.tensor(np.array([sample[1] for sample in batch]), dtype=torch.float32)    
+    print("in collate: labels:", labels)
+
+
     acoustic = pad_sequence([torch.FloatTensor(sample[0][2]) for sample in batch], batch_first=True)
     
     # Sequence lengths (useful for RNNs)
@@ -196,22 +228,24 @@ def multi_collate_acoustic(batch):
 
 
 def convert_to_sentiment_category(score):
-    if score == 3:
-        return 'strongly positive'
-    elif score >= 2 and score < 3:
-        return 'positive'
-    elif score >= 1 and score < 2:
-        return 'weakly positive'
-    elif score < 1 and score > -1:
-        return 'neutral'
-    elif score <= -1 and score > -2:
-        return 'weakly negative'
-    elif score <= -2 and score > -3:
-        return 'negative'
-    elif score == -3:
-        return 'strongly negative'
+    score = float(score)
+    if 2. <= score <= 3.:
+        return 6 #'strongly positive'
+    elif 1. <= score < 2.:
+        return 5 #'positive'
+    elif 0. < score < 1.:
+        return 4 #'weakly positive'
+    elif score == 0.:
+        return 3 #'neutral'
+    elif -1. < score < 0.:
+        return 2 #'weakly negative'
+    elif -2. < score <= -1.:
+        return 1 #'negative'
+    elif -3. <= score <= -2.:
+        return 0 #'strongly negative'
     else:
-        return 'unknown'
+        print(f"Warning: Sentiment score out of expected range: {score}")
+        return None  
 
 
 def train_model(model, train_loader, dev_loader):
@@ -234,7 +268,7 @@ def train_model(model, train_loader, dev_loader):
     if CUDA:
         model.cuda()
 
-    criterion = nn.MSELoss(reduction='sum')
+    criterion = nn.CrossEntropyLoss()
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.1)
     lr_scheduler.step()
 
@@ -255,14 +289,25 @@ def train_model(model, train_loader, dev_loader):
                 a = a.cuda()
                 y = y.cuda()
                 l = l.cuda()
+            _, logits, _ = model(a, l)
+            
+            print(f"y shape: {y.shape}")
+            y = y.float()
+            print("Unique values in y:", torch.unique(y))
+            y_tilde = logits
+            print(f"y_tilde shape: {y_tilde.shape}")
+            loss_fn = nn.CrossEntropyLoss()
+            y_class = torch.argmax(y, dim=1)  # Convert one-hot to class indices if needed
 
-            _, y_tilde, _ = model(a, l)
-            loss = criterion(y_tilde, y)
+            # Compute the loss
+            loss = loss_fn(y_tilde, y_class)
+            print(f"Batch Loss: {loss.item()}")
             loss.backward()
             torch.nn.utils.clip_grad_value_([param for param in model.parameters() if param.requires_grad], grad_clip_value)
             optimizer.step()
             train_iter.set_description(f"Epoch {e}/{MAX_EPOCH}, current batch loss: {round(loss.item()/batch_size, 4)}")
             train_loss += loss.item()
+            
         train_loss = train_loss / len(train_loader)
         train_losses.append(train_loss)
         print(f"Training loss: {round(train_loss, 4)}")
@@ -277,8 +322,19 @@ def train_model(model, train_loader, dev_loader):
                     a = a.cuda()
                     y = y.cuda()
                     l = l.cuda()
-                _, y_tilde, _ = model(a, l)
-                loss = criterion(y_tilde, y)
+                _, logits, softmaxedOutput, _ = model(a, l)
+                y_tilde = logits
+                y = y.float()
+
+                loss_fn = nn.CrossEntropyLoss()
+
+                # Ensure y_class is in class indices format (not one-hot)
+                y_class = torch.argmax(y, dim=1)  # Convert one-hot to class indices if needed
+
+                # Compute the loss
+                loss = loss_fn(y_tilde, y_class)
+
+                print(f"Batch Loss: {loss.item()}")
                 valid_loss += loss.item()
 
         valid_loss = valid_loss / len(dev_loader)
@@ -316,7 +372,6 @@ def evaluate(y_true, y_pred):
         "f1_score": f1_score(y_true, y_pred, average='weighted')
     }
     return metrics
-
 def test_model(model, test_loader):
     """
     Tests the model using the given test data loader.
@@ -338,36 +393,41 @@ def test_model(model, test_loader):
                 y = y.cuda()
                 l = l.cuda()
 
-            _, y_tilde, _ = model(a, l)
-            loss = nn.MSELoss(reduction='sum')(y_tilde, y)
-            print(f"Batch Loss: {loss.item()}")
+            # Forward pass
+            _, logits, softmaxedOutput, _ = model(a, l)
+            y_tilde = logits
 
-            y_true.append(y.detach().cpu().numpy())
-            y_pred.append(y_tilde.detach().cpu().numpy())
+            y = y.float()
+
+            # If you have one-hot encoded labels, convert them to integer class labels for CrossEntropyLoss
+            loss_fn = nn.CrossEntropyLoss()
+
+            # Ensure y_class is in class indices format (not one-hot)
+            y_class = torch.argmax(y, dim=1)  # Convert one-hot to class indices if needed
+
+            # Compute the loss
+            loss = loss_fn(y_tilde, y_class)
+
+            # Apply softmax to logits to get probabilities
+            predicted_probs = F.softmax(y_tilde, dim=1)  # Convert logits to probabilities
+            predicted_classes = torch.argmax(predicted_probs, dim=1)  # Get the class with highest probability
+
+            # Collect the true and predicted class labels
+            y_true.extend(y_class.cpu().numpy())  # True class indices
+            y_pred.extend(predicted_classes.cpu().numpy())  # Predicted class indices
 
             test_loss += loss.item()
-            
-    avg_test_loss = test_loss / len(test_loader)
-    print(f"Test set performance (Average Loss): {avg_test_loss}")
 
-    y_true = np.concatenate(y_true, axis=0)
-    y_pred = np.concatenate(y_pred, axis=0)
+        avg_test_loss = test_loss / len(test_loader)
+        print(f"Test set performance (Average Loss): {avg_test_loss}")
 
-    
+    # For multi-label classification, print out the first 10 true and predicted values
     print("First 10 True Values and Predictions:")
     for true, pred in zip(y_true[:10], y_pred[:10]):
         print(f"True Value: {true}, Predicted Value: {pred}")
-    
-    print(f"Min and Max of y_true: Min = {np.min(y_true)}, Max = {np.max(y_true)}")
-    print(f"Min and Max of y_pred: Min = {np.min(y_pred)}, Max = {np.max(y_pred)}")
 
-    # Convert to sentiment categories
-    y_true_categories = [convert_to_sentiment_category(score) for score in y_true]
-    y_pred_categories = [convert_to_sentiment_category(score) for score in y_pred]
-    
-    
     # Evaluate metrics
-    metrics = evaluate(y_true_categories, y_pred_categories)
+    metrics = evaluate(y_true, y_pred)
     print(f"Accuracy: {metrics['accuracy']}")
     print(f"Precision: {metrics['precision']}")
     print(f"Recall: {metrics['recall']}")
@@ -391,7 +451,7 @@ def build():
     input_size = 74
     hidden_sizes = 128
     num_layers = 2
-    output_size = 1
+    output_size = 7
     dropout = 0.5
 
     print("Initializing model...")

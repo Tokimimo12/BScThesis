@@ -684,6 +684,14 @@ def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num
 
     return model
 
+def evaluate(y_true, y_pred):
+    metrics = {
+        "accuracy": accuracy_score(y_true, y_pred),
+        "precision": precision_score(y_true, y_pred, average='weighted'),
+        "recall": recall_score(y_true, y_pred, average='weighted'),
+        "f1_score": f1_score(y_true, y_pred, average='weighted')
+    }
+    return metrics
 
 def test_model(model, test_loader):
     """
@@ -725,10 +733,17 @@ def test_model(model, test_loader):
     y_true_categories = [convert_to_sentiment_category(score) for score in y_true]
     y_pred_categories = [convert_to_sentiment_category(score) for score in y_pred]
 
-    accuracy = accuracy_score(y_true_categories, y_pred_categories)
-    print(f"Accuracy: {accuracy}")
+    metrics = evaluate(y_true_categories, y_pred_categories)
+    print(f"Accuracy: {metrics['accuracy']}")
+    print(f"Precision: {metrics['precision']}")
+    print(f"Recall: {metrics['recall']}")
+    print(f"F1 Score: {metrics['f1_score']}")
 
-    return accuracy
+    # roc_auc_multiclass(y_true, y_pred_prob)
+
+
+    print("Attention!!!!")
+    return metrics
 
 def extract_first_column(csv_path, output_csv="extracted_words.csv"):
     """

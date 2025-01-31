@@ -1,4 +1,3 @@
-from typing import Optional
 import sys
 import os
 import re
@@ -10,8 +9,8 @@ import sys
 import mmsdk
 import csv
 import pandas as pd
+from typing import Optional
 from sklearn.model_selection import KFold
-
 from collections import defaultdict
 from torch import optim
 from torch.nn.utils.rnn import pad_sequence

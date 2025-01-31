@@ -77,38 +77,31 @@ class EncoderMDREAttention(nn.Module):
         # Define output projection layers
         combined_dim = hidden_dim_audio + hidden_dim_text
         self.fc = nn.Linear(combined_dim, output_size)
-        self.tanh = nn.Tanh()
 
         # Loss function
-        self.loss_fn = nn.MSELoss()
+        self.loss_fn = nn.CrossEntropyLoss()
+
+        self.text_weight = nn.Parameter(torch.randn(1))  # Learnable weight for text features
+        self.audio_weight = nn.Parameter(torch.randn(1))  # Learnable weight for audio features
 
     def forward(self, text_inputs, audio_inputs, lengths, FUSION_TEHNIQUE = "concat"):
         batch_size = lengths.size(0)
 
-        # Encode text and audio
         text_inputs = text_inputs.long()
-        text_output, _, text_features_last_hidden = self.text_model(text_inputs, lengths)  # [batch_size, seq_len_text, hidden_dim], [batch_size, hidden_dim]
-        audio_output, _, audio_features_last_hidden = self.audio_model(audio_inputs, lengths)  # [batch_size, seq_len_audio, hidden_dim], [batch_size, hidden_dim]
-
+        text_output, _, text_features_last_hidden = self.text_model(text_inputs, lengths) 
+        audio_output, _, audio_features_last_hidden = self.audio_model(audio_inputs, lengths)  
         # print(f"text_output shape: {text_output.shape}")
         # print(f"text_last_hidden shape: {text_features_last_hidden.shape}")
         # print(f"audio_output2 shape: {audio_output.shape}")
         # print(f"audio_last_hidden shape: {audio_features_last_hidden.shape}")
-
         # Apply attention to text
         attended_text, attn_weights_text = self.attention_text(text_output, lengths)  # [batch_size, hidden_dim]
         # print(f"attended_text shape: {attended_text.shape}")
         # print(f"attn_weights_text shape: {attn_weights_text.shape}")
-
-        # Apply attention to audio
         attended_audio, attn_weights_audio = self.attention_audio(audio_output, lengths)  # [batch_size, hidden_dim]
         # print(f"attended_audio shape: {attended_audio.shape}")
         # print(f"attn_weights_audio shape: {attn_weights_audio.shape}")
-
         # print(self.FUSION_TEHNIQUE)
-
-
-
         if FUSION_TEHNIQUE == "concat":
             combined_features = torch.cat((attended_text, attended_audio), dim=1)
         elif FUSION_TEHNIQUE == "multiplication":        
@@ -127,9 +120,8 @@ class EncoderMDREAttention(nn.Module):
         # print(f"combined_features shape: {combined_features.shape}")
 
         # Pass through fully connected layer
-        final_features1 = self.fc(combined_features)  # [batch_size, hidden_dim]
+        final_features = self.fc(combined_features)  # [batch_size, hidden_dim]
         # print(f"final_features shape: {final_features.shape}")
-        final_features = 3 * self.tanh(final_features1)
 
         return final_features
 

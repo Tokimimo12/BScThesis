@@ -15,33 +15,63 @@ from itertools import product
 
 # Define hyperparameter grid
 hyperparameter_grid = {
-    "MODEL_TYPE": ["MDRE", "MDREAttention", "SingleEncoderModelAudio", "SingleEncoderModelText"],
-    "FUSION_TEHNIQUE": ["concat", "multiplication", "max", "weighted_sum"],
+    # "MODEL_TYPE": ["MDRE", "MDREAttention", "SingleEncoderModelAudio", "SingleEncoderModelText"],
+    # "FUSION_TEHNIQUE": ["concat", "multiplication", "max", "weighted_sum"],
 
-    "hidden_dim": [64, 128
-                        #  256, 
-                        #  512
-                         ],
-    "num_layers": [2, 4 
-                        #  8
-                         ],
-    "dropout": [0.3, 0.5],
-    # "text_dropout": [0.3, 0.5],
-    "batch_size": [32, 64],
-    "patience": [8, 16],
+    # "hidden_dim": [64, 128
+    #                     #  256, 
+    #                     #  512
+    #                      ],
+    # "num_layers": [2, 4 
+    #                     #  8
+    #                      ],
+    # "dropout": [0.3, 0.5],
+    # # "text_dropout": [0.3, 0.5],
+    # "batch_size": [32, 64],
+    # "patience": [8, 16],
 
+
+    "MODEL_TYPE": [
+        # "MDRE"
+        "MDREAttention"
+        # "SingleEncoderModelAudio",
+        # "SingleEncoderModelText"
+        ],
+
+    "FUSION_TEHNIQUE": [
+                        # "concat", 
+                        # "multiplication", 
+                        "max", 
+                        # "weighted_sum"
+                        ],
   
-    # "audio_hidden_dim": [128],
+    # "audio_hidden_dim": [64],
     # "audio_num_layers": [2],
     # "audio_dropout": [0.5],
-    # "text_hidden_dim": [128],
+    # "text_hidden_dim": [64],
     # "text_num_layers": [2],
     # "text_dropout": [0.5],
-    # "batch_size": [56],
-    # "MODEL_TYPE": ["MDRE", "MDREAttention", "SingleEncoderModelAudio", "SingleEncoderModelText"],
+    "batch_size": [32,
+                   64
+                   ],
 
-    # "FUSION_TEHNIQUE": ["concat", "multiplication", "max", "weighted_sum"],
-    # "patience": [8]
+    "hidden_dim_text": [
+        32, 
+                        64
+                         ],
+    "hidden_dim_audio": [
+        32, 
+                         64
+                         ],
+    "num_layers": [
+        2
+                   
+                         ],
+    "dropout": [0.3, 0.5],
+    "step_size": [1, 0.5],
+    "gamma" : [0.2],
+    
+    "patience": [32]
 }
 
 def preprocessing():
@@ -61,29 +91,29 @@ def preprocessing():
     return train, dev, test, word2id 
     
 
+
 def build(train, dev, test, word2id, params):
     """Build, train, and evaluate the model for specific hyperparameters."""
 
     # Extract hyperparameters from params
     MODEL_TYPE = params["MODEL_TYPE"]
     FUSION_TEHNIQUE = params["FUSION_TEHNIQUE"]
-    hidden_dim = params["hidden_dim"]
+    hidden_dim_text = params["hidden_dim_text"]
+    hidden_dim_audio = params["hidden_dim_audio"]
+
     num_layers = params["num_layers"]
     dropout = params["dropout"]
     batch_size = params["batch_size"]
+
+    gamma = params["gamma"]
+    step_size = params["step_size"]
     
     patience = params["patience"]
     # num_trials = params["num_trials"]
 
-    print(f"""MODEL_TYPE: {MODEL_TYPE}, 
-          FUSION_TEHNIQUE: {FUSION_TEHNIQUE}, 
-          hidden_dim: {hidden_dim}, 
-          num_layers: {num_layers}, 
-          dropout: {dropout}, 
-          
-          batch_size: {batch_size}, 
-          patience: {patience}""")
-
+    
+        # Initialize Preprocessing instance
+    visualisation = Visualisation()
 
 
     print("words: ", word2id)
@@ -94,7 +124,7 @@ def build(train, dev, test, word2id, params):
 
     use_glove = True
     text_encoder_size = 300
-    output_size = 1
+    output_size = 7
 
     pad_value= word2id['<pad>']
 
@@ -106,7 +136,7 @@ def build(train, dev, test, word2id, params):
     if MODEL_TYPE == "SingleEncoderModelAudio":
         model = SingleEncoderModelAudio(
             input_size=audio_input_size,
-            hidden_dim=hidden_dim,
+            hidden_dim=hidden_dim_audio,
             num_layers=num_layers,
             dropout_rate=dropout,
             # FUSION_TEHNIQUE=FUSION_TEHNIQUE,
@@ -120,7 +150,7 @@ def build(train, dev, test, word2id, params):
             use_glove=use_glove,
             encoder_size=text_encoder_size,
             num_layers=num_layers,
-            hidden_dim=hidden_dim,
+            hidden_dim=hidden_dim_text,
             dr=dropout,
             output_size=output_size,
             # FUSION_TEHNIQUE=FUSION_TEHNIQUE,
@@ -132,13 +162,13 @@ def build(train, dev, test, word2id, params):
             word2id=word2id,
             encoder_size_audio=audio_input_size,
             num_layer_audio=num_layers,
-            hidden_dim_audio=hidden_dim,
+            hidden_dim_audio=hidden_dim_audio,
             dr_audio=dropout,
             dic_size=dic_size,
             use_glove=use_glove,
             encoder_size_text=text_encoder_size,
             num_layer_text=num_layers,
-            hidden_dim_text=hidden_dim,
+            hidden_dim_text=hidden_dim_text,
             dr_text=dropout,
             output_size=output_size,
             FUSION_TEHNIQUE=FUSION_TEHNIQUE,
@@ -150,13 +180,13 @@ def build(train, dev, test, word2id, params):
             word2id=word2id,
             encoder_size_audio=audio_input_size,
             num_layer_audio=num_layers,
-            hidden_dim_audio=hidden_dim,
+            hidden_dim_audio=hidden_dim_audio,
             dr_audio=dropout,
             dic_size=dic_size,
             use_glove=use_glove,
             encoder_size_text=text_encoder_size,
             num_layer_text=num_layers,
-            hidden_dim_text=hidden_dim,
+            hidden_dim_text=hidden_dim_text,
             dr_text=dropout,
             output_size=output_size,
             FUSION_TEHNIQUE=FUSION_TEHNIQUE,
@@ -183,23 +213,42 @@ def build(train, dev, test, word2id, params):
                         train_loader=train_loader, 
                         dev_loader=dev_loader, 
                         test_loader=test_loader, 
+                        gamma = gamma,
+                        step_size=step_size,
                         cuda_available=cuda_avalilable, 
                         max_epoch=1000, 
                         patience = patience, 
                         num_trials = num_trials, 
-                        grad_clip_value=1.0)
+                        grad_clip_value=1.0
+                        )
 
     # Train the model
     print("Starting training...")
-    trained_model = trainer.train_model()
+    trained_model, trainloss_list, validloss_list = trainer.train_model()
 
     # Test the model
     print("Starting testing...")
-    metrics = trainer.test_model_classification()
+    metrics, testloss_list = trainer.test_model_classification()
+
+    visualisation.plot_loss(trainloss_list, validloss_list, testloss_list, MODEL_TYPE, FUSION_TEHNIQUE, batch_size, gamma, step_size, hidden_dim_audio, hidden_dim_text, num_layers, dropout, patience)
+
+    print(f"""MODEL_TYPE: {MODEL_TYPE}, 
+          FUSION_TEHNIQUE: {FUSION_TEHNIQUE}, 
+          hidden_dim_audio: {hidden_dim_audio}, 
+          hidden_dim_text: {hidden_dim_text}, 
+          gamma: {gamma},
+          step_size: {step_size},
+
+          num_layers: {num_layers}, 
+          dropout: {dropout}, 
+          
+          batch_size: {batch_size}, 
+          patience: {patience}""")
+
 
     return trained_model, metrics
     
-def grid_search(train, dev, test, word2id ):
+def grid_search(train, dev, test, word2id):
     """Perform grid search to find the best hyperparameter configuration."""
     keys, values = zip(*hyperparameter_grid.items())
     combinations = [dict(zip(keys, v)) for v in product(*values)]
@@ -242,7 +291,7 @@ def grid_search(train, dev, test, word2id ):
         print(f"Testing combination: {params}")
 
         # Train and test the model with the current hyperparameters
-        _, metrics = build(train, dev, test, word2id ,params)
+        _, metrics = build(train, dev, test, word2id,params)
 
         # Update the best hyperparameters and metrics for each model type
         if params["MODEL_TYPE"] == "MDRE" and params["FUSION_TEHNIQUE"] == "concat":
@@ -341,4 +390,4 @@ if __name__ == "__main__":
     
     train, dev, test, word2id = preprocessing()
 
-    grid_search(train, dev, test, word2id)
+    grid_search(train, dev, test, word2id )

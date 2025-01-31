@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 import re
 from collections import Counter
 
@@ -80,3 +81,27 @@ class Visualisation:
         # Save the plot as 'histogram.png' in the 'plots' directory
         plt.tight_layout()
         plt.savefig('plots/histogram.png')
+
+
+
+    def plot_loss(self, train_losses, valid_losses, test_losses, model_type, fusion_technique, batch_size, gamma, step_size, hidden_dim_audio, hidden_dim_text, num_layers, dropout_rate, patience):
+        # Ensure the 'plots' directory exists
+        os.makedirs("plots", exist_ok=True)
+
+        # Create the plot
+        plt.figure(figsize=(10, 5))
+        plt.plot(train_losses, label="Training Loss", color='blue', linestyle='dashed', marker='o')
+        plt.plot(valid_losses, label="Validation Loss", color='red', linestyle='dashed', marker='s')
+        # plt.plot(test_losses, label="Testing Loss", color='green', linestyle='dashed', marker='^')
+
+        plt.xlabel("Epochs")
+        plt.ylabel("Loss")
+        plt.title(f"Loss Over Time ({model_type}, {fusion_technique})")
+        plt.legend()
+        plt.grid(True)
+
+        # Save the plot with hyperparameters in filename
+        filename = f"plots/loss_{model_type}_{fusion_technique}_bs{batch_size}_g{gamma}_ss{step_size}_ha{hidden_dim_audio}_ht{hidden_dim_text}_nrl{num_layers}_dr{dropout_rate}_pat{patience}.png"
+        plt.savefig(filename)
+        print(f"Plot saved as {filename}")
+        plt.close()

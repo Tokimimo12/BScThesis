@@ -19,10 +19,10 @@ class SingleEncoderModelText(nn.Module):
         self.hidden_dim = hidden_dim
         self.dr = dr
         self.output_size = output_size
-        # self.FUSION_TEHNIQUE = FUSION_TEHNIQUE
         
         # Embedding dimensions
-        if self.use_glove: self.embed_dim = 300  
+        if self.use_glove: 
+            self.embed_dim = 300  # GloVe embeddings are 300-dimensional
         
         # Embedding layer
         self.embedding = nn.Embedding(self.dic_size, self.embed_dim)
@@ -38,12 +38,46 @@ class SingleEncoderModelText(nn.Module):
                           dropout=self.dr, 
                           batch_first=True)
         
-        # Fully connected output layer
+        # Fully connected output layer (produces logits for each class)
         self.fc2 = nn.Linear(self.hidden_dim, self.output_size)
         
-        # Tanh activation function to scale outputs between -3 and 3
-        self.tanh = nn.Tanh()
+        # No activation function here (logits are passed directly to the loss function)
 
+    def forward(self, x, lengths):
+        batch_size = lengths.size(0)
+        x = x.float()
+
+        # Check if input indices are within vocabulary range
+        if (x.min() < 0 or x.max() >= self.dic_size):
+            raise ValueError(
+                f"Input indices out of range! Min index: {x.min()}, Max index: {x.max()}, Vocabulary size: {self.dic_size}"
+            )
+        
+        x = x.long()  # Convert to long for embedding lookup
+        embedded = self.embedding(x)  # [batch_size, seq_length] -> [batch_size, seq_length, embed_dim]
+        
+        # GRU forward pass
+        output, hidden = self.gru(embedded)  # output: [batch_size, seq_length, hidden_dim], hidden: [num_layers, batch_size, hidden_dim]
+        
+        # Use the last hidden state
+        last_hidden = hidden[-1]  # Shape: [batch_size, hidden_dim]
+        
+        # Fully connected layer to produce logits
+        logits = self.fc2(last_hidden)  # Shape: [batch_size, output_size]
+        
+        return output, logits, last_hidden
+    
+    def compute_loss(self, batch_pred, y_labels):
+        # Use CrossEntropyLoss for classification
+        loss_fn = nn.CrossEntropyLoss()
+        loss = loss_fn(batch_pred, y_labels)
+        return loss
+
+    def create_optimizer(self, lr):
+        # Optimizer (Adam) with the specified learning rate
+        optimizer = optim.Adam(self.parameters(), lr=lr)
+        return optimizer
+    
     def _load_pretrained_embeddings(self, word2id, word_to_vector_path):
         """
         Load pretrained GloVe embeddings and set them in the embedding layer.
@@ -88,42 +122,6 @@ class SingleEncoderModelText(nn.Module):
         self.embedding.weight.data = torch.tensor(embedding_matrix, dtype=torch.float32)
         self.embedding.weight.requires_grad = False  # Freeze embeddings to prevent updates
         print("Embedding layer weights set.")
-
-
-    def forward(self, x, lengths):
-        batch_size = lengths.size(0)
-        x = x.float()
-
-        if (x.min() < 0 or x.max() >= self.dic_size):
-            raise ValueError(
-                f"Input indices out of range! Min index: {x.min()}, Max index: {x.max()}, Vocabulary size: {self.dic_size}"
-            )
-        x = x.long()  
-        embedded = self.embedding(x)  # [batch_size, seq_length] -> [batch_size, seq_length, embed_dim]
-        # print("embedded shape text:", embedded.shape)
-        output, hidden = self.gru(embedded)  # gru_out: [batch_size, seq_length, hidden_dim], hidden: [num_layers, batch_size, hidden_dim]
-        # print("output shape text:", output.shape)
-        # print("hidden shape text:", hidden.shape)
-        last_hidden = hidden[-1]  # Shape: [batch_size, hidden_dim]
-        # print("last_hidden shape text:", last_hidden.shape)
-        output1 = self.fc2(last_hidden)  # [batch_size, output_size]
-        # print("output1 shape text:", output1.shape)
-        output2 = 3 * self.tanh(output1)
-        # return output2
-        # print("output2 shape text:", output2.shape)
-
-        return output, output2, last_hidden
-    
-    
-    def compute_loss(self, batch_pred, y_labels):
-        loss_fn = nn.MSELoss()
-        loss = loss_fn(batch_pred, y_labels)
-        return loss
-
-    def create_optimizer(self, lr):
-        optimizer = optim.Adam(self.parameters(), lr=lr)
-        return optimizer
-
 
     def check_word_embedding(self, word, word2id, glove_path):
         # Read GloVe vectors

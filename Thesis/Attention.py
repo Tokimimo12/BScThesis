@@ -6,7 +6,6 @@ import torch.nn.functional as F
 class Attention(nn.Module):
     def __init__(self, hidden_dim):
         super(Attention, self).__init__()
-        # Attention weight layer
         self.attn = nn.Linear(hidden_dim, 1, bias=False)
 
 
@@ -15,15 +14,12 @@ class Attention(nn.Module):
         # print("hidden_states in attention:", hidden_states.shape)
         # print("lengths in attention:", lengths.shape)
 
-        # Compute attention scores
         attn_scores = self.attn(hidden_states).squeeze(-1)  # [batch_size, seq_len]
         # print(f"attn_scores shape: {attn_scores.shape}")
 
-        # Apply softmax to get attention weights
         attn_weights = F.softmax(attn_scores, dim=1)  # [batch_size, seq_len]
         # print(f"attn_weights shape: {attn_weights.shape}")
 
-        # Compute weighted sum of hidden states
         weighted_features = hidden_states * attn_weights.unsqueeze(-1)  # [batch_size, seq_len, hidden_dim]
         weighted_sum = weighted_features.sum(dim=1)  # [batch_size, hidden_dim]
         # print(f"weighted_sum shape: {weighted_sum.shape}")

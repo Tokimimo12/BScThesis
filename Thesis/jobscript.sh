@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --time=24:50:00
+#SBATCH --time=20:30:00
 #SBATCH --partition=regular
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=4
@@ -21,4 +21,4 @@ pip install --no-cache-dir -r $HOME/BScThesis/Thesis/requirements.txt
 # python original.py
 # python SingleEncoderModelText.py
 
-python main.py
+python main2.py

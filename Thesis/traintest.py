@@ -6,12 +6,14 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 import numpy as np
 from torch import optim
+from torch.nn import functional as F
+from visualisation import Visualisation
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 
 class TrainTest:
-    def __init__(self, MODEL_TYPE, model, FUSION_TEHNIQUE, batch_size, train_loader, dev_loader, test_loader, cuda_available: bool = True, max_epoch=1000, patience=8, num_trials=3, grad_clip_value=1.0):
+    def __init__(self, MODEL_TYPE, model, FUSION_TEHNIQUE, batch_size, train_loader, dev_loader, test_loader, step_size, gamma, cuda_available: bool = True, max_epoch=1000, patience=8, num_trials=3, grad_clip_value=1.0):
         self.model = model
         self.MODEL_TYPE = MODEL_TYPE
         self.batch_size = batch_size
@@ -27,22 +29,22 @@ class TrainTest:
         print(f"Using device: {self.device}")
         self.FUSION_TEHNIQUE = FUSION_TEHNIQUE
         print(f"Using fusion technique: {self.FUSION_TEHNIQUE}")
+        self.gamma = gamma
+        self.step_size = step_size
+        
 
     def train_model(self):
         torch.manual_seed(123)
         torch.cuda.manual_seed_all(123)
-        print("self.cuda_available:", self.cuda_available)
-        if self.cuda_available:
-            print("self.cuda_available:", self.cuda_available)
-            torch.cuda.manual_seed_all(123)
+
 
         print("self.device:", self.device)
 
         optimizer = self.model.create_optimizer(lr=0.001)
         self.model.to(self.device)
 
-        criterion = nn.MSELoss(reduction='sum')
-        lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.1)
+        criterion = nn.CrossEntropyLoss()
+        lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=self.step_size, gamma=self.gamma)
         lr_scheduler.step()
 
         best_valid_loss = float('inf')
@@ -75,7 +77,16 @@ class TrainTest:
                     t, y, l = t.to(self.device), y.to(self.device), l.to(self.device)
                     _, y_tilde, _ = self.model(t, l)
 
-                loss = criterion(y_tilde, y)
+                # print(f"y shape: {y.shape}")
+                y = y.float()
+                # print("Unique values in y:", torch.unique(y))
+                # print(f"y_tilde shape: {y_tilde.shape}")
+                loss_fn = nn.CrossEntropyLoss()
+                y_class = torch.argmax(y, dim=1)  # Convert one-hot to class indices if needed
+
+                # Compute the loss
+                loss = loss_fn(y_tilde, y_class)
+                print(f"Batch Loss: {loss.item()}")
                 loss.backward()
                 torch.nn.utils.clip_grad_value_([param for param in self.model.parameters() if param.requires_grad], self.grad_clip_value)
                 optimizer.step()
@@ -111,7 +122,15 @@ class TrainTest:
                         t, y, l = t.to(self.device), y.to(self.device), l.to(self.device)
                         _, y_tilde, _ = self.model(t, l)
                         
-                    loss = criterion(y_tilde, y)
+                    # print(f"y shape: {y.shape}")
+                    y = y.float()
+                    # print("Unique values in y:", torch.unique(y))
+                    # print(f"y_tilde shape: {y_tilde.shape}")
+
+                    loss_fn = nn.CrossEntropyLoss()
+                    y_class = torch.argmax(y, dim=1)  # Convert one-hot to class indices if needed
+                    loss = loss_fn(y_tilde, y_class)
+                    print(f"Batch Loss: {loss.item()}")
                     valid_loss += loss.item()
 
             valid_loss /= len(self.dev_loader)
@@ -143,7 +162,7 @@ class TrainTest:
                 print("Early stopping.")
                 break
 
-        return self.model
+        return self.model, train_losses, valid_losses
 
 
     def test_model_classification(self):
@@ -154,8 +173,7 @@ class TrainTest:
 
         y_true, y_pred = [], []
         self.model.eval()
-        criterion = nn.MSELoss(reduction='sum')
-
+        test_losses = []
         with torch.no_grad():
             test_loss = 0.0
             # print("self.test_loader:", self.test_loader.type)
@@ -176,28 +194,46 @@ class TrainTest:
                     t, y, l = t.to(self.device), y.to(self.device), l.to(self.device)
                     output1text, y_tilde, last_hidden_text = self.model(t, l)
                     
-                loss = criterion(y_tilde, y)
+                y = y.float()
+
+                # If you have one-hot encoded labels, convert them to integer class labels for CrossEntropyLoss
+                loss_fn = nn.CrossEntropyLoss()
+
+                # Ensure y_class is in class indices format (not one-hot)
+                y_class = torch.argmax(y, dim=1)  # Convert one-hot to class indices if needed
+
+                # Compute the loss
+                loss = loss_fn(y_tilde, y_class)
+
+                # Apply softmax to logits to get probabilities
+                predicted_probs = F.softmax(y_tilde, dim=1)  # Convert logits to probabilities
+                # print(f"predicted_probs: {predicted_probs}")
+                predicted_classes = torch.argmax(predicted_probs, dim=1)  # Get the class with highest probability
+
+                # Collect the true and predicted class labels
+                y_true.extend(y_class.cpu().numpy())  # True class indices
+                y_pred.extend(predicted_classes.cpu().numpy())  # Predicted class indices
+
                 test_loss += loss.item()
 
-                y_true.append(y.detach().cpu().numpy())
-                y_pred.append(y_tilde.detach().cpu().numpy())
+            avg_test_loss = test_loss / len(self.test_loader)
 
-        avg_test_loss = test_loss / len(self.test_loader)
-        print(f"Test set performance (Average Loss): {avg_test_loss}")
+            test_loss /= len(self.test_loader)
+            test_losses.append(test_loss)
+            print(f"Test set performance (Average Loss): {avg_test_loss}")
 
-        y_true = np.concatenate(y_true, axis=0)
-        y_pred = np.concatenate(y_pred, axis=0)
+        # For multi-label classification, print out the first 10 true and predicted values
+        print("First 10 True Values and Predictions:")
+        for true, pred in zip(y_true[:10], y_pred[:10]):
+            print(f"True Value: {true}, Predicted Value: {pred}")
 
-        y_true_categories = [self.convert_to_sentiment_category(score) for score in y_true]
-        y_pred_categories = [self.convert_to_sentiment_category(score) for score in y_pred]
-
-        metrics = self.evaluate(y_true_categories, y_pred_categories)
+        metrics = self.evaluate(y_true, y_pred)
         print(f"Accuracy: {metrics['accuracy']}")
         print(f"Precision: {metrics['precision']}")
         print(f"Recall: {metrics['recall']}")
         print(f"F1 Score: {metrics['f1_score']}")
 
-        return metrics
+        return metrics, test_losses
 
     @staticmethod
     def evaluate(y_true, y_pred):
@@ -212,18 +248,19 @@ class TrainTest:
     def convert_to_sentiment_category(score):
         score = float(score)
         if 2. <= score <= 3.:
-            return 'strongly positive'
+            return 6 #'strongly positive'
         elif 1. <= score < 2.:
-            return 'positive'
+            return 5 #'positive'
         elif 0. < score < 1.:
-            return 'weakly positive'
+            return 4 #'weakly positive'
         elif score == 0.:
-            return 'neutral'
+            return 3 #'neutral'
         elif -1. < score < 0.:
-            return 'weakly negative'
+            return 2 #'weakly negative'
         elif -2. < score <= -1.:
-            return 'negative'
+            return 1 #'negative'
         elif -3. <= score <= -2.:
-            return 'strongly negative'
+            return 0 #'strongly negative'
         else:
-            return 'unknown'
+            print(f"Warning: Sentiment score out of expected range: {score}")
+            return None  

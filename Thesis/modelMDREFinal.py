@@ -292,6 +292,9 @@ def train_model(model, train_loader, dev_loader, MAX_EPOCH=1000, patience=8, num
 
     CUDA = torch.cuda.is_available()
 
+    # if CUDA:
+    #     model.cuda()
+
     curr_patience = patience
 
     optimizer = model.create_optimizer(lr=0.001)
@@ -587,9 +590,6 @@ def test_model_classification(model, test_loader):
     print(f"Precision: {metrics['precision']}")
     print(f"Recall: {metrics['recall']}")
     print(f"F1 Score: {metrics['f1_score']}")
-
-    # roc_auc_multiclass(y_true, y_pred_prob)
-
 
     return metrics
 
